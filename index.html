@@ -27,10 +27,10 @@
   header .verse { margin-top: 1rem; font-style: italic; color: rgba(255,255,255,0.7); font-size: 0.85rem; max-width: 700px; margin-left: auto; margin-right: auto; }
   header .verse-te { color: var(--gold-light); font-size: 0.82rem; margin-top: 0.2rem; }
 
-  main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  main { max-width: 100%; margin: 0; padding: 1rem 0 4rem; }
 
   /* SECTION */
-  .section { background: var(--white); border-radius: 8px; margin-bottom: 2rem; overflow: visible; box-shadow: 0 2px 12px rgba(26,36,72,0.08); border-left: 5px solid var(--gold); position: relative; }
+  .section { background: var(--white); border-radius: 0; margin-bottom: 1rem; overflow: visible; box-shadow: 0 2px 12px rgba(26,36,72,0.08); border-left: 6px solid var(--gold); position: relative; }
 
   /* STICKY SECTION HEADER */
   .section-title-row {
@@ -110,30 +110,30 @@
   .timer-progress-fill.urgent { background: #ff6b6b; }
 
   /* BILINGUAL CONTENT */
-  .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .bilingual-col { padding: 1.2rem 1.2rem 1.4rem; }
+  .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .bilingual-col { padding: 1.4rem 1.8rem 1.6rem; }
   .bilingual-col.en { border-right: 2px solid rgba(201,168,76,0.2); }
 
   /* LISTS */
   .prayer-list { list-style: none; padding: 0; }
-  .prayer-list li { padding: 0.38rem 0 0.38rem 1.3rem; position: relative; font-size: 0.9rem; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .prayer-list li { padding: 0.55rem 0 0.55rem 1.6rem; position: relative; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid rgba(201,168,76,0.12); }
   .prayer-list li:last-child { border-bottom: none; }
-  .prayer-list li::before { content: '✦'; color: var(--gold); font-size: 0.5rem; position: absolute; left: 0; top: 0.72rem; }
-  .prayer-list li strong { color: var(--navy); font-weight: 700; }
-  .prayer-list li .detail { color: #777; font-size: 0.82rem; }
+  .prayer-list li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; position: absolute; left: 0; top: 0.85rem; }
+  .prayer-list li strong { color: var(--navy); font-weight: 800; font-size: 1.08rem; }
+  .prayer-list li .detail { color: #555; font-size: 0.95rem; font-weight: 500; }
 
   .topic-list { list-style: none; padding: 0; }
-  .topic-list li { padding: 0.38rem 0 0.38rem 1.5rem; position: relative; font-size: 0.88rem; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .topic-list li { padding: 0.55rem 0 0.55rem 1.8rem; position: relative; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid rgba(201,168,76,0.12); }
   .topic-list li:last-child { border-bottom: none; }
-  .topic-list li::before { content: '🙏'; font-size: 0.72rem; position: absolute; left: 0; top: 0.42rem; }
-  .topic-list .section-head { font-weight: 700; color: var(--navy); font-size: 0.98rem; padding: 0.5rem 0 0.3rem 0; border-bottom: none; }
+  .topic-list li::before { content: '🙏'; font-size: 0.85rem; position: absolute; left: 0; top: 0.52rem; }
+  .topic-list .section-head { font-weight: 800; color: var(--navy); font-size: 1.15rem; padding: 0.6rem 0 0.35rem 0; border-bottom: none; }
   .topic-list .section-head::before { display: none; }
 
   /* TABLE prayers */
   .table-prayers { }
   .prayer-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(201,168,76,0.15); }
   .prayer-row:last-child { border-bottom: none; }
-  .prayer-cell { padding: 0.85rem 1.2rem; font-size: 0.88rem; }
+  .prayer-cell { padding: 1rem 1.4rem; font-size: 1.05rem; font-weight: 500; }
   .prayer-cell.en { border-right: 2px solid rgba(201,168,76,0.2); }
   .prayer-row .del-btn { background: none; border: none; color: #ccc; font-size: 0.9rem; cursor: pointer; padding: 0 0.4rem; align-self: center; transition: color 0.2s; }
   .prayer-row .del-btn:hover { color: #e55; }
@@ -166,10 +166,12 @@
   footer span { color: var(--gold); }
 
   @media (max-width: 700px) {
-    .prayer-list li, .topic-list li, .prayer-cell { font-size: 0.72rem; }
-    .bilingual-col { padding: 0.7rem; }
+    .prayer-list li, .topic-list li, .prayer-cell { font-size: 0.92rem; }
+    .prayer-list li strong { font-size: 0.95rem; }
+    .bilingual-col { padding: 0.85rem 0.9rem; }
     .timer-display { font-size: 0.95rem; }
     .timer-btn { width: 26px; height: 26px; }
+    .section-title-row .title-text, .section-title-row .title-text.te { font-size: 0.7rem; }
   }
 </style>
 </head>
