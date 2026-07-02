@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AGIM Intercessory Prayers | విజ్ఞాపన ప్రార్థనలు</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1a2448;
@@ -18,14 +18,14 @@
   body { background: var(--cream); font-family: 'Lato', sans-serif; color: var(--text-body); line-height: 1.7; }
 
   /* HEADER */
-  header { background: var(--navy); padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 4px solid var(--gold); }
-  header .org-name { font-family: 'Cinzel', serif; color: var(--gold); font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 0.3rem; }
+  header { background: radial-gradient(circle at 25% 20%, #8a231a 0%, #4a0d09 100%); padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 4px solid var(--gold); }
+  header .org-name { font-family: 'Cinzel', serif; color: var(--white); font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 0.3rem; }
   header .org-sub { color: rgba(255,255,255,0.55); font-size: 0.78rem; letter-spacing: 0.3em; margin-bottom: 1.2rem; }
   header .title-block { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
   header .title-en { color: var(--white); font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 600; }
-  header .title-te { color: var(--gold-light); font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 700; }
+  header .title-te { color: var(--white); font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 700; }
   header .verse { margin-top: 1rem; font-style: italic; color: rgba(255,255,255,0.7); font-size: 0.85rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-  header .verse-te { color: var(--gold-light); font-size: 0.82rem; margin-top: 0.2rem; }
+  header .verse-te { color: rgba(255,255,255,0.85); font-size: 0.82rem; margin-top: 0.2rem; }
 
   main { max-width: 100%; margin: 0; padding: 1rem 0 4rem; }
 
@@ -50,14 +50,25 @@
     gap: 0.5rem;
   }
   .section-title-row .col.en { border-right: 1px solid rgba(201,168,76,0.3); }
+
+  /* CARD HEADER COLORS — one relevant hue per section, medium-dark to dark radial */
+  #hdr-1 { background: radial-gradient(circle at 25% 20%, #1f6b4a 0%, #0c3d2d 100%); }   /* Special Prayer Topics — emerald green */
+  #hdr-6 { background: radial-gradient(circle at 25% 20%, #2f6a9c 0%, #142f47 100%); }   /* Brothers & Family — blue */
+  #hdr-5 { background: radial-gradient(circle at 25% 20%, #9c3f6e 0%, #55163a 100%); }   /* Sisters & Family — rose */
+  #hdr-2 { background: radial-gradient(circle at 25% 20%, #177f86 0%, #0b3940 100%); }   /* Ministries, Sponsors & Volunteers — teal */
+  #hdr-3 { background: radial-gradient(circle at 25% 20%, #a8631f 0%, #5c3a0c 100%); }   /* Admins — orange/brown */
+  #hdr-4 { background: radial-gradient(circle at 25% 20%, #5f3f8f 0%, #301f4c 100%); }   /* AGIM Pastors & Families — purple */
+  #hdr-7 { background: radial-gradient(circle at 25% 20%, #455a6b 0%, #1f2a36 100%); }   /* Additional Prayer Requests — slate */
+  #hdr-8 { background: radial-gradient(circle at 25% 20%, #6f2fa0 0%, #33105a 100%); }   /* Founders & Family — deep purple */
+
   .section-title-row .col .badge {
     background: var(--gold); color: var(--navy);
     font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em;
     padding: 0.12rem 0.45rem; border-radius: 3px; text-transform: uppercase; flex-shrink: 0;
   }
   .section-title-row .col .badge.te { background: rgba(255,255,255,0.15); color: var(--gold-light); }
-  .section-title-row .title-text { font-family: 'Cinzel', serif; font-size: clamp(0.75rem, 1.5vw, 1rem); color: var(--white); font-weight: 600; }
-  .section-title-row .title-text.te { font-family: inherit; color: var(--gold-light); font-size: clamp(0.75rem, 1.5vw, 0.95rem); font-weight: 700; }
+  .section-title-row .title-text { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 3.2vw, 1.7rem); color: var(--white); font-weight: 600; }
+  .section-title-row .title-text.te { font-family: inherit; color: var(--white); font-size: clamp(1.1rem, 3.2vw, 1.6rem); font-weight: 700; }
 
   /* TIMER BLOCK */
   .timer-block {
@@ -73,7 +84,7 @@
     font-family: 'Cinzel', serif;
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--gold-light);
+    color: var(--white);
     letter-spacing: 0.05em;
     min-width: 3.2rem;
     text-align: center;
@@ -82,7 +93,7 @@
   .timer-btn {
     background: rgba(255,255,255,0.12);
     border: 1.5px solid rgba(201,168,76,0.5);
-    color: var(--gold-light);
+    color: var(--white);
     border-radius: 50%;
     width: 30px; height: 30px;
     font-size: 0.8rem;
@@ -125,7 +136,7 @@
   .topic-list { list-style: none; padding: 0; }
   .topic-list li { padding: 0.55rem 0 0.55rem 1.8rem; position: relative; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid rgba(201,168,76,0.12); }
   .topic-list li:last-child { border-bottom: none; }
-  .topic-list li::before { content: '🙏'; font-size: 0.85rem; position: absolute; left: 0; top: 0.52rem; }
+  .topic-list li::before { font-size: 0.85rem; position: absolute; left: 0; top: 0.52rem; }
   .topic-list .section-head { font-weight: 800; color: var(--navy); font-size: 1.15rem; padding: 0.6rem 0 0.35rem 0; border-bottom: none; }
   .topic-list .section-head::before { display: none; }
 
@@ -137,6 +148,20 @@
   .prayer-cell.en { border-right: 2px solid rgba(201,168,76,0.2); }
   .prayer-row .del-btn { background: none; border: none; color: #ccc; font-size: 0.9rem; cursor: pointer; padding: 0 0.4rem; align-self: center; transition: color 0.2s; }
   .prayer-row .del-btn:hover { color: #e55; }
+
+  /* ALIGNED BILINGUAL LIST TABLE — guarantees EN/TE rows stay 1:1 in height */
+  .list-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(201,168,76,0.12); }
+  .list-row:last-child { border-bottom: none; }
+  .list-cell { padding: 0.55rem 1.8rem 0.55rem 2.1rem; position: relative; font-size: 1.05rem; font-weight: 500; }
+  .list-cell.en { border-right: 2px solid rgba(201,168,76,0.2); }
+  .list-cell strong { color: var(--navy); font-weight: 800; font-size: 1.08rem; }
+  .list-cell .detail { color: #555; font-size: 0.95rem; font-weight: 500; }
+  .list-table { counter-reset: item; }
+  .list-row:not(.head-row) { counter-increment: item; }
+  .list-table .list-cell::before { content: counter(item) '.'; color: var(--gold); font-weight: 800; font-size: 0.85rem; position: absolute; left: 0.55rem; top: 0.65rem; }
+  .list-row.head-row { border-bottom: none; }
+  .list-row.head-row .list-cell { font-weight: 800; color: var(--navy); font-size: 1.15rem; padding: 0.6rem 1.8rem 0.35rem 1.6rem; }
+  .list-row.head-row .list-cell::before { display: none; }
 
   /* ADD ROW UI */
   .add-row-ui { padding: 1.1rem 1.2rem 1.4rem; background: #fffdf3; border-top: 3px solid var(--gold); }
@@ -151,14 +176,16 @@
   /* AMARA */
   .amara-section { border-left-color: #8b2fc9; }
   .amara-section .section-title-row { background: #2d1b4e; }
-  .amara-section .timer-display { color: #d4a8ff; }
-  .amara-section .timer-btn { border-color: rgba(212,168,255,0.5); color: #d4a8ff; }
+  .amara-section .timer-display { color: var(--white); }
+  .amara-section .timer-btn { border-color: rgba(255,255,255,0.5); color: var(--white); }
   .amara-section .timer-progress-fill { background: #8b2fc9; }
   .amara-section .prayer-list li::before { color: #8b2fc9; }
+  .amara-section .list-table.prayer .list-cell::before { color: #8b2fc9; }
   .amara-section .bilingual-col.en { border-right-color: rgba(139,47,201,0.2); }
+  .amara-section .list-cell.en { border-right-color: rgba(139,47,201,0.2); }
 
   /* DONE state */
-  .section-title-row.done { background: #1a3a1a; }
+  .section-title-row.done { background: #1a3a1a !important; }
   .section-title-row.done .timer-display { color: #6aff6a; }
   .section-title-row.done .timer-progress-fill { background: #4caf50; width: 0% !important; }
 
@@ -166,12 +193,18 @@
   footer span { color: var(--gold); }
 
   @media (max-width: 700px) {
-    .prayer-list li, .topic-list li, .prayer-cell { font-size: 0.92rem; }
-    .prayer-list li strong { font-size: 0.95rem; }
+    .prayer-list li, .topic-list li, .prayer-cell, .list-cell { font-size: 0.92rem; }
+    .prayer-list li strong, .list-cell strong { font-size: 0.95rem; }
     .bilingual-col { padding: 0.85rem 0.9rem; }
     .timer-display { font-size: 0.95rem; }
     .timer-btn { width: 26px; height: 26px; }
-    .section-title-row .title-text, .section-title-row .title-text.te { font-size: 0.7rem; }
+    .section-title-row .title-text, .section-title-row .title-text.te { font-size: 0.95rem; }
+  }
+  /* GLOBAL: bigger, thicker, sans-serif everywhere */
+  html { font-size: 122%; }
+  * {
+    font-family: 'Lato', Arial, Helvetica, sans-serif !important;
+    font-weight: 800 !important;
   }
 </style>
 </head>
@@ -181,8 +214,8 @@
   <div class="org-name">AMAZING GOD INTERNATIONAL MINISTRIES</div>
   <div class="org-sub">AGIM &bull; AGIC &bull; AGIWM</div>
   <div class="title-block">
-    <div class="title-en">🙏 Intercessory Prayers</div>
-    <div class="title-te">🙏 విజ్ఞాపన ప్రార్థనలు</div>
+    <div class="title-en">Intercessory Prayers</div>
+    <div class="title-te">విజ్ఞాపన ప్రార్థనలు</div>
   </div>
   <div class="verse">"Do not be anxious about anything, but in every situation, by prayer… present your requests to God." — Phil 4:6</div>
   <div class="verse verse-te">"ఏ విషయమును గూర్చియు చింతపడకుండా...ప్రతి విషయములో మీ విజ్ఞాపనమలు దేవునికి తెలియపరచుడి." — ఫిలిప్పీయులు 4:6</div>
@@ -193,255 +226,51 @@
   <!-- 1. SPECIAL PRAYER TOPICS -->
   <div class="section">
     <div class="section-title-row" id="hdr-1">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Special Prayer Topics</span></div>
+      <div class="col en"><span class="title-text">Special Prayer Topics</span></div>
       <div class="timer-block">
         <button class="timer-btn" id="btn-1" onclick="toggleTimer(1)" title="Play">▶</button>
         <span class="timer-display" id="td-1">5:00</span>
         <button class="timer-btn reset" onclick="resetTimer(1)" title="Reset">↺</button>
       </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">ప్రత్యేక ప్రార్థన అంశాలు</span></div>
+      <div class="col"><span class="title-text te">ప్రత్యేక ప్రార్థన అంశాలు</span></div>
     </div>
     <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-1"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="topic-list">
-          <li class="section-head">👨‍👩‍👧‍👦 Children &amp; Youth</li>
-          <li>Protection from Persecution</li>
-          <li>Spiritual Growth &amp; Unity</li>
-          <li>Lonely &amp; Broken-Hearted</li>
-          <li>Widows, Widowers, Divorced &amp; Single Parents</li>
-          <li>Unemployed &amp; Grieving Families</li>
-          <li>Unsaved Souls – to come to Christ</li>
-          <li>Persecuted Pastors &amp; Christians in India</li>
-          <li>All Sponsors &amp; Supporters – God's Abundant Blessings</li>
-        </ul>
+    <div class="list-table topic">
+      <div class="list-row head-row">
+        <div class="list-cell en">Children &amp; Youth</div>
+        <div class="list-cell">పిల్లలు &amp; యువత</div>
       </div>
-      <div class="bilingual-col">
-        <ul class="topic-list">
-          <li class="section-head">👨‍👩‍👧‍👦 పిల్లలు &amp; యువత</li>
-          <li>హింస నుండి రక్షణ</li>
-          <li>ఆత్మీయ వృద్ధి మరియు ఐక్యత</li>
-          <li>ఒంటరిగా ఉన్నవారు మరియు విరిగిన హృదయాలు కలిగినవారు</li>
-          <li>విధవరాండ్రు, విడాకులు పొందినవారు, ఒంటరి తల్లిదండ్రులు</li>
-          <li>నిరుద్యోగులు మరియు దుఃఖంలో ఉన్న కుటుంబాలు</li>
-          <li>రక్షణ పొందని ఆత్మలు – క్రీస్తునొద్దకు రాగలుగునట్లు</li>
-          <li>భారతదేశంలో హింసను ఎదుర్కొంటున్న పాస్టర్లు &amp; క్రైస్తవులు</li>
-          <li>అన్ని స్పాన్సర్లు &amp; మద్దతుదారులకు దేవుని సమృద్ధి ఆశీర్వాదాలు</li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">Protection from Persecution</div>
+        <div class="list-cell">హింస నుండి రక్షణ</div>
       </div>
-    </div>
-  </div>
-
-  <!-- 2. MINISTRIES, SPONSORS & VOLUNTEERS -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-2">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Ministries, Sponsors &amp; Volunteers</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-2" onclick="toggleTimer(2)" title="Play">▶</button>
-        <span class="timer-display" id="td-2">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(2)" title="Reset">↺</button>
+      <div class="list-row">
+        <div class="list-cell en">Spiritual Growth &amp; Unity</div>
+        <div class="list-cell">ఆత్మీయ వృద్ధి మరియు ఐక్యత</div>
       </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">పరిచర్యలు, స్పాన్సర్లు &amp; స్వచ్ఛంద సేవకులు</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-2"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="topic-list">
-          <li>Sponsors who sponsored before &amp; now</li>
-          <li>Volunteers &amp; Ushers</li>
-          <li>Prayer Warriors</li>
-          <li>AGIM Women's Meeting</li>
-          <li>Sunday Worship (AGIM &amp; AGIC)</li>
-          <li>Bible Study</li>
-          <li>Intercessory Prayer</li>
-          <li>Counselling &amp; Deliverance</li>
-          <li>Personal Evangelism</li>
-          <li>Social Media – WhatsApp, YouTube, Zoom Ministries</li>
-          <li>Media Ministry</li>
-          <li>Feeding the Poor</li>
-          <li>De-addiction Ministry</li>
-          <li>Children Ministry</li>
-          <li>Elderly Ministry</li>
-          <li>Street &amp; Bike Ministry</li>
-          <li>Women Ministry</li>
-          <li>Counselling Ministry</li>
-          <li>Healing Ministry</li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">Lonely &amp; Broken-Hearted</div>
+        <div class="list-cell">ఒంటరిగా ఉన్నవారు మరియు విరిగిన హృదయాలు కలిగినవారు</div>
       </div>
-      <div class="bilingual-col">
-        <ul class="topic-list">
-          <li>ముందు &amp; ఇప్పుడు స్పాన్సర్ చేసిన వారు</li>
-          <li>సేవకులు &amp; ఉషర్లు</li>
-          <li>ప్రార్థనా యోధులు</li>
-          <li>AGIM మహిళల సమావేశం</li>
-          <li>ఆదివారం ఆరాధన (AGIM &amp; AGIC)</li>
-          <li>బైబిల్ అధ్యాయనం</li>
-          <li>విజ్ఞాపన ప్రార్థన</li>
-          <li>కౌన్సెలింగ్ &amp; విమోచన సేవ</li>
-          <li>వ్యక్తిగత సువార్త ప్రచారం</li>
-          <li>సోషల్ మీడియా – వాట్సాప్, యూటూయాబ్, జూమ్ పరిచర్యలు</li>
-          <li>మీడియా సేవ</li>
-          <li>పేదలకు ఆహారం</li>
-          <li>మత్తు విముక్తి సేవ</li>
-          <li>పిల్లల సేవ</li>
-          <li>వృద్ధుల సేవ</li>
-          <li>వీధి సేవ &amp; బైక్ సేవ</li>
-          <li>మహిళల సేవ</li>
-          <li>కౌన్సెలింగ్ సేవ</li>
-          <li>స్వస్థపరచు సేవ</li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">Widows, Widowers, Divorced &amp; Single Parents</div>
+        <div class="list-cell">విధవరాండ్రు, విడాకులు పొందినవారు, ఒంటరి తల్లిదండ్రులు</div>
       </div>
-    </div>
-  </div>
-
-  <!-- 3. PRAY FOR ADMINS -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-3">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Pray for Admins</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-3" onclick="toggleTimer(3)" title="Play">▶</button>
-        <span class="timer-display" id="td-3">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(3)" title="Reset">↺</button>
+      <div class="list-row">
+        <div class="list-cell en">Unemployed &amp; Grieving Families</div>
+        <div class="list-cell">నిరుద్యోగులు మరియు దుఃఖంలో ఉన్న కుటుంబాలు</div>
       </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">అడ్మిన్ కోసం ప్రార్థన</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-3"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="prayer-list">
-          <li><strong>Sis Sunitha Velugu</strong> – Family &amp; Ministry: <span class="detail">Husband Salvation, Nathaniel, Priyanka's Wedding, Health</span></li>
-          <li><strong>Sis Lenora Dammala</strong> – Family &amp; Ministry: <span class="detail">Husband's Return to India, Western Calling, Health</span></li>
-          <li><strong>Dr. Swapna Penugula</strong> – Family &amp; Ministry: <span class="detail">Business, Patients, Life Partner, New House, Health</span></li>
-          <li><strong>Sis Shreethi Mende</strong> – Family &amp; Ministry: <span class="detail">Santosh Bro's Business, Miracle, Education, Health</span></li>
-          <li><strong>Sis Cynthia</strong> – Health, Family &amp; Ministry: <span class="detail">Bro Samuel's Health, Cherub Calling, Ravali's Health</span></li>
-          <li><strong>Sis Sangeetha Hannah</strong> – Family &amp; Ministry: <span class="detail">Life Partner, Health</span></li>
-          <li><strong>AGIM/AGIC Media Team:</strong> <span class="detail">Prashanth Kumar Kommu (Bobby), Dr. Swapna, Sis Sunitha, Ps. Elizabeth Amara, Ps. Jerry Amara, Olivia Amara, Samuel Amara</span></li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">Unsaved Souls – to come to Christ</div>
+        <div class="list-cell">రక్షణ పొందని ఆత్మలు – క్రీస్తునొద్దకు రాగలుగునట్లు</div>
       </div>
-      <div class="bilingual-col">
-        <ul class="prayer-list">
-          <li><strong>సిస్. సునీత వేలుగు</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">భర్త రక్షణ, నాథనియేల్, ప్రియాంక వివాహం, ఆరోగ్యం</span></li>
-          <li><strong>సిస్. లెనోరా డమ్ముల</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">భర్త భారతదేశానికి తిరిగి రావడం, పిలుపు, ఆరోగ్యం</span></li>
-          <li><strong>డా. స్వప్న పెనుగుల</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">వ్యాపారం, రోగులు, జీవిత భాగస్వామి, కొత్త ఇల్లు, ఆరోగ్యం</span></li>
-          <li><strong>సిస్. శ్రీతి మెండే</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">సంతోష్ అన్న వ్యాపారం, మీరకల్ చదువు, ఆరోగ్యం</span></li>
-          <li><strong>సిస్. సింతియా</strong> – ఆరోగ్యం, కుటుంబం &amp; పరిచర్య: <span class="detail">బ్రో సముయేలు ఆరోగ్యం, చెరుబ్ పిలుపు, రవళి ఆరోగ్యం</span></li>
-          <li><strong>సిస్. సంగీత హన్నా</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">జీవిత భాగస్వామి, ఆరోగ్యం</span></li>
-          <li><strong>AGIM/AGIC మీడియా టీమ్:</strong> <span class="detail">ప్రశాంత్ కుమార్ కొమ్ము (బాబీ), డా. స్వప్న, సిస్. సునీత, పా. ఎలిజబెత్ అమారా, పా. జెర్రీ అమారా, ఒలివియా అమారా, సముయేలు అమారా</span></li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">Persecuted Pastors &amp; Christians in India</div>
+        <div class="list-cell">భారతదేశంలో హింసను ఎదుర్కొంటున్న పాస్టర్లు &amp; క్రైస్తవులు</div>
       </div>
-    </div>
-  </div>
-
-  <!-- 4. PRAY FOR AGIM PASTORS & FAMILIES -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-4">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Pray for AGIM Pastors &amp; Families</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-4" onclick="toggleTimer(4)" title="Play">▶</button>
-        <span class="timer-display" id="td-4">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(4)" title="Reset">↺</button>
-      </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">AGIM పాస్టర్లు &amp; కుటుంబాల కోసం ప్రార్థన</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-4"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="prayer-list">
-          <li><strong>Rev Dr. John Wilson</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Ravinder Kallepalli</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Midde Bhaskar</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Attam</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Timothy Naik</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Santosh Naik</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Swamy Dass</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Babu Rao</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Sudhakar</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Joshua</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Raju</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Anand Rao</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Veronica</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Spurgeon</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Yedukondalu</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Vikas Kommu</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Rajendra Kumar</strong> – Family &amp; Ministry</li>
-          <li><strong>Ps. Babanna</strong> – Family &amp; Ministry</li>
-        </ul>
-      </div>
-      <div class="bilingual-col">
-        <ul class="prayer-list">
-          <li><strong>రెవ్ డా. జాన్ విల్సన్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ రవీందర్ కళ్లేపల్లి</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ మిద్దె భాస్కర్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ అట్టం</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ తిమోతి నాయక్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ సంతోష్ నాయక్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ స్వామి దాస్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ బాబు రావు</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ సుధాకర్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ జోషువ</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ రాజు</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ ఆనంద్ రావు</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ వెరోనికా</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ స్పర్జన్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ యేదుకొండలు</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ వికాస్ కొమ్ము</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ రాజేంద్ర కుమార్</strong> – కుటుంబం &amp; పరిచర్య</li>
-          <li><strong>పాస్టర్ బాబన్న</strong> – కుటుంబం &amp; పరిచర్య</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. PRAY FOR SISTERS & FAMILIES -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-5">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Pray for Sisters &amp; Families</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-5" onclick="toggleTimer(5)" title="Play">▶</button>
-        <span class="timer-display" id="td-5">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(5)" title="Reset">↺</button>
-      </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">సహోదరీలు &amp; కుటుంబాల కోసం ప్రార్థన</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-5"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="prayer-list">
-          <li><strong>Sis Sheela Kore</strong> – Family</li>
-          <li><strong>Sis Sarah Chicago</strong> – Family</li>
-          <li><strong>Sis Sirisha Calvin</strong> – Family: <span class="detail">Twinkle, Vinod, Robert, Uday</span></li>
-          <li><strong>Sis Sowmya John</strong> – Family</li>
-          <li><strong>Sis Sharadamma</strong> – Family: <span class="detail">Kavya</span></li>
-          <li><strong>Sis Suneeta</strong> – Family: <span class="detail">Health &amp; Deliverance</span></li>
-          <li><strong>Sis Revathy</strong> – Family</li>
-          <li><strong>Sis Phebe Rani</strong> – Family; <strong>Sis Pavani</strong> – Family</li>
-          <li><strong>Sis Bindu</strong> – Family: <span class="detail">Health &amp; Deliverance</span></li>
-          <li><strong>Rev Havilah</strong> – Family: <span class="detail">Health &amp; Deliverance</span></li>
-          <li><strong>Sis Suvarna's Daughter</strong> – <span class="detail">School Changing</span></li>
-          <li><strong>Subadramma</strong> – <span class="detail">Bed Ridden, Health &amp; Deliverance</span></li>
-          <li><strong>Sis Preethi Rebecca</strong> – Family: <span class="detail">Iran War</span></li>
-          <li><strong>Padma, Swathi, Sravanthi</strong> – <span class="detail">Salvation &amp; Deliverance</span></li>
-          <li><strong>Hemalatha Sis</strong> – <span class="detail">Health &amp; Deliverance</span></li>
-        </ul>
-      </div>
-      <div class="bilingual-col">
-        <ul class="prayer-list">
-          <li><strong>సిస్. శీలా కోరే</strong> – కుటుంబం</li>
-          <li><strong>సిస్. సారా చికాగో</strong> – కుటుంబం</li>
-          <li><strong>సిస్. సిరిష కాల్విన్</strong> – కుటుంబం: <span class="detail">ట్వింకిల్, వినోద్, రాబర్ట్, ఉదయ్</span></li>
-          <li><strong>సిస్. సౌమ్య జాన్</strong> – కుటుంబం</li>
-          <li><strong>సిస్. శారదమ్మ</strong> – కుటుంబం: <span class="detail">కావ్య</span></li>
-          <li><strong>సిస్. సునీత</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></li>
-          <li><strong>సిస్. రేవతి</strong> – కుటుంబం</li>
-          <li><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం; <strong>సిస్. పవని</strong> – కుటుంబం</li>
-          <li><strong>సిస్. బిందు</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></li>
-          <li><strong>రెవ్. హావిలా</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></li>
-          <li><strong>సిస్. సువర్ణ కుమార్తె</strong> – <span class="detail">స్కూల్ మారడం</span></li>
-          <li><strong>సుభద్రమ్మ</strong> – <span class="detail">మంచంపై ఉన్నారు, ఆరోగ్యం &amp; విమోచన</span></li>
-          <li><strong>సిస్. ప్రీతి రెబెక్కా</strong> – కుటుంబం: <span class="detail">ఇరాన్ యుద్ధం</span></li>
-          <li><strong>పద్మ, స్వాతి, శ్రావంతి</strong> – <span class="detail">రక్షణ &amp; విమోచన</span></li>
-          <li><strong>హేమలత సిస్</strong> – <span class="detail">ఆరోగ్యం &amp; విమోచన</span></li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en">All Sponsors &amp; Supporters – God's Abundant Blessings</div>
+        <div class="list-cell">అన్ని స్పాన్సర్లు &amp; మద్దతుదారులకు దేవుని సమృద్ధి ఆశీర్వాదాలు</div>
       </div>
     </div>
   </div>
@@ -449,49 +278,371 @@
   <!-- 6. PRAY FOR BROTHERS & FAMILIES -->
   <div class="section">
     <div class="section-title-row" id="hdr-6">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Pray for Brothers &amp; Families</span></div>
+      <div class="col en"><span class="title-text">Prayer for Members: Brothers and Family</span></div>
       <div class="timer-block">
         <button class="timer-btn" id="btn-6" onclick="toggleTimer(6)" title="Play">▶</button>
         <span class="timer-display" id="td-6">5:00</span>
         <button class="timer-btn reset" onclick="resetTimer(6)" title="Reset">↺</button>
       </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">సహోదరులు &amp; కుటుంబాల కోసం ప్రార్థన</span></div>
+      <div class="col"><span class="title-text te">సభ్యుల కోసం ప్రార్థన: సహోదరులు మరియు కుటుంబం</span></div>
     </div>
     <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-6"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="prayer-list">
-          <li><strong>Bro Anil Kommu</strong> – Family: <span class="detail">Business, Ministry</span></li>
-          <li><strong>Bro Vijay Moses</strong> – Family</li>
-          <li><strong>Bro Jeru &amp; Sis Jala</strong> – Family: <span class="detail">Fruit of Womb</span></li>
-          <li><strong>Bro Jonathan</strong> – <span class="detail">Salvation &amp; Settlement</span></li>
-          <li><strong>Bro Boney</strong> – <span class="detail">Salvation &amp; Settlement</span></li>
-          <li><strong>Sis Sweety, Sis Choti, Sis Neha</strong> – <span class="detail">Wedding &amp; Settlement</span></li>
-          <li><strong>Bro Benhur Dammala</strong> – Family</li>
-          <li><strong>Bro Jayapaul Dammala</strong> – Family; <strong>Sis Jennifer</strong> – <span class="detail">Best Job</span></li>
-          <li><strong>Sis Helen Dammala</strong> – Family</li>
-          <li><strong>Sis Esther Gattu, Paul Gattu, Smithy Gattu</strong> – Family</li>
-          <li><strong>Sis Suhasini</strong> – Family</li>
-          <li><strong>Sis Sharadama</strong> – <span class="detail">Operation</span></li>
-          <li><strong>Sis Twinkle Amjala</strong> – Family: <span class="detail">Health &amp; Deliverance</span></li>
-        </ul>
+    <div class="list-table prayer">
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Anil Kommu</strong> – Family: <span class="detail">Business, Ministry</span></div>
+        <div class="list-cell"><strong>బ్రో. అనిల్ కొమ్ము</strong> – కుటుంబం: <span class="detail">వ్యాపారం, పరిచర్య</span></div>
       </div>
-      <div class="bilingual-col">
-        <ul class="prayer-list">
-          <li><strong>బ్రో. అనిల్ కొమ్ము</strong> – కుటుంబం: <span class="detail">వ్యాపారం, పరిచర్య</span></li>
-          <li><strong>బ్రో. విజయ్ మోసెస్</strong> – కుటుంబం</li>
-          <li><strong>బ్రో. జెరూ &amp; సిస్. జాల</strong> – కుటుంబం: <span class="detail">సంతాన వరం</span></li>
-          <li><strong>బ్రో. జోనాథన్</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></li>
-          <li><strong>బ్రో. బోనీ</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></li>
-          <li><strong>సిస్. స్వీటీ, సిస్. చోటీ, సిస్. నేహా</strong> – <span class="detail">వివాహం &amp; స్థిరత</span></li>
-          <li><strong>బ్రో. బెన్హర్ డమ్ముల</strong> – కుటుంబం</li>
-          <li><strong>బ్రో. జయపాల్ డమ్ముల</strong> – కుటుంబం; <strong>సిస్. జెన్నిఫర్</strong> – <span class="detail">మంచి ఉద్యోగం</span></li>
-          <li><strong>సిస్. హెలెన్ డమ్ముల</strong> – కుటుంబం</li>
-          <li><strong>సిస్. ఎస్తేర్ గట్టు, పాల్ గట్టు, స్మిత గట్టు</strong> – కుటుంబం</li>
-          <li><strong>సిస్. సుహాసిని</strong> – కుటుంబం</li>
-          <li><strong>Sis. శారదమ్మ</strong> – <span class="detail">ఆపరేషన్</span></li>
-          <li><strong>సిస్. ట్వింకిల్ అంజాల</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Vijay Moses</strong> – Family</div>
+        <div class="list-cell"><strong>బ్రో. విజయ్ మోసెస్</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Jeru &amp; Sis Jala</strong> – Family: <span class="detail">Fruit of Womb</span></div>
+        <div class="list-cell"><strong>బ్రో. జెరూ &amp; సిస్. జాల</strong> – కుటుంబం: <span class="detail">సంతాన వరం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Jonathan</strong> – <span class="detail">Salvation &amp; Settlement</span></div>
+        <div class="list-cell"><strong>బ్రో. జోనాథన్</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Boney</strong> – <span class="detail">Salvation &amp; Settlement</span></div>
+        <div class="list-cell"><strong>బ్రో. బోనీ</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Benhur Dammala</strong> – Family</div>
+        <div class="list-cell"><strong>బ్రో. బెన్హర్ డమ్ముల</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Jayapaul Dammala</strong> – Family</div>
+        <div class="list-cell"><strong>బ్రో. జయపాల్ డమ్ముల</strong> – కుటుంబం</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. PRAY FOR SISTERS & FAMILIES -->
+  <div class="section">
+    <div class="section-title-row" id="hdr-5">
+      <div class="col en"><span class="title-text">Prayer for Members: Sisters and Family</span></div>
+      <div class="timer-block">
+        <button class="timer-btn" id="btn-5" onclick="toggleTimer(5)" title="Play">▶</button>
+        <span class="timer-display" id="td-5">5:00</span>
+        <button class="timer-btn reset" onclick="resetTimer(5)" title="Reset">↺</button>
+      </div>
+      <div class="col"><span class="title-text te">సభ్యుల కోసం ప్రార్థన: సహోదరీలు మరియు కుటుంబం</span></div>
+    </div>
+    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-5"></div></div>
+    <div class="list-table prayer">
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sheela Kore</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. శీలా కోరే</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sarah Chicago</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. సారా చికాగో</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sirisha Calvin</strong> – Family: <span class="detail">Twinkle, Vinod, Robert, Uday</span></div>
+        <div class="list-cell"><strong>సిస్. సిరిష కాల్విన్</strong> – కుటుంబం: <span class="detail">ట్వింకిల్, వినోద్, రాబర్ట్, ఉదయ్</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sowmya John</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. సౌమ్య జాన్</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sharadamma</strong> – Family: <span class="detail">Kavya</span></div>
+        <div class="list-cell"><strong>సిస్. శారదమ్మ</strong> – కుటుంబం: <span class="detail">కావ్య</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Suneeta</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>సిస్. సునీత</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Revathy</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. రేవతి</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Phebe Rani</strong> – Family; <strong>Sis Pavani</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం; <strong>సిస్. పవని</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Bindu</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>సిస్. బిందు</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Rev Havilah</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>రెవ్. హావిలా</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Suvarna's Daughter</strong> – <span class="detail">School Changing</span></div>
+        <div class="list-cell"><strong>సిస్. సువర్ణ కుమార్తె</strong> – <span class="detail">స్కూల్ మారడం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Subadramma</strong> – <span class="detail">Bed Ridden, Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>సుభద్రమ్మ</strong> – <span class="detail">మంచంపై ఉన్నారు, ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Preethi Rebecca</strong> – Family: <span class="detail">Iran War</span></div>
+        <div class="list-cell"><strong>సిస్. ప్రీతి రెబెక్కా</strong> – కుటుంబం: <span class="detail">ఇరాన్ యుద్ధం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Padma, Swathi, Sravanthi</strong> – <span class="detail">Salvation &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>పద్మ, స్వాతి, శ్రావంతి</strong> – <span class="detail">రక్షణ &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Hemalatha Sis</strong> – <span class="detail">Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>హేమలత సిస్</strong> – <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sweety, Sis Choti, Sis Neha</strong> – <span class="detail">Wedding &amp; Settlement</span></div>
+        <div class="list-cell"><strong>సిస్. స్వీటీ, సిస్. చోటీ, సిస్. నేహా</strong> – <span class="detail">వివాహం &amp; స్థిరత</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Jennifer</strong> – <span class="detail">Best Job</span></div>
+        <div class="list-cell"><strong>సిస్. జెన్నిఫర్</strong> – <span class="detail">మంచి ఉద్యోగం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Helen Dammala</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. హెలెన్ డమ్ముల</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Esther Gattu, Paul Gattu, Smithy Gattu</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. ఎస్తేర్ గట్టు, పాల్ గట్టు, స్మిత గట్టు</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Suhasini</strong> – Family</div>
+        <div class="list-cell"><strong>సిస్. సుహాసిని</strong> – కుటుంబం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sharadama</strong> – <span class="detail">Operation</span></div>
+        <div class="list-cell"><strong>సిస్. శారదమ్మ</strong> – <span class="detail">ఆపరేషన్</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Twinkle Amjala</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
+        <div class="list-cell"><strong>సిస్. ట్వింకిల్ అంజాల</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MINISTRIES, SPONSORS & VOLUNTEERS -->
+  <div class="section">
+    <div class="section-title-row" id="hdr-2">
+      <div class="col en"><span class="title-text">Ministries, Sponsors &amp; Volunteers</span></div>
+      <div class="timer-block">
+        <button class="timer-btn" id="btn-2" onclick="toggleTimer(2)" title="Play">▶</button>
+        <span class="timer-display" id="td-2">5:00</span>
+        <button class="timer-btn reset" onclick="resetTimer(2)" title="Reset">↺</button>
+      </div>
+      <div class="col"><span class="title-text te">పరిచర్యలు, స్పాన్సర్లు &amp; స్వచ్ఛంద సేవకులు</span></div>
+    </div>
+    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-2"></div></div>
+    <div class="list-table topic">
+      <div class="list-row">
+        <div class="list-cell en">Sponsors who sponsored before &amp; now</div>
+        <div class="list-cell">ముందు &amp; ఇప్పుడు స్పాన్సర్ చేసిన వారు</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Volunteers &amp; Ushers</div>
+        <div class="list-cell">సేవకులు &amp; ఉషర్లు</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Prayer Warriors</div>
+        <div class="list-cell">ప్రార్థనా యోధులు</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">AGIM Women's Meeting</div>
+        <div class="list-cell">AGIM మహిళల సమావేశం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Sunday Worship (AGIM &amp; AGIC)</div>
+        <div class="list-cell">ఆదివారం ఆరాధన (AGIM &amp; AGIC)</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Bible Study</div>
+        <div class="list-cell">బైబిల్ అధ్యాయనం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Intercessory Prayer</div>
+        <div class="list-cell">విజ్ఞాపన ప్రార్థన</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Counselling &amp; Deliverance</div>
+        <div class="list-cell">కౌన్సెలింగ్ &amp; విమోచన సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Personal Evangelism</div>
+        <div class="list-cell">వ్యక్తిగత సువార్త ప్రచారం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Social Media – WhatsApp, YouTube, Zoom Ministries</div>
+        <div class="list-cell">సోషల్ మీడియా – వాట్సాప్, యూటూయాబ్, జూమ్ పరిచర్యలు</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Media Ministry</div>
+        <div class="list-cell">మీడియా సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Feeding the Poor</div>
+        <div class="list-cell">పేదలకు ఆహారం</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">De-addiction Ministry</div>
+        <div class="list-cell">మత్తు విముక్తి సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Children Ministry</div>
+        <div class="list-cell">పిల్లల సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Elderly Ministry</div>
+        <div class="list-cell">వృద్ధుల సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Street &amp; Bike Ministry</div>
+        <div class="list-cell">వీధి సేవ &amp; బైక్ సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Women Ministry</div>
+        <div class="list-cell">మహిళల సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Counselling Ministry</div>
+        <div class="list-cell">కౌన్సెలింగ్ సేవ</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en">Healing Ministry</div>
+        <div class="list-cell">స్వస్థపరచు సేవ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PRAY FOR ADMINS -->
+  <div class="section">
+    <div class="section-title-row" id="hdr-3">
+      <div class="col en"><span class="title-text">Pray for Admins</span></div>
+      <div class="timer-block">
+        <button class="timer-btn" id="btn-3" onclick="toggleTimer(3)" title="Play">▶</button>
+        <span class="timer-display" id="td-3">5:00</span>
+        <button class="timer-btn reset" onclick="resetTimer(3)" title="Reset">↺</button>
+      </div>
+      <div class="col"><span class="title-text te">అడ్మిన్ కోసం ప్రార్థన</span></div>
+    </div>
+    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-3"></div></div>
+    <div class="list-table prayer">
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sunitha Velugu</strong> – Family &amp; Ministry: <span class="detail">Husband Salvation, Nathaniel, Priyanka's Wedding, Health</span></div>
+        <div class="list-cell"><strong>సిస్. సునీత వేలుగు</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">భర్త రక్షణ, నాథనియేల్, ప్రియాంక వివాహం, ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Lenora Dammala</strong> – Family &amp; Ministry: <span class="detail">Husband's Return to India, Western Calling, Health</span></div>
+        <div class="list-cell"><strong>సిస్. లెనోరా డమ్ముల</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">భర్త భారతదేశానికి తిరిగి రావడం, పిలుపు, ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Dr. Swapna Penugula</strong> – Family &amp; Ministry: <span class="detail">Business, Patients, Life Partner, New House, Health</span></div>
+        <div class="list-cell"><strong>డా. స్వప్న పెనుగుల</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">వ్యాపారం, రోగులు, జీవిత భాగస్వామి, కొత్త ఇల్లు, ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Shreethi Mende</strong> – Family &amp; Ministry: <span class="detail">Santosh Bro's Business, Miracle, Education, Health</span></div>
+        <div class="list-cell"><strong>సిస్. శ్రీతి మెండే</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">సంతోష్ అన్న వ్యాపారం, మీరకల్ చదువు, ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Cynthia</strong> – Health, Family &amp; Ministry: <span class="detail">Bro Samuel's Health, Cherub Calling, Ravali's Health</span></div>
+        <div class="list-cell"><strong>సిస్. సింతియా</strong> – ఆరోగ్యం, కుటుంబం &amp; పరిచర్య: <span class="detail">బ్రో సముయేలు ఆరోగ్యం, చెరుబ్ పిలుపు, రవళి ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Sangeetha Hannah</strong> – Family &amp; Ministry: <span class="detail">Life Partner, Health</span></div>
+        <div class="list-cell"><strong>సిస్. సంగీత హన్నా</strong> – కుటుంబం &amp; పరిచర్య: <span class="detail">జీవిత భాగస్వామి, ఆరోగ్యం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>AGIM/AGIC Media Team:</strong> <span class="detail">Prashanth Kumar Kommu (Bobby), Dr. Swapna, Sis Sunitha, Ps. Elizabeth Amara, Ps. Jerry Amara, Olivia Amara, Samuel Amara</span></div>
+        <div class="list-cell"><strong>AGIM/AGIC మీడియా టీమ్:</strong> <span class="detail">ప్రశాంత్ కుమార్ కొమ్ము (బాబీ), డా. స్వప్న, సిస్. సునీత, పా. ఎలిజబెత్ అమారా, పా. జెర్రీ అమారా, ఒలివియా అమారా, సముయేలు అమారా</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PRAY FOR AGIM PASTORS & FAMILIES -->
+  <div class="section">
+    <div class="section-title-row" id="hdr-4">
+      <div class="col en"><span class="title-text">Pray for AGIM Pastors &amp; Families</span></div>
+      <div class="timer-block">
+        <button class="timer-btn" id="btn-4" onclick="toggleTimer(4)" title="Play">▶</button>
+        <span class="timer-display" id="td-4">5:00</span>
+        <button class="timer-btn reset" onclick="resetTimer(4)" title="Reset">↺</button>
+      </div>
+      <div class="col"><span class="title-text te">AGIM పాస్టర్లు &amp; కుటుంబాల కోసం ప్రార్థన</span></div>
+    </div>
+    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-4"></div></div>
+    <div class="list-table prayer">
+      <div class="list-row">
+        <div class="list-cell en"><strong>Rev Dr. John Wilson</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>రెవ్ డా. జాన్ విల్సన్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Ravinder Kallepalli</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ రవీందర్ కళ్లేపల్లి</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Midde Bhaskar</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ మిద్దె భాస్కర్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Attam</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ అట్టం</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Timothy Naik</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ తిమోతి నాయక్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Santosh Naik</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ సంతోష్ నాయక్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Swamy Dass</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ స్వామి దాస్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Babu Rao</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ బాబు రావు</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Sudhakar</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ సుధాకర్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Joshua</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ జోషువ</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Raju</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ రాజు</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Anand Rao</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ ఆనంద్ రావు</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Veronica</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ వెరోనికా</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Spurgeon</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ స్పర్జన్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Yedukondalu</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ యేదుకొండలు</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Vikas Kommu</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ వికాస్ కొమ్ము</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Rajendra Kumar</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ రాజేంద్ర కుమార్</strong> – కుటుంబం &amp; పరిచర్య</div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Ps. Babanna</strong> – Family &amp; Ministry</div>
+        <div class="list-cell"><strong>పాస్టర్ బాబన్న</strong> – కుటుంబం &amp; పరిచర్య</div>
       </div>
     </div>
   </div>
@@ -499,13 +650,13 @@
   <!-- 7. ADDITIONAL PRAYER REQUESTS -->
   <div class="section">
     <div class="section-title-row" id="hdr-7">
-      <div class="col en"><span class="badge">English</span><span class="title-text">Additional Prayer Requests</span></div>
+      <div class="col en"><span class="title-text">Additional Prayer Requests</span></div>
       <div class="timer-block">
         <button class="timer-btn" id="btn-7" onclick="toggleTimer(7)" title="Play">▶</button>
         <span class="timer-display" id="td-7">5:00</span>
         <button class="timer-btn reset" onclick="resetTimer(7)" title="Reset">↺</button>
       </div>
-      <div class="col"><span class="badge te">తెలుగు</span><span class="title-text te">అదనపు ప్రార్థన విజ్ఞాపనలు</span></div>
+      <div class="col"><span class="title-text te">అదనపు ప్రార్థన విజ్ఞాపనలు</span></div>
     </div>
     <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-7"></div></div>
     <div class="table-prayers">
@@ -527,7 +678,7 @@
       </div>
       <div id="extra-rows"></div>
       <div class="add-row-ui">
-        <span class="add-row-label">✏️ Add New Prayer Request</span>
+        <span class="add-row-label">Add New Prayer Request</span>
         <div class="add-row-inputs">
           <textarea id="new-en" placeholder="Type prayer request in English…" rows="3"></textarea>
           <textarea id="new-te" placeholder="తెలుగులో ప్రార్థన విజ్ఞాపన టైప్ చేయండి…" rows="3"></textarea>
@@ -540,37 +691,43 @@
   <!-- 8. AMARA FAMILY — VERY LAST -->
   <div class="section amara-section">
     <div class="section-title-row" id="hdr-8">
-      <div class="col en"><span class="badge" style="background:#8b2fc9;color:#fff;">English</span><span class="title-text" style="color:#d4a8ff;">Pray for Founders &amp; Amara Family</span></div>
+      <div class="col en"><span class="title-text" style="color:#ffffff;">Pray for Founders &amp; Family</span></div>
       <div class="timer-block" style="border-color:rgba(212,168,255,0.3);">
         <button class="timer-btn" id="btn-8" onclick="toggleTimer(8)" title="Play">▶</button>
         <span class="timer-display" id="td-8">5:00</span>
         <button class="timer-btn reset" onclick="resetTimer(8)" title="Reset">↺</button>
       </div>
-      <div class="col"><span class="badge te" style="background:rgba(139,47,201,0.3);color:#d4a8ff;">తెలుగు</span><span class="title-text te" style="color:#c490f0;">వ్యవస్థాపకులు &amp; అమారా కుటుంబం కోసం ప్రార్థన</span></div>
+      <div class="col"><span class="title-text te" style="color:#ffffff;">వ్యవస్థాపకులు &amp; కుటుంబం కోసం ప్రార్థన</span></div>
     </div>
     <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-8" style="background:#8b2fc9;"></div></div>
-    <div class="bilingual-grid">
-      <div class="bilingual-col en">
-        <ul class="prayer-list">
-          <li><strong>Pastor Hemanth Jerry Amara &amp; Pastor Elizabeth Amara</strong> – <span class="detail">Founders AGIM/AGIC/AGIWM – Family, Ministry, Business, Establishments, Health</span></li>
-          <li><strong>Olivia Amara</strong> – <span class="detail">Education &amp; Calling, Settlement</span></li>
-          <li><strong>Tiara Amara</strong> – <span class="detail">Calling, Settlement</span></li>
-          <li><strong>Samuel Amara</strong> – <span class="detail">Education, Calling, Ministry</span></li>
-          <li><strong>Bro Jessy Amara &amp; Anitha Amara</strong> – <span class="detail">Kidney Disease, Elder Son's Wedding</span></li>
-          <li><strong>Bro Abhishek Amara &amp; Sis Emilia</strong></li>
-          <li><strong>Sis Grace Amara</strong> – <span class="detail">Health</span></li>
-        </ul>
+    <div class="list-table prayer">
+      <div class="list-row">
+        <div class="list-cell en"><strong>Pastor Hemanth Jerry Amara &amp; Pastor Elizabeth Amara</strong> – <span class="detail">Founders AGIM/AGIC/AGIWM – Family, Ministry, Business, Establishments, Health</span></div>
+        <div class="list-cell"><strong>పాస్టర్ హేమంత్ జెర్రీ అమారా &amp; పాస్టర్ ఎలిజబెత్ అమారా</strong> – <span class="detail">వ్యవస్థాపకులు AGIM/AGIC/AGIWM – కుటుంబం, పరిచర్య, వ్యాపారం, ఆరోగ్యం</span></div>
       </div>
-      <div class="bilingual-col">
-        <ul class="prayer-list">
-          <li><strong>పాస్టర్ హేమంత్ జెర్రీ అమారా &amp; పాస్టర్ ఎలిజబెత్ అమారా</strong> – <span class="detail">వ్యవస్థాపకులు AGIM/AGIC/AGIWM – కుటుంబం, పరిచర్య, వ్యాపారం, ఆరోగ్యం</span></li>
-          <li><strong>ఒలివియా అమారా</strong> – <span class="detail">చదువు &amp; పిలుపు, స్థిరత</span></li>
-          <li><strong>టియారా అమారా</strong> – <span class="detail">పిలుపు, స్థిరత</span></li>
-          <li><strong>సముయేలు అమారా</strong> – <span class="detail">చదువు, పిలుపు, పరిచర్య</span></li>
-          <li><strong>బ్రో. జెస్సీ అమారా &amp; అనిత అమారా</strong> – <span class="detail">మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం</span></li>
-          <li><strong>బ్రో. అభిషేక్ అమారా &amp; సిస్. ఎమిలియా</strong></li>
-          <li><strong>సిస్. గ్రేస్ అమారా</strong> – <span class="detail">ఆరోగ్యం</span></li>
-        </ul>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Olivia Amara</strong> – <span class="detail">Education &amp; Calling, Settlement</span></div>
+        <div class="list-cell"><strong>ఒలివియా అమారా</strong> – <span class="detail">చదువు &amp; పిలుపు, స్థిరత</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Tiara Amara</strong> – <span class="detail">Calling, Settlement</span></div>
+        <div class="list-cell"><strong>టియారా అమారా</strong> – <span class="detail">పిలుపు, స్థిరత</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Samuel Amara</strong> – <span class="detail">Education, Calling, Ministry</span></div>
+        <div class="list-cell"><strong>సముయేలు అమారా</strong> – <span class="detail">చదువు, పిలుపు, పరిచర్య</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Jessy Amara &amp; Anitha Amara</strong> – <span class="detail">Kidney Disease, Elder Son's Wedding</span></div>
+        <div class="list-cell"><strong>బ్రో. జెస్సీ అమారా &amp; అనిత అమారా</strong> – <span class="detail">మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం</span></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Bro Abhishek Amara &amp; Sis Emilia</strong></div>
+        <div class="list-cell"><strong>బ్రో. అభిషేక్ అమారా &amp; సిస్. ఎమిలియా</strong></div>
+      </div>
+      <div class="list-row">
+        <div class="list-cell en"><strong>Sis Grace Amara</strong> – <span class="detail">Health</span></div>
+        <div class="list-cell"><strong>సిస్. గ్రేస్ అమారా</strong> – <span class="detail">ఆరోగ్యం</span></div>
       </div>
     </div>
   </div>
@@ -578,7 +735,7 @@
 </main>
 
 <footer>
-  🙌 <span>With Gratitude | ధన్యవాదములతో</span> — AGIM Family &nbsp;|&nbsp; AMAZING GOD INTERNATIONAL MINISTRIES • AGIM / AGIC / AGIWM
+  <span>With Gratitude | ధన్యవాదములతో</span> — AGIM Family &nbsp;|&nbsp; AMAZING GOD INTERNATIONAL MINISTRIES • AGIM / AGIC / AGIWM
 </footer>
 
 <script>
