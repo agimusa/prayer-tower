@@ -704,7 +704,7 @@
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `<div class="en">${escapeHtml(r[0])}</div><div class="te">${escapeHtml(r[1])}</div>`;
-        container.prepend(row);
+        container.append(row);
       });
     }catch(e){ /* network/CSP blocked — page still works, just without synced entries */ }
   }
@@ -726,7 +726,8 @@
         return { ok:false, reason:'get-failed' };
       }
       const newLine = csvField(en) + ',' + csvField(te) + '\n';
-      const updatedText = newLine + existingText;
+      const base = existingText && !existingText.endsWith('\n') ? existingText + '\n' : existingText;
+      const updatedText = base + newLine;
       const body = {
         message: 'Add prayer request via site: ' + (en || te).slice(0,60),
         content: b64EncodeUtf8(updatedText),
@@ -755,7 +756,7 @@
     row.className = 'row';
     const statusId = 'status-' + Date.now();
     row.innerHTML = `<div class="en">${escapeHtml(enVal) || '—'}</div><div class="te">${escapeHtml(teVal) || '—'}<button class="del" title="Remove" onclick="this.closest('.row').remove()">✕</button><div class="row-status" id="${statusId}">Saving…</div></div>`;
-    container.prepend(row);
+    container.append(row);
     enInput.value = ''; teInput.value = ''; enInput.focus();
 
     const result = await saveNewPrayerToGitHub(enVal, teVal);
