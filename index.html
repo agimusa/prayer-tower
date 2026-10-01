@@ -2,704 +2,851 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>AGIM Intercessory Prayers | విజ్ఞాపన ప్రార్థనలు</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #1a2448;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #f5f4f0;
-    --white: #ffffff;
-    --text-body: #2d3561;
+  :root{
+    --bg-void:#05060c;
+    --ink:#f5f6fb;
+    --ink-dim:rgba(245,246,251,0.72);
+    --ink-faint:rgba(245,246,251,0.42);
+    --line:rgba(245,246,251,0.14);
+    --font-head:'Space Grotesk', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    --font-te:'Noto Sans Telugu', system-ui, sans-serif;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--cream); font-family: 'Lato', sans-serif; color: var(--text-body); line-height: 1.7; }
-
-  /* HEADER */
-  header { background: radial-gradient(circle at 25% 20%, #8a231a 0%, #4a0d09 100%); padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 4px solid var(--gold); }
-  header .org-name { font-family: 'Cinzel', serif; color: var(--white); font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 0.3rem; }
-  header .org-sub { color: rgba(255,255,255,0.55); font-size: 0.78rem; letter-spacing: 0.3em; margin-bottom: 1.2rem; }
-  header .title-block { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-  header .title-en { color: var(--white); font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 600; }
-  header .title-te { color: var(--white); font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 700; }
-  header .verse { margin-top: 1rem; font-style: italic; color: rgba(255,255,255,0.7); font-size: 0.85rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-  header .verse-te { color: rgba(255,255,255,0.85); font-size: 0.82rem; margin-top: 0.2rem; }
-
-  main { max-width: 100%; margin: 0; padding: 1rem 0 4rem; }
-
-  /* SECTION */
-  .section { background: var(--white); border-radius: 0; margin-bottom: 1rem; box-shadow: 0 2px 12px rgba(26,36,72,0.08); border-left: 6px solid var(--gold); position: relative; }
-
-  /* STICKY SECTION HEADER */
-  .section-title-row {
-    background: var(--navy);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    border-bottom: 2px solid var(--gold);
-    position: sticky;
-    top: 0;
-    border-radius: 0;
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{
+    scroll-behavior:smooth;
+    scroll-snap-type: y proximity;
   }
-  .section-title-row .col {
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  body{
+    background:var(--bg-void);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  .section-title-row .col.en { border-right: 1px solid rgba(201,168,76,0.3); }
 
-  /* CARD HEADER COLORS — one relevant hue per section, medium-dark to dark radial */
-  #hdr-1 { z-index: 80;  background: radial-gradient(circle at 25% 20%, #1f6b4a 0%, #0c3d2d 100%); }   /* Special Prayer Topics — emerald green */
-  #hdr-6 { z-index: 40;  background: radial-gradient(circle at 25% 20%, #2f6a9c 0%, #142f47 100%); }   /* Brothers & Family — blue */
-  #hdr-5 { z-index: 50;  background: radial-gradient(circle at 25% 20%, #9c3f6e 0%, #55163a 100%); }   /* Sisters & Family — rose */
-  #hdr-2 { z-index: 70;  background: radial-gradient(circle at 25% 20%, #177f86 0%, #0b3940 100%); }   /* Ministries, Sponsors & Volunteers — teal */
-  #hdr-4 { z-index: 60;  background: radial-gradient(circle at 25% 20%, #5f3f8f 0%, #301f4c 100%); }   /* AGIM Pastors & Families — purple */
-  #hdr-7 { z-index: 30;  background: radial-gradient(circle at 25% 20%, #455a6b 0%, #1f2a36 100%); }   /* Additional Prayer Requests — slate */
-  #hdr-8 { z-index: 20;  background: radial-gradient(circle at 25% 20%, #6f2fa0 0%, #33105a 100%); }   /* Founders & Family — deep purple */
+  /* ---- top progress rail ---- */
+  #deck-progress{ position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg, var(--glow-a,#60a5fa), var(--glow-b,#34d399)); z-index:200; transition:background .4s ease; }
 
-  .section-title-row .col .badge {
-    background: var(--gold); color: var(--navy);
-    font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em;
-    padding: 0.12rem 0.45rem; border-radius: 3px; text-transform: uppercase; flex-shrink: 0;
+  /* ---- dot nav (desktop only) ---- */
+  .rail{
+    position:fixed; right:26px; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:13px; z-index:190;
   }
-  .section-title-row .col .badge.te { background: rgba(255,255,255,0.15); color: var(--gold-light); }
-  .section-title-row .title-text { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 3.2vw, 1.7rem); color: var(--white); font-weight: 600; }
-  .section-title-row .title-text.te { font-family: inherit; color: var(--white); font-size: clamp(1.1rem, 3.2vw, 1.6rem); font-weight: 700; }
-
-  /* TIMER BLOCK */
-  .timer-block {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0 0.8rem;
-    border-left: 1px solid rgba(201,168,76,0.3);
-    border-right: 1px solid rgba(201,168,76,0.3);
-    white-space: nowrap;
+  .rail button{
+    width:9px; height:9px; border-radius:50%;
+    background:rgba(245,246,251,0.28); border:1.5px solid rgba(245,246,251,0.28);
+    cursor:pointer; padding:0; transition:transform .25s ease, background .25s ease, border-color .25s ease;
   }
-  .timer-display {
-    font-family: 'Cinzel', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.05em;
-    min-width: 3.2rem;
-    text-align: center;
+  .rail button.active{ background:var(--dot-color,#fff); border-color:var(--dot-color,#fff); transform:scale(1.5); box-shadow:0 0 14px var(--dot-color,#fff); }
+  @media (max-width:900px){ .rail{ display:none; } }
+
+  /* ---- slide shell ---- */
+  .slide{
+    position:relative;
+    min-height:100svh;
+    padding: clamp(4.5rem,9vh,6.5rem) 6vw 5rem;
+    display:flex; flex-direction:column; justify-content:center;
+    scroll-snap-align:start;
+    overflow:hidden;
+    isolation:isolate;
   }
-  .timer-display.urgent { color: #ff6b6b; }
-  .timer-btn {
-    background: rgba(255,255,255,0.12);
-    border: 1.5px solid rgba(201,168,76,0.5);
-    color: var(--white);
-    border-radius: 50%;
-    width: 30px; height: 30px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-    flex-shrink: 0;
+  .slide::before{
+    content:''; position:absolute; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 60% 50% at 14% -8%, var(--glow) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 60% at 100% 105%, color-mix(in srgb, var(--glow) 55%, transparent) 0%, transparent 60%),
+      linear-gradient(160deg, var(--c1) 0%, var(--c2) 130%);
   }
-  .timer-btn:hover { background: rgba(201,168,76,0.25); }
-  .timer-btn.reset { font-size: 0.7rem; }
+  .slide-inner{ max-width:1180px; margin:0 auto; width:100%; }
 
-  /* PROGRESS BAR under sticky header */
-  .timer-progress-bar {
-    height: 3px;
-    background: rgba(201,168,76,0.15);
-    position: relative;
-    overflow: hidden;
+  .slide-top{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:2rem;
+    flex-wrap:wrap; margin-bottom:clamp(2.2rem,4vh,3.2rem);
   }
-  .timer-progress-fill {
-    height: 100%;
-    background: var(--gold);
-    width: 100%;
-    transition: width 1s linear;
+  .slide-index{
+    font-family:var(--font-head); font-weight:600; font-size:0.82rem;
+    letter-spacing:0.06em; color:var(--ink-faint);
   }
-  .timer-progress-fill.urgent { background: #ff6b6b; }
-
-  /* BILINGUAL CONTENT */
-  .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
-  .bilingual-col { padding: 1.4rem 1.8rem 1.6rem; }
-  .bilingual-col.en { border-right: 2px solid rgba(201,168,76,0.2); }
-
-  /* LISTS */
-  .prayer-list { list-style: none; padding: 0; }
-  .prayer-list li { padding: 0.55rem 0 0.55rem 1.6rem; position: relative; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid rgba(201,168,76,0.12); }
-  .prayer-list li:last-child { border-bottom: none; }
-  .prayer-list li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; position: absolute; left: 0; top: 0.85rem; }
-  .prayer-list li strong { color: var(--navy); font-weight: 800; font-size: 1.08rem; }
-  .prayer-list li .detail { color: #555; font-size: 0.95rem; font-weight: 500; }
-
-  .topic-list { list-style: none; padding: 0; }
-  .topic-list li { padding: 0.55rem 0 0.55rem 1.8rem; position: relative; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid rgba(201,168,76,0.12); }
-  .topic-list li:last-child { border-bottom: none; }
-  .topic-list li::before { font-size: 0.85rem; position: absolute; left: 0; top: 0.52rem; }
-  .topic-list .section-head { font-weight: 800; color: var(--navy); font-size: 1.15rem; padding: 0.6rem 0 0.35rem 0; border-bottom: none; }
-  .topic-list .section-head::before { display: none; }
-
-  /* TABLE prayers */
-  .table-prayers { }
-  .prayer-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(201,168,76,0.15); }
-  .prayer-row:last-child { border-bottom: none; }
-  .prayer-cell { padding: 1rem 1.4rem; font-size: 1.05rem; font-weight: 500; }
-  .prayer-cell.en { border-right: 2px solid rgba(201,168,76,0.2); }
-  .prayer-row .del-btn { background: none; border: none; color: #ccc; font-size: 0.9rem; cursor: pointer; padding: 0 0.4rem; align-self: center; transition: color 0.2s; }
-  .prayer-row .del-btn:hover { color: #e55; }
-
-  /* ALIGNED BILINGUAL LIST TABLE — guarantees EN/TE rows stay 1:1 in height */
-  .list-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(201,168,76,0.12); }
-  .list-row:last-child { border-bottom: none; }
-  .list-cell { padding: 0.55rem 1.8rem 0.55rem 2.1rem; position: relative; font-size: 1.05rem; font-weight: 500; }
-  .list-cell.en { border-right: 2px solid rgba(201,168,76,0.2); }
-  .list-cell strong { color: var(--navy); font-weight: 800; font-size: 1.08rem; }
-  .list-cell .detail { color: #555; font-size: 0.95rem; font-weight: 500; }
-  .list-table { counter-reset: item; }
-  .list-row:not(.head-row) { counter-increment: item; }
-  .list-table .list-cell::before { content: counter(item) '.'; color: var(--gold); font-weight: 800; font-size: 0.85rem; position: absolute; left: 0.55rem; top: 0.65rem; }
-  .list-row.head-row { border-bottom: none; }
-  .list-row.head-row .list-cell { font-weight: 800; color: var(--navy); font-size: 1.15rem; padding: 0.6rem 1.8rem 0.35rem 1.6rem; }
-  .list-row.head-row .list-cell::before { display: none; }
-
-  /* ADD ROW UI */
-  .add-row-ui { padding: 1.1rem 1.2rem 1.4rem; background: #fffdf3; border-top: 3px solid var(--gold); }
-  .add-row-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; display: block; }
-  .add-row-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 0.7rem; }
-  .add-row-inputs textarea { width: 100%; padding: 0.65rem 0.85rem; font-family: 'Lato', sans-serif; font-size: 0.86rem; border: 1.5px solid rgba(201,168,76,0.4); border-radius: 5px; background: #fff; color: var(--text-body); resize: vertical; line-height: 1.5; transition: border-color 0.2s; }
-  .add-row-inputs textarea:focus { outline: none; border-color: var(--gold); }
-  .add-row-inputs textarea::placeholder { color: #bbb; }
-  .add-row-ui button { background: var(--navy); color: var(--gold); border: none; padding: 0.55rem 1.3rem; border-radius: 5px; font-size: 0.86rem; font-weight: 700; cursor: pointer; letter-spacing: 0.03em; transition: background 0.2s; }
-  .add-row-ui button:hover { background: #253060; }
-
-  /* AMARA */
-  .amara-section { border-left-color: #8b2fc9; }
-  .amara-section .section-title-row { background: #2d1b4e; }
-  .amara-section .timer-display { color: var(--white); }
-  .amara-section .timer-btn { border-color: rgba(255,255,255,0.5); color: var(--white); }
-  .amara-section .timer-progress-fill { background: #8b2fc9; }
-  .amara-section .prayer-list li::before { color: #8b2fc9; }
-  .amara-section .list-table.prayer .list-cell::before { color: #8b2fc9; }
-  .amara-section .bilingual-col.en { border-right-color: rgba(139,47,201,0.2); }
-  .amara-section .list-cell.en { border-right-color: rgba(139,47,201,0.2); }
-
-  /* DONE state */
-  .section-title-row.done { background: #1a3a1a !important; }
-  .section-title-row.done .timer-display { color: #6aff6a; }
-  .section-title-row.done .timer-progress-fill { background: #4caf50; width: 0% !important; }
-
-  footer { background: var(--navy); border-top: 3px solid var(--gold); text-align: center; padding: 1.5rem; color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.05em; }
-  footer span { color: var(--gold); }
-
-  @media (max-width: 700px) {
-    .prayer-list li, .topic-list li, .prayer-cell, .list-cell { font-size: 0.92rem; }
-    .prayer-list li strong, .list-cell strong { font-size: 0.95rem; }
-    .bilingual-col { padding: 0.85rem 0.9rem; }
-    .timer-display { font-size: 0.95rem; }
-    .timer-btn { width: 26px; height: 26px; }
-    .section-title-row .title-text, .section-title-row .title-text.te { font-size: 0.95rem; }
+  .slide-titles{ max-width:760px; }
+  .slide-title-en{
+    font-family:var(--font-head); font-weight:700;
+    font-size:clamp(2.1rem, 5.4vw, 3.9rem); line-height:1.04;
+    color:var(--ink);
   }
-  /* GLOBAL: bigger, thicker, sans-serif everywhere */
-  html { font-size: 122%; }
-  * {
-    font-family: 'Lato', Arial, Helvetica, sans-serif !important;
-    font-weight: 800 !important;
+  .slide-title-te{
+    font-family:var(--font-te); font-weight:700;
+    font-size:clamp(1.4rem, 3.4vw, 2.3rem); line-height:1.2;
+    color:var(--ink-dim); margin-top:0.5rem;
   }
+
+  /* ---- timer pill (floats fixed; only the active slide's timer shows) ---- */
+  .timer{
+    position:fixed; top:22px; right:22px; z-index:190;
+    display:flex; align-items:center; gap:0.7rem;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16);
+    backdrop-filter:blur(10px); border-radius:100px; padding:0.5rem 0.6rem 0.5rem 1rem;
+    flex-shrink:0;
+    opacity:0; pointer-events:none; transform:translateY(-6px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .timer.active{ opacity:1; pointer-events:auto; transform:translateY(0); }
+  @media (max-width:560px){
+    .timer{ top:14px; right:14px; padding:0.4rem 0.5rem 0.4rem 0.75rem; gap:0.5rem; }
+    .timer .t-display{ font-size:0.92rem; min-width:2.6rem; }
+    .timer button{ width:28px; height:28px; }
+  }
+  .timer .t-display{ font-family:var(--font-head); font-weight:700; font-size:1.05rem; min-width:3.1rem; text-align:center; }
+  .timer .t-display.urgent{ color:#ff7a7a; }
+  .timer button{
+    width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.1); color:var(--ink); cursor:pointer; font-size:0.82rem;
+    display:flex; align-items:center; justify-content:center; transition:background .2s ease;
+  }
+  .timer button:hover{ background:rgba(255,255,255,0.24); }
+  .slide.done .timer .t-display{ color:#7dffb0; }
+  .slide.done .timer{ border-color:rgba(125,255,176,0.55); }
+
+  /* ---- rows of bilingual content ---- */
+  .rows{ display:flex; flex-direction:column; }
+  .row{
+    display:grid; grid-template-columns:1fr 1fr; gap:2.6rem;
+    padding:1.05rem 0; border-bottom:1px solid var(--line);
+  }
+  .row:last-child{ border-bottom:none; }
+  .row .en, .row .te{ font-size:1.02rem; font-weight:500; }
+  .row .en{ font-family:var(--font-body); color:var(--ink); }
+  .row .en strong{ font-weight:800; }
+  .row .te{ font-family:var(--font-te); font-weight:600; color:var(--ink-dim); }
+  .row .detail{ color:var(--ink-dim); font-weight:500; }
+  .row.plain .en, .row.plain .te{ font-weight:600; }
+
+  @media (max-width:760px){
+    .row{ grid-template-columns:1fr; gap:0.35rem; padding:1rem 0; }
+    .row .te{ padding-top:0.15rem; }
+  }
+
+  /* ---- additional-requests: delete button ---- */
+  .row .del{
+    background:none; border:none; color:var(--ink-faint); font-size:0.85rem;
+    cursor:pointer; justify-self:end; align-self:start; margin-left:0.4rem;
+  }
+  .row .del:hover{ color:#ff7a7a; }
+
+  /* ---- add-row panel ---- */
+  .add-panel{
+    margin-top:2.2rem; padding:1.4rem 1.5rem 1.6rem;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15);
+    border-radius:18px; backdrop-filter:blur(10px);
+  }
+  .add-panel .label{ font-family:var(--font-head); font-weight:600; font-size:0.85rem; color:var(--ink-dim); display:block; margin-bottom:0.8rem; }
+  .add-panel textarea{
+    width:100%; padding:0.75rem 0.9rem; font-family:var(--font-body); font-size:0.92rem;
+    border:1px solid rgba(255,255,255,0.2); border-radius:10px; background:rgba(0,0,0,0.25);
+    color:var(--ink); resize:vertical; line-height:1.5; margin-bottom:0.7rem;
+  }
+  .add-panel textarea::placeholder{ color:var(--ink-faint); }
+  .add-panel textarea:focus{ outline:none; border-color:var(--glow); }
+  .add-panel button.submit{
+    width:auto; height:auto; border-radius:100px; padding:0.65rem 1.4rem;
+    background:linear-gradient(120deg, var(--glow), var(--c2)); color:#04070a; font-weight:800;
+    font-family:var(--font-head); font-size:0.88rem; border:none; cursor:pointer;
+  }
+
+  /* ---- per-slide gradient tokens ---- */
+  .hero{ --c1:#05060f; --c2:#141a35; --glow:#5b6bd6; }
+  .s-emerald{ --c1:#02150f; --c2:#0d5c4f; --glow:#34d399; }
+  .s-blue{ --c1:#070c22; --c2:#1d3f9c; --glow:#5f8cff; }
+  .s-rose{ --c1:#1c0510; --c2:#8a123f; --glow:#fb7185; }
+  .s-cyan{ --c1:#031318; --c2:#0b6c82; --glow:#38d9e8; }
+  .s-violet{ --c1:#0f0820; --c2:#5b21b6; --glow:#a78bfa; }
+  .s-amber{ --c1:#150e04; --c2:#8a4a06; --glow:#fbbf24; }
+  .s-magenta{ --c1:#150627; --c2:#7e1187; --glow:#e879f9; }
+  .outro{ --c1:#04050a; --c2:#0c1024; --glow:#7d8bdc; }
+
+  /* ---- hero slide ---- */
+  .hero-inner{ max-width:900px; margin:0 auto; text-align:center; }
+  .org-mark{ font-family:var(--font-head); font-weight:700; letter-spacing:0.22em; font-size:clamp(0.85rem,1.6vw,1.05rem); color:var(--ink-dim); }
+  .org-tag{ font-size:0.78rem; color:var(--ink-faint); letter-spacing:0.3em; margin-top:0.5rem; font-weight:600; }
+  .hero-title-en{ font-family:var(--font-head); font-weight:700; font-size:clamp(2.6rem,8vw,5.2rem); line-height:1.02; margin-top:2.4rem;
+    background:linear-gradient(100deg,#ffffff 20%, #b9c2ff 60%, #7d8bdc 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-title-te{ font-family:var(--font-te); font-weight:700; font-size:clamp(1.6rem,4.6vw,2.8rem); margin-top:0.8rem; color:var(--ink-dim); }
+  .hero-verse{ margin-top:2.6rem; font-size:1rem; color:var(--ink-dim); max-width:620px; margin-left:auto; margin-right:auto; }
+  .hero-verse.te{ font-family:var(--font-te); font-weight:500; margin-top:0.7rem; }
+  .scroll-cue{ margin-top:3.4rem; font-family:var(--font-head); font-size:0.8rem; letter-spacing:0.1em; color:var(--ink-faint); }
+  .scroll-cue span{ display:inline-block; margin-top:0.4rem; animation:bob 1.8s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+
+  /* ---- outro slide ---- */
+  .outro-inner{ text-align:center; max-width:700px; margin:0 auto; }
+  .outro-inner .big{ font-family:var(--font-head); font-weight:700; font-size:clamp(1.8rem,4.4vw,2.6rem); }
+  .outro-inner .te{ font-family:var(--font-te); font-weight:600; font-size:clamp(1.2rem,3vw,1.6rem); margin-top:0.6rem; color:var(--ink-dim); }
+  .outro-inner .fine{ margin-top:1.6rem; color:var(--ink-faint); font-size:0.85rem; letter-spacing:0.04em; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .scroll-cue span{ animation:none; }
+  }
+
+  /* ---- font-size control: single "A" circle that opens into a panel ---- */
+  .font-ctrl{
+    position:fixed; top:80px; right:22px; z-index:190;
+    display:flex; align-items:center;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px); border-radius:100px; padding:0.4rem;
+  }
+  .font-ctrl .toggle{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.22);
+    background:rgba(255,255,255,0.08); color:var(--ink); cursor:pointer;
+    font-family:var(--font-head); font-weight:700; font-size:0.9rem;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:background .2s ease;
+  }
+  .font-ctrl .toggle:hover{ background:rgba(255,255,255,0.22); }
+  .font-ctrl.open .toggle{ background:rgba(255,255,255,0.24); }
+  .font-panel{
+    display:flex; align-items:center; gap:0.35rem;
+    max-width:0; opacity:0; overflow:hidden; margin-left:0;
+    transition:max-width .28s ease, opacity .2s ease, margin-left .28s ease;
+  }
+  .font-ctrl.open .font-panel{ max-width:220px; opacity:1; margin-left:0.4rem; }
+  .font-panel button{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.22);
+    background:rgba(255,255,255,0.08); color:var(--ink); cursor:pointer;
+    font-family:var(--font-head); font-weight:700; font-size:0.85rem;
+    display:flex; align-items:center; justify-content:center; transition:background .2s ease;
+    flex-shrink:0;
+  }
+  .font-panel button:hover{ background:rgba(255,255,255,0.22); }
+  .font-panel button.reset{ font-size:0.66rem; letter-spacing:0.02em; width:auto; padding:0 0.65rem; border-radius:100px; white-space:nowrap; }
+  @media (max-width:560px){
+    .font-ctrl{ top:64px; right:14px; padding:0.35rem; }
+    .font-ctrl .toggle, .font-panel button{ width:30px; height:30px; }
+  }
+
+  /* ---- GitHub sync control ---- */
+  .sync-ctrl{ position:fixed; top:138px; right:22px; z-index:190; }
+  .sync-ctrl .toggle{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.22);
+    background:rgba(255,255,255,0.08); color:var(--ink); cursor:pointer; font-size:0.95rem;
+    display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);
+    transition:background .2s ease;
+  }
+  .sync-ctrl .toggle:hover{ background:rgba(255,255,255,0.22); }
+  .sync-ctrl.open .toggle{ background:rgba(255,255,255,0.24); }
+  .sync-panel{
+    position:absolute; top:calc(100% + 10px); right:0; width:250px; max-width:72vw;
+    background:rgba(8,10,18,0.9); border:1px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(14px); border-radius:16px; padding:1rem;
+    opacity:0; transform:translateY(-6px) scale(0.97); pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .sync-ctrl.open .sync-panel{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+  .sync-label{ font-family:var(--font-head); font-weight:700; font-size:0.85rem; margin-bottom:0.5rem; }
+  .sync-status{ font-size:0.72rem; color:var(--ink-dim); margin-bottom:0.7rem; line-height:1.4; }
+  .sync-status.connected{ color:#7dffb0; }
+  #gh-token{ width:100%; padding:0.5rem 0.65rem; border-radius:8px; border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.3); color:var(--ink); font-size:0.82rem; margin-bottom:0.6rem; font-family:var(--font-body); }
+  .sync-actions{ display:flex; gap:0.5rem; margin-bottom:0.65rem; }
+  .sync-actions button{ flex:1; padding:0.45rem 0; border-radius:8px; border:1px solid rgba(255,255,255,0.22); background:rgba(255,255,255,0.1); color:var(--ink); font-family:var(--font-head); font-weight:700; font-size:0.75rem; cursor:pointer; transition:background .2s ease; }
+  .sync-actions button.ghost{ background:transparent; }
+  .sync-actions button:hover{ background:rgba(255,255,255,0.22); }
+  .sync-note{ font-size:0.65rem; color:var(--ink-faint); line-height:1.45; }
+  @media (max-width:560px){ .sync-ctrl{ top:112px; right:14px; } .sync-ctrl .toggle{ width:30px; height:30px; } }
+
+  /* ---- per-row save status (Additional Prayer Requests slide) ---- */
+  .row-status{ font-size:0.68rem; margin-top:0.3rem; font-family:var(--font-body); font-weight:600; }
+  .row-status.ok{ color:#7dffb0; }
+  .row-status.warn{ color:#fbbf24; }
 </style>
 </head>
+
 <body>
 
-<header>
-  <div class="org-name">AMAZING GOD INTERNATIONAL MINISTRIES</div>
-  <div class="org-sub">AGIM &bull; AGIC &bull; AGIWM</div>
-  <div class="title-block">
-    <div class="title-en">Intercessory Prayers</div>
-    <div class="title-te">విజ్ఞాపన ప్రార్థనలు</div>
-  </div>
-  <div class="verse">"Do not be anxious about anything, but in every situation, by prayer… present your requests to God." — Phil 4:6</div>
-  <div class="verse verse-te">"ఏ విషయమును గూర్చియు చింతపడకుండా...ప్రతి విషయములో మీ విజ్ఞాపనమలు దేవునికి తెలియపరచుడి." — ఫిలిప్పీయులు 4:6</div>
-</header>
+<div id="deck-progress"></div>
+<nav class="rail" id="rail"></nav>
 
-<main>
+<div class="font-ctrl" id="font-ctrl" role="group" aria-label="Text size">
+  <button class="toggle" id="font-toggle" title="Text size" aria-expanded="false">A</button>
+  <div class="font-panel" id="font-panel">
+    <button id="font-dec" title="Decrease text size">A−</button>
+    <button id="font-reset" class="reset" title="Reset text size">Reset</button>
+    <button id="font-inc" title="Increase text size">A+</button>
+  </div>
+</div>
+
+<div class="sync-ctrl" id="sync-ctrl">
+  <button class="toggle" id="sync-toggle" title="GitHub sync" aria-expanded="false">⚙</button>
+  <div class="sync-panel" id="sync-panel">
+    <div class="sync-label">GitHub Sync</div>
+    <div class="sync-status" id="sync-status">Checking…</div>
+    <input type="password" id="gh-token" placeholder="Paste PAT (repo scope)" autocomplete="off">
+    <div class="sync-actions">
+      <button id="gh-save">Connect</button>
+      <button id="gh-clear" class="ghost">Clear</button>
+    </div>
+    <div class="sync-note">Stored only in this browser, never in the page itself. Revoke anytime from GitHub → Settings → Developer settings → Tokens.</div>
+  </div>
+</div>
+
+<main class="deck">
+
+  <!-- HERO -->
+  <section class="slide hero" id="s-hero" data-glow="#5b6bd6">
+    <div class="slide-inner hero-inner">
+      <div class="org-mark">AMAZING GOD INTERNATIONAL MINISTRIES</div>
+      <div class="org-tag">AGIM &nbsp;•&nbsp; AGIC &nbsp;•&nbsp; AGIWM</div>
+      <div class="hero-title-en">Intercessory Prayers</div>
+      <div class="hero-title-te">విజ్ఞాపన ప్రార్థనలు</div>
+      <div class="hero-verse">"Do not be anxious about anything, but in every situation, by prayer… present your requests to God." — Phil 4:6</div>
+      <div class="hero-verse te">"ఏ విషయమును గూర్చియు చింతపడకుండా...ప్రతి విషయములో మీ విజ్ఞాపనమలు దేవునికి తెలియపరచుడి." — ఫిలిప్పీయులు 4:6</div>
+      <div class="scroll-cue">SCROLL TO BEGIN<br><span>↓</span></div>
+    </div>
+  </section>
 
   <!-- 1. SPECIAL PRAYER TOPICS -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-1">
-      <div class="col en"><span class="title-text">Special Prayer Topics</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-1" onclick="toggleTimer(1)" title="Play">▶</button>
-        <span class="timer-display" id="td-1">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(1)" title="Reset">↺</button>
+  <section class="slide s-emerald" id="hdr-1" data-glow="#34d399">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">01 / 07</div>
+          <div class="slide-title-en">Special Prayer Topics</div>
+          <div class="slide-title-te">ప్రత్యేక ప్రార్థన అంశాలు</div>
+        </div>
+        <div class="timer">
+          <button id="btn-1" onclick="toggleTimer(1)" title="Play">▶</button>
+          <span class="t-display" id="td-1">5:00</span>
+          <button onclick="resetTimer(1)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="col"><span class="title-text te">ప్రత్యేక ప్రార్థన అంశాలు</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-1"></div></div>
-    <div class="list-table topic">
-      <div class="list-row">
-        <div class="list-cell en">Children &amp; Youth</div>
-        <div class="list-cell">పిల్లలు &amp; యువత</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Protection from Persecution</div>
-        <div class="list-cell">హింస నుండి రక్షణ</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Spiritual Growth &amp; Unity</div>
-        <div class="list-cell">ఆత్మీయ వృద్ధి మరియు ఐక్యత</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Lonely &amp; Broken-Hearted</div>
-        <div class="list-cell">ఒంటరిగా ఉన్నవారు మరియు విరిగిన హృదయాలు కలిగినవారు</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Widows, Widowers, Divorced &amp; Single Parents</div>
-        <div class="list-cell">విధవరాండ్రు, విడాకులు పొందినవారు, ఒంటరి తల్లిదండ్రులు</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Unemployed &amp; Grieving Families</div>
-        <div class="list-cell">నిరుద్యోగులు మరియు దుఃఖంలో ఉన్న కుటుంబాలు</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Unsaved Souls – to come to Christ</div>
-        <div class="list-cell">రక్షణ పొందని ఆత్మలు – క్రీస్తునొద్దకు రాగలుగునట్లు</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">Persecuted Pastors &amp; Christians in India</div>
-        <div class="list-cell">భారతదేశంలో హింసను ఎదుర్కొంటున్న పాస్టర్లు &amp; క్రైస్తవులు</div>
+      <div class="rows">
+        <div class="row plain"><div class="en">Children &amp; Youth</div><div class="te">పిల్లలు &amp; యువత</div></div>
+        <div class="row plain"><div class="en">Protection from Persecution</div><div class="te">హింస నుండి రక్షణ</div></div>
+        <div class="row plain"><div class="en">Spiritual Growth &amp; Unity</div><div class="te">ఆత్మీయ వృద్ధి మరియు ఐక్యత</div></div>
+        <div class="row plain"><div class="en">Lonely &amp; Broken-Hearted</div><div class="te">ఒంటరిగా ఉన్నవారు మరియు విరిగిన హృదయాలు కలిగినవారు</div></div>
+        <div class="row plain"><div class="en">Widows, Widowers, Divorced &amp; Single Parents</div><div class="te">విధవరాండ్రు, విడాకులు పొందినవారు, ఒంటరి తల్లిదండ్రులు</div></div>
+        <div class="row plain"><div class="en">Unemployed &amp; Grieving Families</div><div class="te">నిరుద్యోగులు మరియు దుఃఖంలో ఉన్న కుటుంబాలు</div></div>
+        <div class="row plain"><div class="en">Unsaved Souls – to come to Christ</div><div class="te">రక్షణ పొందని ఆత్మలు – క్రీస్తునొద్దకు రాగలుగునట్లు</div></div>
+        <div class="row plain"><div class="en">Persecuted Pastors &amp; Christians in India</div><div class="te">భారతదేశంలో హింసను ఎదుర్కొంటున్న పాస్టర్లు &amp; క్రైస్తవులు</div></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- 6. PRAY FOR BROTHERS & FAMILIES -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-6">
-      <div class="col en"><span class="title-text">Prayer for Members: Brothers and Family</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-6" onclick="toggleTimer(6)" title="Play">▶</button>
-        <span class="timer-display" id="td-6">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(6)" title="Reset">↺</button>
+  <!-- 6. BROTHERS & FAMILY -->
+  <section class="slide s-blue" id="hdr-6" data-glow="#5f8cff">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">02 / 07</div>
+          <div class="slide-title-en">Prayer for Members: Brothers &amp; Family</div>
+          <div class="slide-title-te">సభ్యుల కోసం ప్రార్థన: సహోదరులు మరియు కుటుంబం</div>
+        </div>
+        <div class="timer">
+          <button id="btn-6" onclick="toggleTimer(6)" title="Play">▶</button>
+          <span class="t-display" id="td-6">5:00</span>
+          <button onclick="resetTimer(6)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="col"><span class="title-text te">సభ్యుల కోసం ప్రార్థన: సహోదరులు మరియు కుటుంబం</span></div>
+      <div class="rows">
+        <div class="row"><div class="en"><strong>Bro Jala &amp; Sis Jeru</strong> – Family: <span class="detail">Fruit of Womb</span></div><div class="te"><strong>బ్రో. జాల &amp; సిస్. జెరూ</strong> – కుటుంబం: సంతాన వరం</div></div>
+        <div class="row"><div class="en"><strong>Bro Jonathan</strong> – <span class="detail">Salvation &amp; Settlement</span></div><div class="te"><strong>బ్రో. జోనాథన్</strong> – రక్షణ &amp; స్థిరత</div></div>
+        <div class="row"><div class="en"><strong>Bro Boney</strong> – <span class="detail">Salvation &amp; Settlement</span></div><div class="te"><strong>బ్రో. బోనీ</strong> – రక్షణ &amp; స్థిరత</div></div>
+        <div class="row"><div class="en"><strong>Bro Benhur Dammala</strong> – Family</div><div class="te"><strong>బ్రో. బెన్హర్ దమ్మాల</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Bro Jayapaul Dammala</strong> – Family</div><div class="te"><strong>బ్రో. జయపాల్ దమ్మాల</strong> – కుటుంబం</div></div>
+      </div>
     </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-6"></div></div>
-    <div class="list-table prayer">
+  </section>
 
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Jala &amp; Sis Jeru</strong> – Family: <span class="detail">Fruit of Womb</span></div>
-        <div class="list-cell"><strong>బ్రో. జాల &amp; సిస్. జెరూ</strong> – కుటుంబం: <span class="detail">సంతాన వరం</span></div>
+  <!-- 5. SISTERS & FAMILY -->
+  <section class="slide s-rose" id="hdr-5" data-glow="#fb7185">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">03 / 07</div>
+          <div class="slide-title-en">Prayer for Members: Sisters &amp; Family</div>
+          <div class="slide-title-te">సభ్యుల కోసం ప్రార్థన: సహోదరీలు మరియు కుటుంబం</div>
+        </div>
+        <div class="timer">
+          <button id="btn-5" onclick="toggleTimer(5)" title="Play">▶</button>
+          <span class="t-display" id="td-5">5:00</span>
+          <button onclick="resetTimer(5)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Jonathan</strong> – <span class="detail">Salvation &amp; Settlement</span></div>
-        <div class="list-cell"><strong>బ్రో. జోనాథన్</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Boney</strong> – <span class="detail">Salvation &amp; Settlement</span></div>
-        <div class="list-cell"><strong>బ్రో. బోనీ</strong> – <span class="detail">రక్షణ &amp; స్థిరత</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Benhur Dammala</strong> – Family</div>
-        <div class="list-cell"><strong>బ్రో. బెన్హర్ దమ్మాల</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Jayapaul Dammala</strong> – Family</div>
-        <div class="list-cell"><strong>బ్రో. జయపాల్ దమ్మాల</strong> – కుటుంబం</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. PRAY FOR SISTERS & FAMILIES -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-5">
-      <div class="col en"><span class="title-text">Prayer for Members: Sisters and Family</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-5" onclick="toggleTimer(5)" title="Play">▶</button>
-        <span class="timer-display" id="td-5">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(5)" title="Reset">↺</button>
-      </div>
-      <div class="col"><span class="title-text te">సభ్యుల కోసం ప్రార్థన: సహోదరీలు మరియు కుటుంబం</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-5"></div></div>
-    <div class="list-table prayer">
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sheela Kore</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. శీలా కోరే</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sarah Chicago</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. సారా చికాగో</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sirisha Calvin</strong> – Family: <span class="detail">Twinkle, Vinod, Robert, Uday</span></div>
-        <div class="list-cell"><strong>సిస్. సిరిష కాల్విన్</strong> – కుటుంబం: <span class="detail">ట్వింకిల్, వినోద్, రాబర్ట్, ఉదయ్</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sowmya John</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. సౌమ్య జాన్</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sharadamma</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. శారదమ్మ</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Suneeta</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
-        <div class="list-cell"><strong>సిస్. సునీత</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Revathy</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. రేవతి</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Phebe Rani</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Pavani</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. పవని</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Bindu</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
-        <div class="list-cell"><strong>సిస్. బిందు</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Subadramma</strong> – <span class="detail">Bed Ridden, Health &amp; Deliverance</span></div>
-        <div class="list-cell"><strong>సుభద్రమ్మ</strong> – <span class="detail">మంచంపై ఉన్నారు, ఆరోగ్యం &amp; విమోచన</span></div>
-      </div>
-
-      <div class="list-row">
-        <div class="list-cell en"><strong>Padma, Swathi, Sravanthi</strong> – <span class="detail">Salvation &amp; Deliverance</span></div>
-        <div class="list-cell"><strong>పద్మ, స్వాతి, శ్రావంతి</strong> – <span class="detail">రక్షణ &amp; విమోచన</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Sweety, Sis Choti, Sis Neha</strong> – <span class="detail">Wedding &amp; Settlement</span></div>
-        <div class="list-cell"><strong>సిస్. స్వీటీ, సిస్. చోటీ, సిస్. నేహా</strong> – <span class="detail">వివాహం &amp; స్థిరత</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Jennifer</strong> – <span class="detail">Best Job</span></div>
-        <div class="list-cell"><strong>సిస్. జెన్నిఫర్</strong> – <span class="detail">మంచి ఉద్యోగం</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Helen Dammala</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. హెలెన్ డమ్ముల</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Esther Gattu, Paul Gattu, Smithy Gattu</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. ఎస్తేర్ గట్టు, పాల్ గట్టు, స్మిత గట్టు</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Suhasini</strong> – Family</div>
-        <div class="list-cell"><strong>సిస్. సుహాసిని</strong> – కుటుంబం</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Twinkle Amjala</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div>
-        <div class="list-cell"><strong>సిస్. ట్వింకిల్ అంజాల</strong> – కుటుంబం: <span class="detail">ఆరోగ్యం &amp; విమోచన</span></div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Phebe Rani</strong> – Family: <span class="detail">Pray for her husband's Salvation</span></div>
-        <div class="list-cell"><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం: <span class="detail">ఆమె భర్త రక్షణ కోసం ప్రార్థించండి</span></div>
-      </div>
+      <div class="rows">
+        <div class="row"><div class="en"><strong>Sis Sheela Kore</strong> – Family</div><div class="te"><strong>సిస్. శీలా కోరే</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Sarah Chicago</strong> – Family</div><div class="te"><strong>సిస్. సారా చికాగో</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Sirisha Calvin</strong> – Family: <span class="detail">Twinkle, Vinod, Robert, Uday</span></div><div class="te"><strong>సిస్. సిరిష కాల్విన్</strong> – కుటుంబం: ట్వింకిల్, వినోద్, రాబర్ట్, ఉదయ్</div></div>
+        <div class="row"><div class="en"><strong>Sis Sowmya John</strong> – Family</div><div class="te"><strong>సిస్. సౌమ్య జాన్</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Sharadamma</strong> – Family</div><div class="te"><strong>సిస్. శారదమ్మ</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Suneeta</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div><div class="te"><strong>సిస్. సునీత</strong> – కుటుంబం: ఆరోగ్యం &amp; విమోచన</div></div>
+        <div class="row"><div class="en"><strong>Sis Revathy</strong> – Family</div><div class="te"><strong>సిస్. రేవతి</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Phebe Rani</strong> – Family</div><div class="te"><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Pavani</strong> – Family</div><div class="te"><strong>సిస్. పవని</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Bindu</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div><div class="te"><strong>సిస్. బిందు</strong> – కుటుంబం: ఆరోగ్యం &amp; విమోచన</div></div>
+        <div class="row"><div class="en"><strong>Subadramma</strong> – <span class="detail">Bed Ridden, Health &amp; Deliverance</span></div><div class="te"><strong>సుభద్రమ్మ</strong> – మంచంపై ఉన్నారు, ఆరోగ్యం &amp; విమోచన</div></div>
+        <div class="row"><div class="en"><strong>Padma, Swathi, Sravanthi</strong> – <span class="detail">Salvation &amp; Deliverance</span></div><div class="te"><strong>పద్మ, స్వాతి, శ్రావంతి</strong> – రక్షణ &amp; విమోచన</div></div>
+        <div class="row"><div class="en"><strong>Sis Sweety, Sis Choti, Sis Neha</strong> – <span class="detail">Wedding &amp; Settlement</span></div><div class="te"><strong>సిస్. స్వీటీ, సిస్. చోటీ, సిస్. నేహా</strong> – వివాహం &amp; స్థిరత</div></div>
+        <div class="row"><div class="en"><strong>Sis Jennifer</strong> – <span class="detail">Best Job</span></div><div class="te"><strong>సిస్. జెన్నిఫర్</strong> – మంచి ఉద్యోగం</div></div>
+        <div class="row"><div class="en"><strong>Sis Helen Dammala</strong> – Family</div><div class="te"><strong>సిస్. హెలెన్ డమ్ముల</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Esther Gattu, Paul Gattu, Smithy Gattu</strong> – Family</div><div class="te"><strong>సిస్. ఎస్తేర్ గట్టు, పాల్ గట్టు, స్మిత గట్టు</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Suhasini</strong> – Family</div><div class="te"><strong>సిస్. సుహాసిని</strong> – కుటుంబం</div></div>
+        <div class="row"><div class="en"><strong>Sis Twinkle Amjala</strong> – Family: <span class="detail">Health &amp; Deliverance</span></div><div class="te"><strong>సిస్. ట్వింకిల్ అంజాల</strong> – కుటుంబం: ఆరోగ్యం &amp; విమోచన</div></div>
+        <div class="row"><div class="en"><strong>Sis Phebe Rani</strong> – Family: <span class="detail">Pray for her husband's Salvation</span></div><div class="te"><strong>సిస్. ఫీబే రాణి</strong> – కుటుంబం: ఆమె భర్త రక్షణ కోసం ప్రార్థించండి</div></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- 2. MINISTRIES, SPONSORS & VOLUNTEERS -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-2">
-      <div class="col en"><span class="title-text">Ministries, Sponsors &amp; Volunteers</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-2" onclick="toggleTimer(2)" title="Play">▶</button>
-        <span class="timer-display" id="td-2">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(2)" title="Reset">↺</button>
+  <section class="slide s-cyan" id="hdr-2" data-glow="#38d9e8">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">04 / 07</div>
+          <div class="slide-title-en">Ministries, Sponsors &amp; Volunteers</div>
+          <div class="slide-title-te">పరిచర్యలు, స్పాన్సర్లు &amp; స్వచ్ఛంద సేవకులు</div>
+        </div>
+        <div class="timer">
+          <button id="btn-2" onclick="toggleTimer(2)" title="Play">▶</button>
+          <span class="t-display" id="td-2">5:00</span>
+          <button onclick="resetTimer(2)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="col"><span class="title-text te">పరిచర్యలు, స్పాన్సర్లు &amp; స్వచ్ఛంద సేవకులు</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-2"></div></div>
-    <div class="list-table topic">
-      <div class="list-row">
-        <div class="list-cell en">Sponsors &amp; Supporters, Past &amp; Present – God's Abundant Blessings</div>
-        <div class="list-cell">ముందు &amp; ఇప్పుడు స్పాన్సర్లు &amp; మద్దతుదారులు – దేవుని సమృద్ధి ఆశీర్వాదాలు</div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en">AGIM AGIC AGIWM Ministry</div>
-        <div class="list-cell">AGIM AGIC AGIWM సేవ</div>
+      <div class="rows">
+        <div class="row plain"><div class="en">Sponsors &amp; Supporters, Past &amp; Present – God's Abundant Blessings</div><div class="te">ముందు &amp; ఇప్పుడు స్పాన్సర్లు &amp; మద్దతుదారులు – దేవుని సమృద్ధి ఆశీర్వాదాలు</div></div>
+        <div class="row plain"><div class="en">AGIM AGIC AGIWM Ministry</div><div class="te">AGIM AGIC AGIWM సేవ</div></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- 4. PRAY FOR AGIM PASTORS & FAMILIES -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-4">
-      <div class="col en"><span class="title-text">Pray for AGIM Pastors &amp; Families</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-4" onclick="toggleTimer(4)" title="Play">▶</button>
-        <span class="timer-display" id="td-4">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(4)" title="Reset">↺</button>
+  <!-- 4. AGIM PASTORS & FAMILIES -->
+  <section class="slide s-violet" id="hdr-4" data-glow="#a78bfa">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">05 / 07</div>
+          <div class="slide-title-en">Pray for AGIM Pastors &amp; Families</div>
+          <div class="slide-title-te">AGIM పాస్టర్లు &amp; కుటుంబాల కోసం ప్రార్థన</div>
+        </div>
+        <div class="timer">
+          <button id="btn-4" onclick="toggleTimer(4)" title="Play">▶</button>
+          <span class="t-display" id="td-4">5:00</span>
+          <button onclick="resetTimer(4)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="col"><span class="title-text te">AGIM పాస్టర్లు &amp; కుటుంబాల కోసం ప్రార్థన</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-4"></div></div>
-    <div class="list-table prayer">
-      <div class="list-row">
-        <div class="list-cell en"><strong>AGIM Pastors</strong> – Family &amp; Ministry</div>
-        <div class="list-cell"><strong>AGIM పాస్టర్లు</strong> – కుటుంబం &amp; పరిచర్య</div>
+      <div class="rows">
+        <div class="row"><div class="en"><strong>AGIM Pastors</strong> – Family &amp; Ministry</div><div class="te"><strong>AGIM పాస్టర్లు</strong> – కుటుంబం &amp; పరిచర్య</div></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- 7. ADDITIONAL PRAYER REQUESTS -->
-  <div class="section">
-    <div class="section-title-row" id="hdr-7">
-      <div class="col en"><span class="title-text">Additional Prayer Requests</span></div>
-      <div class="timer-block">
-        <button class="timer-btn" id="btn-7" onclick="toggleTimer(7)" title="Play">▶</button>
-        <span class="timer-display" id="td-7">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(7)" title="Reset">↺</button>
-      </div>
-      <div class="col"><span class="title-text te">అదనపు ప్రార్థన విజ్ఞాపనలు</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-7"></div></div>
-    <div class="table-prayers">
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Lavanya</strong> – Deliverance and Good job</div>
-        <div class="prayer-cell"><strong>లవణ్య</strong> – విముక్తి మరియు మంచి ఉద్యోగం</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Pastor Prasad</strong> – Admitted in Hospital due to IBD issue, pray for complete healing</div>
-        <div class="prayer-cell"><strong>పాస్టర్ ప్రసాద్</strong> – IBD సమస్య కారణంగా ఆసుపత్రిలో చేర్చబడ్డారు, సంపూర్ణ ఆరోగ్యం కోసం ప్రార్థించండి</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Brother Issac</strong> – Stent</div>
-        <div class="prayer-cell"><strong>సహోదరుడు ఐజాక్</strong> – స్టెంట్</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Sister Malathi</strong> – Financial issue</div>
-        <div class="prayer-cell"><strong>సిస్టర్ మలాథి</strong> – ఆర్థిక సమస్య</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Madhavi</strong> – Salvation</div>
-        <div class="prayer-cell"><strong>మధావి</strong> – రక్షణ</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Sammama Kalori Sai</strong> – Deliverance from drinking habits</div>
-        <div class="prayer-cell"><strong>సమ్మామ కలోరి సాయి</strong> – మద్యపాన అలవాటు నుండి విముక్తి</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Daniel</strong> – Wedding</div>
-        <div class="prayer-cell"><strong>డేనియల్</strong> – వివాహం</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Elizabeth Sunitha</strong> – Health</div>
-        <div class="prayer-cell"><strong>ఎలిజబెత్ సునిత</strong> – ఆరోగ్యం</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Amruthaa and family</strong> – Husband and wife reunion</div>
-        <div class="prayer-cell"><strong>అమృతా మరియు కుటుంబం</strong> – భర్త మరియు భార్య తిరిగి సమ్మిళనం</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en"><strong>Pastor Paul Spurgeon</strong> – Health: Vascular veins</div>
-        <div class="prayer-cell"><strong>పాస్టర్ పాల్ స్పర్జన్</strong> – ఆరోగ్యం: రక్త నాళాలు</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en">Pray for <strong>Brother Kishore's</strong> health and for the sale of his house.</div>
-        <div class="prayer-cell">సహోదరుడు కిషోర్ గారి ఆరోగ్యం మరియు వారి ఇల్లు అమ్మబడుట కొరకు దయచేసి ప్రార్థించండి.</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en">Sister Sujatha Jeldi's husband Brother Sudhakar – Kidney Transplant postponed indefinitely as the donor tested positive for COVID. Please pray for Sujatha, Sudhakar, and their two children for strength, emotional stability, and wisdom during this challenging time.</div>
-        <div class="prayer-cell">సిస్టర్ సుజాత జెల్డీ భర్త సహోదరుడు సుధాకర్ – కిడ్నీ ట్రాన్స్‌ప్లాంట్ దాత కోవిడ్‌ కు పాజిటివ్ వచ్చినందువల్ల నిరవధికంగా వాయిదా వేయబడింది. సుజాత, సుధాకర్ మరియు వారి ఇద్దరు పిల్లల కోసం ఈ కష్ట సమయంలో బలం, భావోత్సాహ స్థిరత మరియు జ్ఞానం కోసం ప్రార్థించండి.</div>
-      </div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en">Loss of any family member – pray for Comfort and Strength</div>
-        <div class="prayer-cell">కుటుంబ సభ్యులెవరైనా మరణిస్తే – ఓదార్పు మరియు ధైర్యం కోసం ప్రార్థించండి.</div>
-      </div>
-      <div class="prayer-row">
-        <div class="prayer-cell en">Birthdays and Anniversaries – pray for God's Blessings</div>
-        <div class="prayer-cell">పుట్టిన రోజులు మరియు వార్షికోత్సవాలు – దేవుని ఆశీర్వాదాల కోసం ప్రార్థించండి</div>
-      </div>
-      <div id="extra-rows"></div>
-      <div class="add-row-ui">
-        <span class="add-row-label">Add New Prayer Request</span>
-        <div class="add-row-inputs">
-          <textarea id="new-en" placeholder="Type prayer request in English…" rows="3"></textarea>
-          <textarea id="new-te" placeholder="తెలుగులో ప్రార్థన విజ్ఞాపన టైప్ చేయండి…" rows="3"></textarea>
+  <section class="slide s-amber" id="hdr-7" data-glow="#fbbf24">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">06 / 07</div>
+          <div class="slide-title-en">Additional Prayer Requests</div>
+          <div class="slide-title-te">అదనపు ప్రార్థన విజ్ఞాపనలు</div>
         </div>
-        <button onclick="addPrayerRow()">＋ Add Prayer Request</button>
+        <div class="timer">
+          <button id="btn-7" onclick="toggleTimer(7)" title="Play">▶</button>
+          <span class="t-display" id="td-7">5:00</span>
+          <button onclick="resetTimer(7)" title="Reset">↺</button>
+        </div>
+      </div>
+      <div class="rows" id="req-rows">
+        <div class="row"><div class="en"><strong>Lavanya</strong> – Deliverance and Good job</div><div class="te"><strong>లవణ్య</strong> – విముక్తి మరియు మంచి ఉద్యోగం</div></div>
+        <div class="row"><div class="en"><strong>Pastor Prasad</strong> – Admitted in Hospital due to IBD issue, pray for complete healing</div><div class="te"><strong>పాస్టర్ ప్రసాద్</strong> – IBD సమస్య కారణంగా ఆసుపత్రిలో చేర్చబడ్డారు, సంపూర్ణ ఆరోగ్యం కోసం ప్రార్థించండి</div></div>
+        <div class="row"><div class="en"><strong>Brother Issac</strong> – Stent</div><div class="te"><strong>సహోదరుడు ఐజాక్</strong> – స్టెంట్</div></div>
+        <div class="row"><div class="en"><strong>Sister Malathi</strong> – Financial issue</div><div class="te"><strong>సిస్టర్ మలాథి</strong> – ఆర్థిక సమస్య</div></div>
+        <div class="row"><div class="en"><strong>Madhavi</strong> – Salvation</div><div class="te"><strong>మధావి</strong> – రక్షణ</div></div>
+        <div class="row"><div class="en"><strong>Sammama Kalori Sai</strong> – Deliverance from drinking habits</div><div class="te"><strong>సమ్మామ కలోరి సాయి</strong> – మద్యపాన అలవాటు నుండి విముక్తి</div></div>
+        <div class="row"><div class="en"><strong>Daniel</strong> – Wedding</div><div class="te"><strong>డేనియల్</strong> – వివాహం</div></div>
+        <div class="row"><div class="en"><strong>Elizabeth Sunitha</strong> – Health</div><div class="te"><strong>ఎలిజబెత్ సునిత</strong> – ఆరోగ్యం</div></div>
+        <div class="row"><div class="en"><strong>Amruthaa and family</strong> – Husband and wife reunion</div><div class="te"><strong>అమృతా మరియు కుటుంబం</strong> – భర్త మరియు భార్య తిరిగి సమ్మిళనం</div></div>
+        <div class="row"><div class="en"><strong>Pastor Paul Spurgeon</strong> – Health: Vascular veins</div><div class="te"><strong>పాస్టర్ పాల్ స్పర్జన్</strong> – ఆరోగ్యం: రక్త నాళాలు</div></div>
+        <div class="row"><div class="en">Pray for <strong>Brother Kishore's</strong> health and for the sale of his house.</div><div class="te">సహోదరుడు కిషోర్ గారి ఆరోగ్యం మరియు వారి ఇల్లు అమ్మబడుట కొరకు దయచేసి ప్రార్థించండి.</div></div>
+        <div class="row"><div class="en">Sister Sujatha Jeldi's husband Brother Sudhakar – Kidney Transplant postponed indefinitely as the donor tested positive for COVID. Please pray for Sujatha, Sudhakar, and their two children for strength, emotional stability, and wisdom during this challenging time.</div><div class="te">సిస్టర్ సుజాత జెల్డీ భర్త సహోదరుడు సుధాకర్ – కిడ్నీ ట్రాన్స్‌ప్లాంట్ దాత కోవిడ్‌ కు పాజిటివ్ వచ్చినందువల్ల నిరవధికంగా వాయిదా వేయబడింది. సుజాత, సుధాకర్ మరియు వారి ఇద్దరు పిల్లల కోసం ఈ కష్ట సమయంలో బలం, భావోత్సాహ స్థిరత మరియు జ్ఞానం కోసం ప్రార్థించండి.</div></div>
+        <div class="row"><div class="en">Loss of any family member – pray for Comfort and Strength</div><div class="te">కుటుంబ సభ్యులెవరైనా మరణిస్తే – ఓదార్పు మరియు ధైర్యం కోసం ప్రార్థించండి.</div></div>
+        <div class="row"><div class="en">Birthdays and Anniversaries – pray for God's Blessings</div><div class="te">పుట్టిన రోజులు మరియు వార్షికోత్సవాలు – దేవుని ఆశీర్వాదాల కోసం ప్రార్థించండి</div></div>
+      </div>
+      <div class="add-panel">
+        <span class="label">Add a new prayer request</span>
+        <textarea id="new-en" placeholder="Type prayer request in English…" rows="2"></textarea>
+        <textarea id="new-te" placeholder="తెలుగులో ప్రార్థన విజ్ఞాపన టైప్ చేయండి…" rows="2"></textarea>
+        <button class="submit" onclick="addPrayerRow()">＋ Add Prayer Request</button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- 8. AMARA FAMILY — VERY LAST -->
-  <div class="section amara-section">
-    <div class="section-title-row" id="hdr-8">
-      <div class="col en"><span class="title-text" style="color:#ffffff;">Pray for Founders &amp; Family</span></div>
-      <div class="timer-block" style="border-color:rgba(212,168,255,0.3);">
-        <button class="timer-btn" id="btn-8" onclick="toggleTimer(8)" title="Play">▶</button>
-        <span class="timer-display" id="td-8">5:00</span>
-        <button class="timer-btn reset" onclick="resetTimer(8)" title="Reset">↺</button>
+  <!-- 8. FOUNDERS & FAMILY -->
+  <section class="slide s-magenta" id="hdr-8" data-glow="#e879f9">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">07 / 07</div>
+          <div class="slide-title-en">Pray for Founders &amp; Family</div>
+          <div class="slide-title-te">వ్యవస్థాపకులు &amp; కుటుంబం కోసం ప్రార్థన</div>
+        </div>
+        <div class="timer">
+          <button id="btn-8" onclick="toggleTimer(8)" title="Play">▶</button>
+          <span class="t-display" id="td-8">5:00</span>
+          <button onclick="resetTimer(8)" title="Reset">↺</button>
+        </div>
       </div>
-      <div class="col"><span class="title-text te" style="color:#ffffff;">వ్యవస్థాపకులు &amp; కుటుంబం కోసం ప్రార్థన</span></div>
-    </div>
-    <div class="timer-progress-bar"><div class="timer-progress-fill" id="prog-8" style="background:#8b2fc9;"></div></div>
-    <div class="list-table prayer">
-      <div class="list-row">
-        <div class="list-cell en"><strong>Pastor Hemanth Jerry Amara &amp; Pastor Elizabeth Amara</strong> – <span class="detail">Founders AGIM/AGIC/AGIWM – Family, Ministry, Business, Establishments, Health</span></div>
-        <div class="list-cell"><strong>పాస్టర్ హేమంత్ జెర్రీ అమారా &amp; పాస్టర్ ఎలిజబెత్ అమారా</strong> – <span class="detail">వ్యవస్థాపకులు AGIM/AGIC/AGIWM – కుటుంబం, పరిచర్య, వ్యాపారం, ఆరోగ్యం</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Olivia Amara</strong> – <span class="detail">Education &amp; Calling, Settlement</span></div>
-        <div class="list-cell"><strong>ఒలివియా అమారా</strong> – <span class="detail">చదువు &amp; పిలుపు, స్థిరత</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Tiara Amara</strong> – <span class="detail">Calling, Settlement</span></div>
-        <div class="list-cell"><strong>టియారా అమారా</strong> – <span class="detail">పిలుపు, స్థిరత</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Samuel Amara</strong> – <span class="detail">Education, Calling, Ministry</span></div>
-        <div class="list-cell"><strong>సముయేలు అమారా</strong> – <span class="detail">చదువు, పిలుపు, పరిచర్య</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Jessy Amara &amp; Anitha Amara</strong> – <span class="detail">Kidney Disease, Elder Son's Wedding</span></div>
-        <div class="list-cell"><strong>బ్రో. జెస్సీ అమారా &amp; అనిత అమారా</strong> – <span class="detail">మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం</span></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Bro Abhishek Amara &amp; Sis Emilia</strong></div>
-        <div class="list-cell"><strong>బ్రో. అభిషేక్ అమారా &amp; సిస్. ఎమిలియా</strong></div>
-      </div>
-      <div class="list-row">
-        <div class="list-cell en"><strong>Sis Grace Amara</strong> – <span class="detail">Health</span></div>
-        <div class="list-cell"><strong>సిస్. గ్రేస్ అమారా</strong> – <span class="detail">ఆరోగ్యం</span></div>
+      <div class="rows">
+        <div class="row"><div class="en"><strong>Pastor Hemanth Jerry Amara &amp; Pastor Elizabeth Amara</strong> – <span class="detail">Founders AGIM/AGIC/AGIWM – Family, Ministry, Business, Establishments, Health</span></div><div class="te"><strong>పాస్టర్ హేమంత్ జెర్రీ అమారా &amp; పాస్టర్ ఎలిజబెత్ అమారా</strong> – వ్యవస్థాపకులు AGIM/AGIC/AGIWM – కుటుంబం, పరిచర్య, వ్యాపారం, ఆరోగ్యం</div></div>
+        <div class="row"><div class="en"><strong>Olivia Amara</strong> – <span class="detail">Education &amp; Calling, Settlement</span></div><div class="te"><strong>ఒలివియా అమారా</strong> – చదువు &amp; పిలుపు, స్థిరత</div></div>
+        <div class="row"><div class="en"><strong>Tiara Amara</strong> – <span class="detail">Calling, Settlement</span></div><div class="te"><strong>టియారా అమారా</strong> – పిలుపు, స్థిరత</div></div>
+        <div class="row"><div class="en"><strong>Samuel Amara</strong> – <span class="detail">Education, Calling, Ministry</span></div><div class="te"><strong>సముయేలు అమారా</strong> – చదువు, పిలుపు, పరిచర్య</div></div>
+        <div class="row"><div class="en"><strong>Bro Jessy Amara &amp; Anitha Amara</strong> – <span class="detail">Kidney Disease, Elder Son's Wedding</span></div><div class="te"><strong>బ్రో. జెస్సీ అమారా &amp; అనిత అమారా</strong> – మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం</div></div>
+        <div class="row"><div class="en"><strong>Bro Abhishek Amara &amp; Sis Emilia</strong></div><div class="te"><strong>బ్రో. అభిషేక్ అమారా &amp; సిస్. ఎమిలియా</strong></div></div>
+        <div class="row"><div class="en"><strong>Sis Grace Amara</strong> – <span class="detail">Health</span></div><div class="te"><strong>సిస్. గ్రేస్ అమారా</strong> – ఆరోగ్యం</div></div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- OUTRO -->
+  <section class="slide outro" id="s-outro" data-glow="#7d8bdc">
+    <div class="slide-inner outro-inner">
+      <div class="big">With Gratitude</div>
+      <div class="te">ధన్యవాదములతో</div>
+      <div class="fine">AGIM Family — AMAZING GOD INTERNATIONAL MINISTRIES • AGIM / AGIC / AGIWM</div>
+    </div>
+  </section>
 
 </main>
 
-<footer>
-  <span>With Gratitude | ధన్యవాదములతో</span> — AGIM Family &nbsp;|&nbsp; AMAZING GOD INTERNATIONAL MINISTRIES • AGIM / AGIC / AGIWM
-</footer>
-
 <script>
-  const TOTAL = 300; // 5 minutes in seconds
+  const TOTAL = 300;
   const timers = {};
 
-  function pad(n) { return String(n).padStart(2, '0'); }
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function formatTime(s){ return pad(Math.floor(s/60)) + ':' + pad(s%60); }
 
-  function formatTime(s) {
-    const m = Math.floor(s / 60);
-    return pad(m) + ':' + pad(s % 60);
+  function toggleTimer(id){
+    if(!timers[id]) timers[id] = { remaining: TOTAL, running:false, interval:null };
+    timers[id].running ? pauseTimer(id) : startTimer(id);
   }
-
-  function toggleTimer(id) {
-    if (!timers[id]) {
-      timers[id] = { remaining: TOTAL, running: false, interval: null };
-    }
+  function startTimer(id){
+    if(!timers[id]) timers[id] = { remaining: TOTAL, running:false, interval:null };
     const t = timers[id];
-    if (t.running) {
-      pauseTimer(id);
-    } else {
-      startTimer(id);
-    }
-  }
-
-  function startTimer(id) {
-    if (!timers[id]) timers[id] = { remaining: TOTAL, running: false, interval: null };
-    const t = timers[id];
-    if (t.remaining <= 0) return;
+    if(t.remaining <= 0) return;
     t.running = true;
-    document.getElementById('btn-' + id).textContent = '⏸';
-    document.getElementById('hdr-' + id).classList.remove('done');
-
+    document.getElementById('btn-'+id).textContent = '⏸';
+    document.getElementById('hdr-'+id).classList.remove('done');
     t.interval = setInterval(() => {
       t.remaining--;
       updateDisplay(id);
-      if (t.remaining <= 0) {
+      if(t.remaining <= 0){
         clearInterval(t.interval);
         t.running = false;
         t.remaining = 0;
-        document.getElementById('btn-' + id).textContent = '▶';
-        document.getElementById('td-' + id).classList.remove('urgent');
-        document.getElementById('hdr-' + id).classList.add('done');
-        document.getElementById('td-' + id).textContent = 'AMEN';
-        document.getElementById('prog-' + id).style.width = '0%';
-        // beep
+        document.getElementById('btn-'+id).textContent = '▶';
+        document.getElementById('td-'+id).classList.remove('urgent');
+        document.getElementById('hdr-'+id).classList.add('done');
+        document.getElementById('td-'+id).textContent = 'AMEN';
         beep();
       }
     }, 1000);
   }
-
-  function pauseTimer(id) {
-    const t = timers[id];
-    if (!t) return;
-    clearInterval(t.interval);
-    t.running = false;
-    document.getElementById('btn-' + id).textContent = '▶';
+  function pauseTimer(id){
+    const t = timers[id]; if(!t) return;
+    clearInterval(t.interval); t.running = false;
+    document.getElementById('btn-'+id).textContent = '▶';
   }
-
-  function resetTimer(id) {
-    if (timers[id]) {
-      clearInterval(timers[id].interval);
-    }
-    timers[id] = { remaining: TOTAL, running: false, interval: null };
-    document.getElementById('td-' + id).textContent = '5:00';
-    document.getElementById('td-' + id).classList.remove('urgent');
-    document.getElementById('btn-' + id).textContent = '▶';
-    document.getElementById('hdr-' + id).classList.remove('done');
-    document.getElementById('prog-' + id).style.width = '100%';
+  function resetTimer(id){
+    if(timers[id]) clearInterval(timers[id].interval);
+    timers[id] = { remaining: TOTAL, running:false, interval:null };
+    document.getElementById('td-'+id).textContent = '5:00';
+    document.getElementById('td-'+id).classList.remove('urgent');
+    document.getElementById('btn-'+id).textContent = '▶';
+    document.getElementById('hdr-'+id).classList.remove('done');
   }
-
-  function updateDisplay(id) {
+  function updateDisplay(id){
     const t = timers[id];
-    const display = document.getElementById('td-' + id);
-    const fill = document.getElementById('prog-' + id);
+    const display = document.getElementById('td-'+id);
     display.textContent = formatTime(t.remaining);
-    const pct = (t.remaining / TOTAL) * 100;
-    fill.style.width = pct + '%';
-    if (t.remaining <= 60) {
-      display.classList.add('urgent');
-      fill.classList.add('urgent');
-    } else {
-      display.classList.remove('urgent');
-      fill.classList.remove('urgent');
-    }
+    display.classList.toggle('urgent', t.remaining <= 60);
   }
-
-  function beep() {
-    try {
+  function beep(){
+    try{
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      [0, 0.3, 0.6].forEach(delay => {
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
+      [0,0.3,0.6].forEach(delay => {
+        const o = ctx.createOscillator(); const g = ctx.createGain();
         o.connect(g); g.connect(ctx.destination);
         o.frequency.value = 880;
-        g.gain.setValueAtTime(0.4, ctx.currentTime + delay);
-        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 0.25);
-        o.start(ctx.currentTime + delay);
-        o.stop(ctx.currentTime + delay + 0.25);
+        g.gain.setValueAtTime(0.4, ctx.currentTime+delay);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+delay+0.25);
+        o.start(ctx.currentTime+delay); o.stop(ctx.currentTime+delay+0.25);
       });
-    } catch(e) {}
+    }catch(e){}
   }
 
-  function addPrayerRow() {
-    const enVal = document.getElementById('new-en').value.trim();
-    const teVal = document.getElementById('new-te').value.trim();
-    if (!enVal && !teVal) return;
-    const container = document.getElementById('extra-rows');
+  /* ---- GitHub-backed storage for Additional Prayer Requests ----
+     Reads/writes additional-prayers.csv in agimusa/prayer-tower via the
+     GitHub Contents API — same approach already planned for the Classic
+     design. Requires a repo-scoped PAT, entered once via the ⚙ sync
+     control and kept only in this browser's localStorage. */
+  const GH_REPO = 'agimusa/prayer-tower';
+  const GH_FILE = 'additional-prayers.csv';
+  const GH_BRANCH = 'main';
+
+  function getGhToken(){
+    try{ return localStorage.getItem('ptGithubToken') || ''; }catch(e){ return ''; }
+  }
+  function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function csvField(v){
+    return '"' + String(v == null ? '' : v).replace(/"/g,'""') + '"';
+  }
+  function parseCsv(text){
+    const rows = []; let field='', row=[], inQuotes=false, i=0;
+    while(i < text.length){
+      const c = text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field += '"'; i += 2; continue; }
+          inQuotes = false; i++; continue;
+        }
+        field += c; i++; continue;
+      }
+      if(c === '"'){ inQuotes = true; i++; continue; }
+      if(c === ','){ row.push(field); field=''; i++; continue; }
+      if(c === '\n' || c === '\r'){
+        if(c === '\r' && text[i+1] === '\n') i++;
+        row.push(field); rows.push(row); field=''; row=[]; i++; continue;
+      }
+      field += c; i++;
+    }
+    if(field.length || row.length){ row.push(field); rows.push(row); }
+    return rows.filter(r => r.length >= 2 && (r[0].trim() || r[1].trim()));
+  }
+  function b64EncodeUtf8(str){ return btoa(unescape(encodeURIComponent(str))); }
+  function b64DecodeUtf8(str){ return decodeURIComponent(escape(atob(str.replace(/\n/g,'')))); }
+
+  async function loadRemotePrayers(){
+    try{
+      const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}`, {
+        headers:{ 'Accept':'application/vnd.github+json' }
+      });
+      if(res.status !== 200) return; // no file yet, or blocked — start empty, no error shown
+      const data = await res.json();
+      const rows = parseCsv(b64DecodeUtf8(data.content));
+      const container = document.getElementById('req-rows');
+      rows.forEach(r => {
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<div class="en">${escapeHtml(r[0])}</div><div class="te">${escapeHtml(r[1])}</div>`;
+        container.prepend(row);
+      });
+    }catch(e){ /* network/CSP blocked — page still works, just without synced entries */ }
+  }
+
+  async function saveNewPrayerToGitHub(en, te){
+    const token = getGhToken();
+    if(!token) return { ok:false, reason:'no-token' };
+    const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`;
+    try{
+      let sha = null, existingText = '';
+      const getRes = await fetch(api + '?ref=' + GH_BRANCH, {
+        headers:{ 'Authorization':'token ' + token, 'Accept':'application/vnd.github+json' }
+      });
+      if(getRes.status === 200){
+        const data = await getRes.json();
+        sha = data.sha;
+        existingText = b64DecodeUtf8(data.content);
+      } else if(getRes.status !== 404){
+        return { ok:false, reason:'get-failed' };
+      }
+      const newLine = csvField(en) + ',' + csvField(te) + '\n';
+      const updatedText = newLine + existingText;
+      const body = {
+        message: 'Add prayer request via site: ' + (en || te).slice(0,60),
+        content: b64EncodeUtf8(updatedText),
+        branch: GH_BRANCH
+      };
+      if(sha) body.sha = sha;
+      const putRes = await fetch(api, {
+        method:'PUT',
+        headers:{ 'Authorization':'token ' + token, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' },
+        body: JSON.stringify(body)
+      });
+      return putRes.ok ? { ok:true } : { ok:false, reason:'put-failed' };
+    }catch(e){
+      return { ok:false, reason:'network' };
+    }
+  }
+
+  async function addPrayerRow(){
+    const enInput = document.getElementById('new-en');
+    const teInput = document.getElementById('new-te');
+    const enVal = enInput.value.trim();
+    const teVal = teInput.value.trim();
+    if(!enVal && !teVal) return;
+    const container = document.getElementById('req-rows');
     const row = document.createElement('div');
-    row.className = 'prayer-row';
-    row.innerHTML = `
-      <div class="prayer-cell en">${enVal || '—'}</div>
-      <div class="prayer-cell">${teVal || '—'}</div>
-      <button class="del-btn" title="Remove" onclick="this.parentElement.remove()">✕</button>
-    `;
-    container.appendChild(row);
-    document.getElementById('new-en').value = '';
-    document.getElementById('new-te').value = '';
-    document.getElementById('new-en').focus();
-  }
+    row.className = 'row';
+    const statusId = 'status-' + Date.now();
+    row.innerHTML = `<div class="en">${escapeHtml(enVal) || '—'}</div><div class="te">${escapeHtml(teVal) || '—'}<button class="del" title="Remove" onclick="this.closest('.row').remove()">✕</button><div class="row-status" id="${statusId}">Saving…</div></div>`;
+    container.prepend(row);
+    enInput.value = ''; teInput.value = ''; enInput.focus();
 
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-      const active = document.activeElement;
-      if (active && (active.id === 'new-en' || active.id === 'new-te')) addPrayerRow();
+    const result = await saveNewPrayerToGitHub(enVal, teVal);
+    const statusEl = document.getElementById(statusId);
+    if(!statusEl) return;
+    if(result.ok){
+      statusEl.textContent = 'Saved to GitHub ✓';
+      statusEl.classList.add('ok');
+    } else {
+      statusEl.textContent = result.reason === 'no-token'
+        ? 'Saved locally only — connect GitHub sync (⚙) to save for everyone'
+        : 'Saved locally only — GitHub sync failed';
+      statusEl.classList.add('warn');
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if((e.ctrlKey||e.metaKey) && e.key==='Enter'){
+      const a = document.activeElement;
+      if(a && (a.id==='new-en'||a.id==='new-te')) addPrayerRow();
     }
   });
+  loadRemotePrayers();
+
+  /* ---- sync control wiring ---- */
+  (function(){
+    const ctrl = document.getElementById('sync-ctrl');
+    const toggle = document.getElementById('sync-toggle');
+    const tokenInput = document.getElementById('gh-token');
+    const status = document.getElementById('sync-status');
+
+    function refresh(){
+      if(getGhToken()){
+        status.textContent = 'Connected — new requests save to GitHub';
+        status.classList.add('connected');
+      } else {
+        status.textContent = 'Not connected — new requests save only in this browser';
+        status.classList.remove('connected');
+      }
+    }
+    refresh();
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = ctrl.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if(!ctrl.contains(e.target)) ctrl.classList.remove('open');
+    });
+    document.getElementById('gh-save').addEventListener('click', () => {
+      const v = tokenInput.value.trim();
+      if(!v) return;
+      try{ localStorage.setItem('ptGithubToken', v); }catch(e){}
+      tokenInput.value = '';
+      refresh();
+    });
+    document.getElementById('gh-clear').addEventListener('click', () => {
+      try{ localStorage.removeItem('ptGithubToken'); }catch(e){}
+      refresh();
+    });
+  })();
+
+  /* ---- deck progress + dot nav + active timer/glow ----
+     Uses each slide's top edge crossing a reference line rather than a
+     visibility-ratio threshold, so long slides (e.g. Sisters & Family,
+     which run taller than one screen) keep their timer showing the
+     whole time you're scrolled inside them. */
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const rail = document.getElementById('rail');
+  slides.forEach((s,i) => {
+    const dot = document.createElement('button');
+    dot.style.setProperty('--dot-color', s.dataset.glow);
+    dot.addEventListener('click', () => s.scrollIntoView({behavior:'smooth'}));
+    rail.appendChild(dot);
+  });
+  const dots = Array.from(rail.children);
+  const progressBar = document.getElementById('deck-progress');
+
+  let currentSlideId = null;
+  function setActiveSlide(slide){
+    const idx = slides.indexOf(slide);
+    dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    document.documentElement.style.setProperty('--glow-a', slide.dataset.glow);
+
+    const newId = slide.id;
+    if(currentSlideId !== newId){
+      if(currentSlideId && currentSlideId.startsWith('hdr-')){
+        resetTimer(currentSlideId.split('-')[1]);
+      }
+      currentSlideId = newId;
+    }
+
+    document.querySelectorAll('.timer').forEach(t => t.classList.remove('active'));
+    const activeTimer = slide.querySelector('.timer');
+    if(activeTimer) activeTimer.classList.add('active');
+  }
+
+  let ticking = false;
+  function updateOnScroll(){
+    const line = window.innerHeight * 0.4;
+    let current = slides[0];
+    for(const s of slides){
+      if(s.getBoundingClientRect().top <= line) current = s; else break;
+    }
+    setActiveSlide(current);
+
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (h>0 ? (window.scrollY/h)*100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if(!ticking){ requestAnimationFrame(updateOnScroll); ticking = true; }
+  }, { passive:true });
+  updateOnScroll();
+
+  /* ---- font-size control ---- */
+  (function(){
+    const MIN = 0.85, MAX = 1.6, STEP = 0.1;
+    let scale = 1;
+    try{
+      const saved = localStorage.getItem('ptFontScale');
+      if(saved) scale = parseFloat(saved);
+    }catch(e){}
+    function apply(){
+      document.documentElement.style.fontSize = (scale*100) + '%';
+      try{ localStorage.setItem('ptFontScale', scale); }catch(e){}
+    }
+    apply();
+    document.getElementById('font-inc').addEventListener('click', () => {
+      scale = Math.min(MAX, Math.round((scale+STEP)*100)/100); apply();
+    });
+    document.getElementById('font-dec').addEventListener('click', () => {
+      scale = Math.max(MIN, Math.round((scale-STEP)*100)/100); apply();
+    });
+    document.getElementById('font-reset').addEventListener('click', () => {
+      scale = 1; apply();
+    });
+
+    const ctrl = document.getElementById('font-ctrl');
+    const toggle = document.getElementById('font-toggle');
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = ctrl.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if(!ctrl.contains(e.target)) ctrl.classList.remove('open');
+    });
+  })();
 </script>
 </body>
 </html>
