@@ -113,6 +113,23 @@
   .slide.done .timer .t-display{ color:#7dffb0; }
   .slide.done .timer{ border-color:rgba(125,255,176,0.55); }
 
+  /* ---- faded blur band under the floating header ---- */
+  .hud-blur{
+    position:fixed; top:0; left:0; right:0; height:calc(118px + env(safe-area-inset-top,0px));
+    z-index:185; pointer-events:none; opacity:0; transition:opacity .3s ease;
+    background:linear-gradient(to bottom, rgba(6,8,18,0.5) 0%, rgba(6,8,18,0.22) 45%, transparent 100%);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%);
+            mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%);
+  }
+  .hud-blur.show{ opacity:1; }
+  .hud-blur i{ position:absolute; inset:0; display:block; }
+  .hud-blur i:nth-child(1){ backdrop-filter:blur(2px);  -webkit-backdrop-filter:blur(2px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 100%); }
+  .hud-blur i:nth-child(2){ backdrop-filter:blur(6px);  -webkit-backdrop-filter:blur(6px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 80%); mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 80%); }
+  .hud-blur i:nth-child(3){ backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 20%,transparent 60%); mask-image:linear-gradient(to bottom,#000 0%,#000 20%,transparent 60%); }
+
   /* ---- floating section header (title + timer) ---- */
   .hud{
     position:fixed; top:14px; left:50%; transform:translate(-50%,-8px); z-index:195;
@@ -307,6 +324,7 @@
 
 <div id="deck-progress"></div>
 <nav class="rail" id="rail"></nav>
+<div class="hud-blur" id="hud-blur"><i></i><i></i><i></i></div>
 <div class="hud" id="hud" aria-live="polite">
   <span class="hud-dot"></span>
   <span class="hud-idx" id="hud-idx"></span>
@@ -820,6 +838,7 @@
 
   /* move every section timer into the floating header */
   const hud = document.getElementById('hud');
+  const hudBlur = document.getElementById('hud-blur');
   const hudTimers = document.getElementById('hud-timers');
   slides.forEach(sl => {
     const t = sl.querySelector('.timer');
@@ -856,9 +875,9 @@
       document.getElementById('hud-en').textContent = en.textContent;
       document.getElementById('hud-te').textContent = te ? te.textContent : '';
       document.getElementById('hud-idx').textContent = ix ? ix.textContent : '';
-      hud.classList.add('show');
+      hud.classList.add('show'); hudBlur.classList.add('show');
     } else {
-      hud.classList.remove('show');
+      hud.classList.remove('show'); hudBlur.classList.remove('show');
     }
     syncDone();
   }
