@@ -113,6 +113,41 @@
   .slide.done .timer .t-display{ color:#7dffb0; }
   .slide.done .timer{ border-color:rgba(125,255,176,0.55); }
 
+  /* ---- floating section header (title + timer) ---- */
+  .hud{
+    position:fixed; top:14px; left:50%; transform:translate(-50%,-8px); z-index:195;
+    display:flex; align-items:center; gap:0.7rem;
+    max-width:calc(100vw - 28px); padding:0.4rem 0.5rem 0.4rem 0.9rem;
+    border-radius:100px; background:rgba(8,10,22,0.66);
+    border:1px solid color-mix(in srgb, var(--glow-a,#60a5fa) 55%, transparent);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 6px 24px rgba(0,0,0,0.35);
+    opacity:0; pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease, border-color .4s ease;
+  }
+  .hud.show{ opacity:1; pointer-events:auto; transform:translate(-50%,0); }
+  .hud.done{ border-color:rgba(125,255,176,0.55); }
+  .hud-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; background:var(--glow-a,#60a5fa); box-shadow:0 0 10px var(--glow-a,#60a5fa); }
+  .hud-idx{ font-family:var(--font-head); font-weight:600; font-size:0.72rem; letter-spacing:0.05em; color:var(--ink-faint); flex-shrink:0; }
+  .hud-titles{ min-width:0; display:flex; flex-direction:column; line-height:1.2; }
+  .hud-en{ font-family:var(--font-head); font-weight:700; font-size:0.9rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hud-te{ font-family:var(--font-te); font-weight:600; font-size:0.76rem; color:var(--ink-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hud-sep{ width:1px; align-self:stretch; background:rgba(255,255,255,0.16); flex-shrink:0; }
+  .hud-timers{ display:flex; flex-shrink:0; }
+  .hud .timer{
+    position:static; display:none; opacity:1; pointer-events:auto; transform:none;
+    background:transparent; border:0; backdrop-filter:none; padding:0; gap:0.5rem;
+  }
+  .hud .timer.active{ display:flex; }
+  .hud.done .t-display{ color:#7dffb0; }
+  .hud .timer .t-display{ font-size:1rem; }
+  .hud .timer button{ width:28px; height:28px; }
+  @media (max-width:560px){
+    .hud{ gap:0.5rem; padding:0.35rem 0.4rem 0.35rem 0.7rem; }
+    .hud-idx{ display:none; }
+    .hud-en{ font-size:0.82rem; } .hud-te{ font-size:0.7rem; }
+  }
+
   /* ---- rows of bilingual content ---- */
   .rows{ display:flex; flex-direction:column; }
   .row{
@@ -272,6 +307,13 @@
 
 <div id="deck-progress"></div>
 <nav class="rail" id="rail"></nav>
+<div class="hud" id="hud" aria-live="polite">
+  <span class="hud-dot"></span>
+  <span class="hud-idx" id="hud-idx"></span>
+  <div class="hud-titles"><span class="hud-en" id="hud-en"></span><span class="hud-te" id="hud-te"></span></div>
+  <span class="hud-sep"></span>
+  <div class="hud-timers" id="hud-timers"></div>
+</div>
 
 <div class="font-ctrl" id="font-ctrl" role="group" aria-label="Text size">
   <button class="toggle" id="font-toggle" title="Text size" aria-expanded="false">A</button>
@@ -776,8 +818,21 @@
   const dots = Array.from(rail.children);
   const progressBar = document.getElementById('deck-progress');
 
+  /* move every section timer into the floating header */
+  const hud = document.getElementById('hud');
+  const hudTimers = document.getElementById('hud-timers');
+  slides.forEach(sl => {
+    const t = sl.querySelector('.timer');
+    if(t){ sl._timer = t; hudTimers.appendChild(t); }
+  });
+  let activeSlideEl = null;
+  function syncDone(){ hud.classList.toggle('done', !!(activeSlideEl && activeSlideEl.classList.contains('done'))); }
+  const doneObserver = new MutationObserver(syncDone);
+  slides.forEach(sl => doneObserver.observe(sl, { attributes:true, attributeFilter:['class'] }));
+
   let currentSlideId = null;
   function setActiveSlide(slide){
+    activeSlideEl = slide;
     const idx = slides.indexOf(slide);
     dots.forEach((d,i) => d.classList.toggle('active', i===idx));
     document.documentElement.style.setProperty('--glow-a', slide.dataset.glow);
@@ -791,8 +846,21 @@
     }
 
     document.querySelectorAll('.timer').forEach(t => t.classList.remove('active'));
-    const activeTimer = slide.querySelector('.timer');
+    const activeTimer = slide._timer;
     if(activeTimer) activeTimer.classList.add('active');
+
+    const en = slide.querySelector('.slide-title-en');
+    if(en){
+      const te = slide.querySelector('.slide-title-te');
+      const ix = slide.querySelector('.slide-index');
+      document.getElementById('hud-en').textContent = en.textContent;
+      document.getElementById('hud-te').textContent = te ? te.textContent : '';
+      document.getElementById('hud-idx').textContent = ix ? ix.textContent : '';
+      hud.classList.add('show');
+    } else {
+      hud.classList.remove('show');
+    }
+    syncDone();
   }
 
   let ticking = false;
