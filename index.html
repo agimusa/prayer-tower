@@ -209,6 +209,11 @@
     font-family:var(--font-head); font-size:0.88rem; border:none; cursor:pointer;
   }
 
+  .add-panel .tr-status{ font-size:0.76rem; font-family:var(--font-body); font-weight:600; color:var(--ink-faint); margin:-0.1rem 0 0.9rem; min-height:1.1em; }
+  .add-panel .tr-status.ok{ color:#7dffb0; }
+  .add-panel .tr-status.warn{ color:#fbbf24; }
+  .add-panel button.submit:disabled{ opacity:0.55; cursor:progress; }
+
   /* ---- per-slide gradient tokens ---- */
   .hero{ --c1:#05060f; --c2:#141a35; --glow:#5b6bd6; }
   .s-emerald{ --c1:#02150f; --c2:#0d5c4f; --glow:#34d399; }
@@ -539,6 +544,7 @@
         <span class="label">Add a new prayer request</span>
         <textarea id="new-en" placeholder="Type prayer request in English…" rows="2"></textarea>
         <textarea id="new-te" placeholder="తెలుగులో ప్రార్థన విజ్ఞాపన టైప్ చేయండి…" rows="2"></textarea>
+        <div class="tr-status" id="tr-status"></div>
         <button class="submit" onclick="addPrayerRow()">＋ Add Prayer Request</button>
       </div>
     </div>
@@ -745,9 +751,103 @@
     }
   }
 
+  /* ---- auto-translate for the add-prayer box ----
+     Type in English or Telugu; the other box fills in after you pause.
+     Uses Google's public translate endpoint, falling back to MyMemory.
+     Anything you type yourself is never overwritten. */
+  const trState = { auto:{ en:true, te:true }, seq:0, timer:null, lastSrc:{ en:'', te:'' } };
+  const trEl = id => document.getElementById('new-' + id);
+  const TR_HINT = 'Type in English or Telugu — the other language is filled in automatically.';
+  function setTrStatus(msg, cls){
+    const el = document.getElementById('tr-status');
+    el.textContent = msg || TR_HINT;
+    el.className = 'tr-status' + (cls ? ' ' + cls : '');
+  }
+  function growTextarea(el){ el.style.height = 'auto'; el.style.height = (el.scrollHeight + 2) + 'px'; }
+
+  async function translateText(text, from, to){
+    try{
+      const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=' + from + '&tl=' + to + '&q=' + encodeURIComponent(text);
+      const r = await fetch(url);
+      if(r.ok){
+        const d = await r.json();
+        const out = (d && d[0] ? d[0] : []).map(x => x && x[0] ? x[0] : '').join('').trim();
+        if(out) return out;
+      }
+    }catch(e){}
+    try{
+      const url = 'https://api.mymemory.translated.net/get?langpair=' + from + '|' + to + '&q=' + encodeURIComponent(text);
+      const r = await fetch(url);
+      if(r.ok){
+        const d = await r.json();
+        const out = d && d.responseData && d.responseData.translatedText ? String(d.responseData.translatedText).trim() : '';
+        if(out && Number(d.responseStatus) === 200 && !/MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(out)) return out;
+      }
+    }catch(e){}
+    return '';
+  }
+
+  async function runTranslate(src){
+    const dst = src === 'en' ? 'te' : 'en';
+    const text = trEl(src).value.trim();
+    if(!text) return;
+    const my = ++trState.seq;
+    setTrStatus('Translating…');
+    const out = await translateText(text, src, dst);
+    if(my !== trState.seq || trEl(src).value.trim() !== text) return;   // stale
+    if(out && trState.auto[dst]){
+      trEl(dst).value = out; growTextarea(trEl(dst));
+      trState.lastSrc[dst] = text;
+      setTrStatus('Auto-translated — please review before adding.', 'ok');
+    } else if(!out){
+      setTrStatus('Auto-translate unavailable — please type the ' + (dst === 'te' ? 'Telugu' : 'English') + ' yourself.', 'warn');
+    }
+  }
+
+  function onPrayerTyped(side){
+    const other = side === 'en' ? 'te' : 'en';
+    clearTimeout(trState.timer);
+    growTextarea(trEl(side));
+    const val = trEl(side).value.trim();
+    trState.auto[side] = !val;                     // empty box goes back to auto-managed
+    const otherVal = trEl(other).value.trim();
+    if(!val){
+      if(otherVal && trState.auto[other]){ trEl(other).value = ''; growTextarea(trEl(other)); }
+      else if(otherVal){ trState.timer = setTimeout(() => runTranslate(other), 800); return; }
+      setTrStatus(''); return;
+    }
+    if(!trState.auto[other]) return;               // other box is typed by hand — leave it
+    trState.timer = setTimeout(() => runTranslate(side), 800);
+  }
+  trEl('en').addEventListener('input', () => onPrayerTyped('en'));
+  trEl('te').addEventListener('input', () => onPrayerTyped('te'));
+  setTrStatus('');
+
+  // before saving: make sure a missing/stale side has been translated
+  async function ensureTranslated(){
+    clearTimeout(trState.timer);
+    for(const src of ['en','te']){
+      const dst = src === 'en' ? 'te' : 'en';
+      const text = trEl(src).value.trim();
+      if(text && !trState.auto[src] && trState.auto[dst] && (!trEl(dst).value.trim() || trState.lastSrc[dst] !== text)){
+        await runTranslate(src);
+        break;
+      }
+    }
+  }
+  function resetTranslateState(){
+    trState.auto = { en:true, te:true }; trState.lastSrc = { en:'', te:'' }; trState.seq++;
+    growTextarea(trEl('en')); growTextarea(trEl('te')); setTrStatus('');
+  }
+
   async function addPrayerRow(){
     const enInput = document.getElementById('new-en');
     const teInput = document.getElementById('new-te');
+    const submitBtn = document.querySelector('.add-panel button.submit');
+    if(!enInput.value.trim() && !teInput.value.trim()) return;
+    submitBtn.disabled = true;
+    try{ await ensureTranslated(); }catch(e){}
+    submitBtn.disabled = false;
     const enVal = enInput.value.trim();
     const teVal = teInput.value.trim();
     if(!enVal && !teVal) return;
@@ -757,7 +857,7 @@
     const statusId = 'status-' + Date.now();
     row.innerHTML = `<div class="en">${escapeHtml(enVal) || '—'}</div><div class="te">${escapeHtml(teVal) || '—'}<button class="del" title="Remove" onclick="this.closest('.row').remove()">✕</button><div class="row-status" id="${statusId}">Saving…</div></div>`;
     container.append(row);
-    enInput.value = ''; teInput.value = ''; enInput.focus();
+    enInput.value = ''; teInput.value = ''; resetTranslateState(); enInput.focus();
 
     const result = await saveNewPrayerToGitHub(enVal, teVal);
     const statusEl = document.getElementById(statusId);
