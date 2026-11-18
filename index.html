@@ -223,6 +223,25 @@
   .s-violet{ --c1:#0f0820; --c2:#5b21b6; --glow:#a78bfa; }
   .s-amber{ --c1:#150e04; --c2:#8a4a06; --glow:#fbbf24; }
   .s-magenta{ --c1:#150627; --c2:#7e1187; --glow:#e879f9; }
+  .s-indigo{ --c1:#060820; --c2:#2a3a9e; --glow:#818cf8; }
+  .row ul{ margin:0.25em 0 0.45em; padding-left:1.1em; list-style:disc; }
+  .row ul li{ margin:0.12em 0; }
+  .row ul.pr{ list-style:none; padding-left:0; }
+  .row ul.pr li::before{ content:"• "; color:var(--glow); }
+  .row3{ display:grid; grid-template-columns:1fr 1.1fr 1.7fr; gap:1.1rem; padding:1.05rem 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .row3:last-child{ border-bottom:none; }
+  .row3 .en, .row3 .te{ font-size:0.98rem; }
+  .row3 .en{ font-family:var(--font-body); color:var(--ink); }
+  .row3 .te{ font-family:var(--font-te); font-weight:600; color:var(--ink-dim); margin-top:0.35rem; padding-top:0.45rem; border-top:1px solid transparent; }
+  .row3 ul{ margin:0.2em 0 0.3em; padding-left:1.1em; list-style:disc; }
+  .row3 ul li{ margin:0.12em 0; }
+  .row3 .col-q ul{ list-style:none; padding-left:0; }
+  .row3 .col-q li::before{ content:"• "; color:var(--glow); }
+  @media (max-width:760px){ .row3{ grid-template-columns:1fr; gap:0.4rem; } }
+  .row3.head{ padding:0.5rem 0 0.7rem; border-bottom:1px solid var(--glow); }
+  .row3.head .en strong{ font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--glow); }
+  .row3.head .te{ margin-top:0.2rem; padding-top:0; border-top:none; font-size:0.9rem; color:var(--glow); }
+  @media (max-width:760px){ .row3.head{ display:none; } }
   .outro{ --c1:#04050a; --c2:#0c1024; --glow:#7d8bdc; }
 
   /* ---- hero slide ---- */
@@ -375,11 +394,42 @@
   </section>
 
   <!-- 6. BROTHERS & FAMILY -->
+  <!-- PRAYER FOR OUR CHILDREN -->
+  <section class="slide s-indigo" id="hdr-9" data-glow="#818cf8">
+    <div class="slide-inner">
+      <div class="slide-top">
+        <div class="slide-titles">
+          <div class="slide-index">01 / 07</div>
+          <div class="slide-title-en">Special Prayer Request: Prayer for Our Children</div>
+          <div class="slide-title-te">ప్రత్యేక ప్రార్థన విజ్ఞాపన: మా పిల్లల కోసం ప్రార్థన</div>
+        </div>
+        <div class="timer">
+          <button id="btn-9" onclick="toggleTimer(9)" title="Play">▶</button>
+          <span class="t-display" id="td-9">5:00</span>
+          <button onclick="resetTimer(9)" title="Reset">↺</button>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row3 head"><div class="col-p"><div class="en"><strong>Parents</strong></div><div class="te">తల్లిదండ్రులు</div></div><div class="col-k"><div class="en"><strong>Children</strong></div><div class="te">పిల్లలు</div></div><div class="col-q"><div class="en"><strong>Prayer Request</strong></div><div class="te">ప్రార్థన విజ్ఞాపన</div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Smithy &amp; Vishal Govada</strong></div><div class="te"><strong>స్మిథీ &amp; విశాల్ గోవాడ</strong></div></div><div class="col-k"><div class="en"><ul><li>Eric</li><li>Ethan</li></ul></div><div class="te"><ul><li>ఎరిక్</li><li>ఈతన్</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Good health and divine protection.</li><li>Wisdom and excellence in studies.</li><li>May God use them mightily as they grow.</li></ul></div><div class="te"><ul class="pr"><li>ఆరోగ్యం మరియు దైవిక రక్షణ.</li><li>చదువులో జ్ఞానం మరియు శ్రేష్ఠత.</li><li>వారు ఎదుగుతున్నప్పుడు దేవుడు వారిని గొప్పగా వాడుకోవాలని.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor Santhosh Naik &amp; Family</strong></div><div class="te"><strong>పాస్టర్ సంతోష్ నాయక్ &amp; కుటుంబం</strong></div></div><div class="col-k"><div class="en"><ul><li>Swarup Naik</li><li>Swaraj Naik</li></ul></div><div class="te"><ul><li>స్వరూప్ నాయక్</li><li>స్వరాజ్ నాయక్</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>God's blessings upon the family.</li><li>Spiritual growth and a blessed future.</li><li>May God raise them to serve Jesus faithfully.</li></ul></div><div class="te"><ul class="pr"><li>కుటుంబంపై దేవుని ఆశీర్వాదాలు.</li><li>ఆత్మీయ వృద్ధి మరియు ఆశీర్వదించబడిన భవిష్యత్తు.</li><li>యేసును నమ్మకంగా సేవించేలా దేవుడు వారిని లేపాలని.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Sunitha Velugu</strong></div><div class="te"><strong>సునీత వెలుగు</strong></div></div><div class="col-k"><div class="en"><ul><li>Nathaniel &amp; daughter-in-law Jessica</li><li>Priyanka</li></ul></div><div class="te"><ul><li>నాథానియేల్ &amp; కోడలు జెస్సికా</li><li>ప్రియాంక</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Bless Nathaniel and Jessica's home.</li><li>God's favour, guidance and blessings upon Priyanka.</li></ul></div><div class="te"><ul class="pr"><li>నాథానియేల్ మరియు జెస్సికా ఇంటిని ఆశీర్వదించండి.</li><li>ప్రియాంకపై దేవుని కృప, మార్గదర్శకత్వం మరియు ఆశీర్వాదాలు.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor Kolnede Babanna &amp; Victoria Rani</strong></div><div class="te"><strong>పాస్టర్ కొల్నేడే బాబన్న &amp; విక్టోరియా రాణి</strong></div></div><div class="col-k"><div class="en"><ul><li>K. Sharon Paisy - 9th Class</li><li>K. Feebea Princy - 7th Class</li></ul></div><div class="te"><ul><li>కె. షారన్ పైసీ - 9వ తరగతి</li><li>కె. ఫీబియా ప్రిన్సీ - 7వ తరగతి</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Children's education and spiritual growth.</li><li>Blessings upon the entire family.</li><li>God's grace upon their ministry in Singarayakonda, Prakasam District, Andhra Pradesh.</li></ul></div><div class="te"><ul class="pr"><li>పిల్లల చదువు మరియు ఆత్మీయ వృద్ధి.</li><li>కుటుంబమంతటిపై ఆశీర్వాదాలు.</li><li>ఆంధ్రప్రదేశ్, ప్రకాశం జిల్లా, సింగరాయకొండలో వారి పరిచర్యపై దేవుని కృప.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor Raju &amp; Sathya Priya</strong></div><div class="te"><strong>పాస్టర్ రాజు &amp; సత్య ప్రియ</strong></div></div><div class="col-k"><div class="en"><ul><li>Mounika Grace</li><li>Moje Shastri</li></ul></div><div class="te"><ul><li>మౌనిక గ్రేస్</li><li>మోజే శాస్త్రి</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Mounika's marriage and God's guidance.</li><li>Moje Shastri's Bible training and preparation for ministry.</li><li>Blessings upon the family.</li></ul></div><div class="te"><ul class="pr"><li>మౌనిక వివాహం మరియు దేవుని మార్గదర్శకత్వం.</li><li>మోజే శాస్త్రి బైబిల్ శిక్షణ మరియు పరిచర్యకు సిద్ధత.</li><li>కుటుంబంపై ఆశీర్వాదాలు.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Helen John Dammala</strong></div><div class="te"><strong>హెలెన్ జాన్ దమ్మాల</strong></div></div><div class="col-k"><div class="en"><ul><li>Grandson - 10th Class</li><li>Son - Nikhil Raj &amp; family</li><li>Daughter - Jennifer Dammala &amp; family</li></ul></div><div class="te"><ul><li>మనవడు - 10వ తరగతి</li><li>కుమారుడు - నిఖిల్ రాజ్ &amp; కుటుంబం</li><li>కుమార్తె - జెన్నిఫర్ దమ్మాల &amp; కుటుంబం</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Grandson's health, wisdom and success in examinations.</li><li>God's protection and blessings upon both children's families.</li></ul></div><div class="te"><ul class="pr"><li>మనవడి ఆరోగ్యం, జ్ఞానం మరియు పరీక్షల్లో విజయం.</li><li>ఇద్దరు పిల్లల కుటుంబాలపై దేవుని రక్షణ మరియు ఆశీర్వాదాలు.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor P. Joshua &amp; Sharon</strong></div><div class="te"><strong>పాస్టర్ పి. జాషువా &amp; షారన్</strong></div></div><div class="col-k"><div class="en"><ul><li>Angel</li><li>Shalini</li></ul></div><div class="te"><ul><li>ఏంజెల్</li><li>షాలినీ</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Good health and blessings upon the family.</li><li>Daughters' future and spiritual growth.</li><li>God's anointing upon Pastor Joshua's ministry.</li></ul></div><div class="te"><ul class="pr"><li>కుటుంబంపై మంచి ఆరోగ్యం మరియు ఆశీర్వాదాలు.</li><li>కుమార్తెల భవిష్యత్తు మరియు ఆత్మీయ వృద్ధి.</li><li>పాస్టర్ జాషువా పరిచర్యపై దేవుని అభిషేకం.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Veronica Akka</strong></div><div class="te"><strong>వెరోనికా అక్క</strong></div></div><div class="col-k"><div class="en"><ul><li>Elder daughter - Joy</li></ul></div><div class="te"><ul><li>పెద్ద కుమార్తె - జాయ్</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>God's guidance, protection and blessings upon her daughter.</li></ul></div><div class="te"><ul class="pr"><li>ఆమె కుమార్తెపై దేవుని మార్గదర్శకత్వం, రక్షణ మరియు ఆశీర్వాదాలు.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor Ravinder</strong></div><div class="te"><strong>పాస్టర్ రవీందర్</strong></div></div><div class="col-k"><div class="en"><ul><li>Sunayan Paul</li></ul></div><div class="te"><ul><li>సునయన్ పాల్</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Success in studies.</li><li>Divine wisdom and understanding.</li><li>Academic excellence and God's guidance for his future.</li></ul></div><div class="te"><ul class="pr"><li>చదువులో విజయం.</li><li>దైవిక జ్ఞానం మరియు అవగాహన.</li><li>విద్యలో శ్రేష్ఠత మరియు అతని భవిష్యత్తుపై దేవుని మార్గదర్శకత్వం.</li></ul></div></div></div>
+        <div class="row3"><div class="col-p"><div class="en"><strong>Pastor Yedu Kondalu</strong></div><div class="te"><strong>పాస్టర్ యెదు కొండలు</strong></div></div><div class="col-k"><div class="en"><ul><li>Daughter</li></ul></div><div class="te"><ul><li>కుమార్తె</li></ul></div></div><div class="col-q"><div class="en"><ul class="pr"><li>Divine healing and good health.</li><li>Strength and complete restoration.</li></ul></div><div class="te"><ul class="pr"><li>దైవిక స్వస్థత మరియు మంచి ఆరోగ్యం.</li><li>బలం మరియు సంపూర్ణ పునరుద్ధరణ.</li></ul></div></div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="slide s-blue" id="hdr-6" data-glow="#5f8cff">
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">01 / 06</div>
+          <div class="slide-index">02 / 07</div>
           <div class="slide-title-en">Prayer for Members: Brothers &amp; Family</div>
           <div class="slide-title-te">సభ్యుల కోసం ప్రార్థన: సహోదరులు మరియు కుటుంబం</div>
         </div>
@@ -404,7 +454,7 @@
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">02 / 06</div>
+          <div class="slide-index">03 / 07</div>
           <div class="slide-title-en">Prayer for Members: Sisters &amp; Family</div>
           <div class="slide-title-te">సభ్యుల కోసం ప్రార్థన: సహోదరీలు మరియు కుటుంబం</div>
         </div>
@@ -446,7 +496,7 @@
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">03 / 06</div>
+          <div class="slide-index">04 / 07</div>
           <div class="slide-title-en">Ministries, Sponsors &amp; Volunteers</div>
           <div class="slide-title-te">పరిచర్యలు, స్పాన్సర్లు &amp; స్వచ్ఛంద సేవకులు</div>
         </div>
@@ -468,7 +518,7 @@
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">04 / 06</div>
+          <div class="slide-index">05 / 07</div>
           <div class="slide-title-en">Pray for AGIM Pastors, Families &amp; Ministries</div>
           <div class="slide-title-te">AGIM పాస్టర్లు, కుటుంబాలు &amp; పరిచర్యల కోసం ప్రార్థన</div>
         </div>
@@ -495,7 +545,7 @@
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">05 / 06</div>
+          <div class="slide-index">06 / 07</div>
           <div class="slide-title-en">Additional Prayer Requests</div>
           <div class="slide-title-te">అదనపు ప్రార్థన విజ్ఞాపనలు</div>
         </div>
@@ -525,7 +575,7 @@
     <div class="slide-inner">
       <div class="slide-top">
         <div class="slide-titles">
-          <div class="slide-index">06 / 06</div>
+          <div class="slide-index">07 / 07</div>
           <div class="slide-title-en">Pray for Founders &amp; Family</div>
           <div class="slide-title-te">వ్యవస్థాపకులు &amp; కుటుంబం కోసం ప్రార్థన</div>
         </div>
