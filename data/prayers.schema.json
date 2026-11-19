@@ -349,7 +349,6 @@
                     }
                   },
                   "required": [
-                    "text",
                     "answered_at"
                   ],
                   "additionalProperties": false

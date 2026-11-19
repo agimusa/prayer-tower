@@ -31,7 +31,7 @@ export const SourceSchema = z.enum(["manual", "mcp", "site"]);
 export const LayoutSchema = z.enum(["list", "three-col"]);
 
 export const AnswerSchema = z.strictObject({
-  text: BiSchema,
+  text: BiSchema.optional(),
   answered_at: isoDate,
 });
 

@@ -18,7 +18,9 @@
     "build": "tsc",
     "test": "vitest run",
     "schema": "tsx scripts/gen-schema.ts",
-    "extract": "tsx scripts/extract.ts"
+    "extract": "tsx scripts/extract.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
