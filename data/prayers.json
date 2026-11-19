@@ -1,0 +1,1223 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-19T00:00:00.000Z",
+  "slides": [
+    {
+      "id": "children",
+      "num": 9,
+      "title": {
+        "en": "Special Prayer Request: Prayer for Our Children",
+        "te": "ప్రత్యేక ప్రార్థన విజ్ఞాపన: మా పిల్లల కోసం ప్రార్థన"
+      },
+      "theme": "s-indigo",
+      "glow": "#818cf8",
+      "layout": "three-col",
+      "timer_seconds": 300,
+      "columns": {
+        "parents": {
+          "en": "Parents",
+          "te": "తల్లిదండ్రులు"
+        },
+        "children": {
+          "en": "Children",
+          "te": "పిల్లలు"
+        },
+        "prayer": {
+          "en": "Prayer Request",
+          "te": "ప్రార్థన విజ్ఞాపన"
+        }
+      },
+      "requests": [
+        {
+          "id": "smithy-and-vishal-govada",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Smithy & Vishal Govada",
+            "te": "స్మిథీ & విశాల్ గోవాడ"
+          },
+          "items": [
+            {
+              "en": "Good health and divine protection.",
+              "te": "ఆరోగ్యం మరియు దైవిక రక్షణ."
+            },
+            {
+              "en": "Wisdom and excellence in studies.",
+              "te": "చదువులో జ్ఞానం మరియు శ్రేష్ఠత."
+            },
+            {
+              "en": "May God use them mightily as they grow.",
+              "te": "వారు ఎదుగుతున్నప్పుడు దేవుడు వారిని గొప్పగా వాడుకోవాలని."
+            }
+          ],
+          "children": [
+            {
+              "en": "Eric",
+              "te": "ఎరిక్"
+            },
+            {
+              "en": "Ethan",
+              "te": "ఈతన్"
+            }
+          ]
+        },
+        {
+          "id": "pastor-santhosh-naik-and-family",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Santhosh Naik & Family",
+            "te": "పాస్టర్ సంతోష్ నాయక్ & కుటుంబం"
+          },
+          "items": [
+            {
+              "en": "God's blessings upon the family.",
+              "te": "కుటుంబంపై దేవుని ఆశీర్వాదాలు."
+            },
+            {
+              "en": "Spiritual growth and a blessed future.",
+              "te": "ఆత్మీయ వృద్ధి మరియు ఆశీర్వదించబడిన భవిష్యత్తు."
+            },
+            {
+              "en": "May God raise them to serve Jesus faithfully.",
+              "te": "యేసును నమ్మకంగా సేవించేలా దేవుడు వారిని లేపాలని."
+            }
+          ],
+          "children": [
+            {
+              "en": "Swarup Naik",
+              "te": "స్వరూప్ నాయక్"
+            },
+            {
+              "en": "Swaraj Naik",
+              "te": "స్వరాజ్ నాయక్"
+            }
+          ]
+        },
+        {
+          "id": "sunitha-velugu",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sunitha Velugu",
+            "te": "సునీత వెలుగు"
+          },
+          "items": [
+            {
+              "en": "Bless Nathaniel and Jessica's home.",
+              "te": "నాథానియేల్ మరియు జెస్సికా ఇంటిని ఆశీర్వదించండి."
+            },
+            {
+              "en": "God's favour, guidance and blessings upon Priyanka.",
+              "te": "ప్రియాంకపై దేవుని కృప, మార్గదర్శకత్వం మరియు ఆశీర్వాదాలు."
+            }
+          ],
+          "children": [
+            {
+              "en": "Nathaniel & daughter-in-law Jessica",
+              "te": "నాథానియేల్ & కోడలు జెస్సికా"
+            },
+            {
+              "en": "Priyanka",
+              "te": "ప్రియాంక"
+            }
+          ]
+        },
+        {
+          "id": "pastor-kolnede-babanna-and-victoria-rani",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Kolnede Babanna & Victoria Rani",
+            "te": "పాస్టర్ కొల్నేడే బాబన్న & విక్టోరియా రాణి"
+          },
+          "items": [
+            {
+              "en": "Children's education and spiritual growth.",
+              "te": "పిల్లల చదువు మరియు ఆత్మీయ వృద్ధి."
+            },
+            {
+              "en": "Blessings upon the entire family.",
+              "te": "కుటుంబమంతటిపై ఆశీర్వాదాలు."
+            },
+            {
+              "en": "God's grace upon their ministry in Singarayakonda, Prakasam District, Andhra Pradesh.",
+              "te": "ఆంధ్రప్రదేశ్, ప్రకాశం జిల్లా, సింగరాయకొండలో వారి పరిచర్యపై దేవుని కృప."
+            }
+          ],
+          "children": [
+            {
+              "en": "K. Sharon Paisy - 9th Class",
+              "te": "కె. షారన్ పైసీ - 9వ తరగతి"
+            },
+            {
+              "en": "K. Feebea Princy - 7th Class",
+              "te": "కె. ఫీబియా ప్రిన్సీ - 7వ తరగతి"
+            }
+          ]
+        },
+        {
+          "id": "pastor-raju-and-sathya-priya",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Raju & Sathya Priya",
+            "te": "పాస్టర్ రాజు & సత్య ప్రియ"
+          },
+          "items": [
+            {
+              "en": "Mounika's marriage and God's guidance.",
+              "te": "మౌనిక వివాహం మరియు దేవుని మార్గదర్శకత్వం."
+            },
+            {
+              "en": "Moje Shastri's Bible training and preparation for ministry.",
+              "te": "మోజే శాస్త్రి బైబిల్ శిక్షణ మరియు పరిచర్యకు సిద్ధత."
+            },
+            {
+              "en": "Blessings upon the family.",
+              "te": "కుటుంబంపై ఆశీర్వాదాలు."
+            }
+          ],
+          "children": [
+            {
+              "en": "Mounika Grace",
+              "te": "మౌనిక గ్రేస్"
+            },
+            {
+              "en": "Moje Shastri",
+              "te": "మోజే శాస్త్రి"
+            }
+          ]
+        },
+        {
+          "id": "helen-john-dammala",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Helen John Dammala",
+            "te": "హెలెన్ జాన్ దమ్మాల"
+          },
+          "items": [
+            {
+              "en": "Grandson's health, wisdom and success in examinations.",
+              "te": "మనవడి ఆరోగ్యం, జ్ఞానం మరియు పరీక్షల్లో విజయం."
+            },
+            {
+              "en": "God's protection and blessings upon both children's families.",
+              "te": "ఇద్దరు పిల్లల కుటుంబాలపై దేవుని రక్షణ మరియు ఆశీర్వాదాలు."
+            }
+          ],
+          "children": [
+            {
+              "en": "Grandson - 10th Class",
+              "te": "మనవడు - 10వ తరగతి"
+            },
+            {
+              "en": "Son - Nikhil Raj & family",
+              "te": "కుమారుడు - నిఖిల్ రాజ్ & కుటుంబం"
+            },
+            {
+              "en": "Daughter - Jennifer Dammala & family",
+              "te": "కుమార్తె - జెన్నిఫర్ దమ్మాల & కుటుంబం"
+            }
+          ]
+        },
+        {
+          "id": "pastor-p-joshua-and-sharon",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor P. Joshua & Sharon",
+            "te": "పాస్టర్ పి. జాషువా & షారన్"
+          },
+          "items": [
+            {
+              "en": "Good health and blessings upon the family.",
+              "te": "కుటుంబంపై మంచి ఆరోగ్యం మరియు ఆశీర్వాదాలు."
+            },
+            {
+              "en": "Daughters' future and spiritual growth.",
+              "te": "కుమార్తెల భవిష్యత్తు మరియు ఆత్మీయ వృద్ధి."
+            },
+            {
+              "en": "God's anointing upon Pastor Joshua's ministry.",
+              "te": "పాస్టర్ జాషువా పరిచర్యపై దేవుని అభిషేకం."
+            }
+          ],
+          "children": [
+            {
+              "en": "Angel",
+              "te": "ఏంజెల్"
+            },
+            {
+              "en": "Shalini",
+              "te": "షాలినీ"
+            }
+          ]
+        },
+        {
+          "id": "veronica-akka",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Veronica Akka",
+            "te": "వెరోనికా అక్క"
+          },
+          "items": [
+            {
+              "en": "God's guidance, protection and blessings upon her daughter.",
+              "te": "ఆమె కుమార్తెపై దేవుని మార్గదర్శకత్వం, రక్షణ మరియు ఆశీర్వాదాలు."
+            }
+          ],
+          "children": [
+            {
+              "en": "Elder daughter - Joy",
+              "te": "పెద్ద కుమార్తె - జాయ్"
+            }
+          ]
+        },
+        {
+          "id": "pastor-ravinder",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Ravinder",
+            "te": "పాస్టర్ రవీందర్"
+          },
+          "items": [
+            {
+              "en": "Success in studies.",
+              "te": "చదువులో విజయం."
+            },
+            {
+              "en": "Divine wisdom and understanding.",
+              "te": "దైవిక జ్ఞానం మరియు అవగాహన."
+            },
+            {
+              "en": "Academic excellence and God's guidance for his future.",
+              "te": "విద్యలో శ్రేష్ఠత మరియు అతని భవిష్యత్తుపై దేవుని మార్గదర్శకత్వం."
+            }
+          ],
+          "children": [
+            {
+              "en": "Sunayan Paul",
+              "te": "సునయన్ పాల్"
+            }
+          ]
+        },
+        {
+          "id": "pastor-yedu-kondalu",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Yedu Kondalu",
+            "te": "పాస్టర్ యెదు కొండలు"
+          },
+          "items": [
+            {
+              "en": "Divine healing and good health.",
+              "te": "దైవిక స్వస్థత మరియు మంచి ఆరోగ్యం."
+            },
+            {
+              "en": "Strength and complete restoration.",
+              "te": "బలం మరియు సంపూర్ణ పునరుద్ధరణ."
+            }
+          ],
+          "children": [
+            {
+              "en": "Daughter",
+              "te": "కుమార్తె"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brothers",
+      "num": 6,
+      "title": {
+        "en": "Prayer for Members: Brothers & Family",
+        "te": "సభ్యుల కోసం ప్రార్థన: సహోదరులు మరియు కుటుంబం"
+      },
+      "theme": "s-blue",
+      "glow": "#5f8cff",
+      "layout": "list",
+      "timer_seconds": 300,
+      "requests": [
+        {
+          "id": "bro-jala-and-sis-jeru",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Jala & Sis Jeru",
+            "te": "సహోదరుడు జాల & సహోదరి జెరూ"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Fruit of Womb",
+            "te": "సంతాన వరం"
+          }
+        },
+        {
+          "id": "bro-jonathan",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Jonathan",
+            "te": "సహోదరుడు జోనాథన్"
+          },
+          "detail": {
+            "en": "Salvation & Settlement",
+            "te": "రక్షణ & స్థిరత"
+          }
+        },
+        {
+          "id": "bro-boney",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Boney",
+            "te": "సహోదరుడు బోనీ"
+          },
+          "detail": {
+            "en": "Salvation & Settlement",
+            "te": "రక్షణ & స్థిరత"
+          }
+        },
+        {
+          "id": "bro-benhur-dammala",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Benhur Dammala",
+            "te": "సహోదరుడు బెన్హర్ దమ్మాల"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "bro-jayapaul-dammala",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Jayapaul Dammala",
+            "te": "సహోదరుడు జయపాల్ దమ్మాల"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sisters",
+      "num": 5,
+      "title": {
+        "en": "Prayer for Members: Sisters & Family",
+        "te": "సభ్యుల కోసం ప్రార్థన: సహోదరీలు మరియు కుటుంబం"
+      },
+      "theme": "s-rose",
+      "glow": "#fb7185",
+      "layout": "list",
+      "timer_seconds": 300,
+      "requests": [
+        {
+          "id": "sis-sheela-kore",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sheela Kore",
+            "te": "సహోదరి శీలా కోరే"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-sarah-chicago",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sarah Chicago",
+            "te": "సహోదరి సారా చికాగో"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-sirisha-calvin",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sirisha Calvin",
+            "te": "సహోదరి సిరిష కాల్విన్"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Twinkle, Vinod, Robert, Uday",
+            "te": "ట్వింకిల్, వినోద్, రాబర్ట్, ఉదయ్"
+          }
+        },
+        {
+          "id": "sis-sowmya-john",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sowmya John",
+            "te": "సహోదరి సౌమ్య జాన్"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-sharadamma",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sharadamma",
+            "te": "సహోదరి శారదమ్మ"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-suneeta-dhanaraj",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Suneeta Dhanaraj",
+            "te": "సహోదరి సునీత ధనరాజ్"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Health & Deliverance",
+            "te": "ఆరోగ్యం & విమోచన"
+          }
+        },
+        {
+          "id": "sis-revathy",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Revathy",
+            "te": "సహోదరి రేవతి"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-phebe-rani",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Phebe Rani",
+            "te": "సహోదరి ఫీబే రాణి"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-pavani",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Pavani",
+            "te": "సహోదరి పవని"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-bindu",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Bindu",
+            "te": "సహోదరి బిందు"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Health & Deliverance",
+            "te": "ఆరోగ్యం & విమోచన"
+          }
+        },
+        {
+          "id": "subadramma",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Subadramma",
+            "te": "సుభద్రమ్మ"
+          },
+          "detail": {
+            "en": "Bed Ridden, Health & Deliverance",
+            "te": "మంచంపై ఉన్నారు, ఆరోగ్యం & విమోచన"
+          }
+        },
+        {
+          "id": "padma-swathi-sravanthi",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Padma, Swathi, Sravanthi",
+            "te": "పద్మ, స్వాతి, శ్రావంతి"
+          },
+          "detail": {
+            "en": "Salvation & Deliverance",
+            "te": "రక్షణ & విమోచన"
+          }
+        },
+        {
+          "id": "sis-sweety-sis-choti-sis-neha",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Sweety, Sis Choti, Sis Neha",
+            "te": "సహోదరి స్వీటీ, సహోదరి చోటీ, సహోదరి నేహా"
+          },
+          "detail": {
+            "en": "Wedding & Settlement",
+            "te": "వివాహం & స్థిరత"
+          }
+        },
+        {
+          "id": "sis-jennifer",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Jennifer",
+            "te": "సహోదరి జెన్నిఫర్"
+          },
+          "detail": {
+            "en": "Best Job",
+            "te": "మంచి ఉద్యోగం"
+          }
+        },
+        {
+          "id": "sis-helen-dammala",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Helen Dammala",
+            "te": "సహోదరి హెలెన్ డమ్ముల"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-esther-gattu-paul-gattu-smithy-gattu",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Esther Gattu, Paul Gattu, Smithy Gattu",
+            "te": "సహోదరి ఎస్తేర్ గట్టు, పాల్ గట్టు, స్మిత గట్టు"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-suhasini",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Suhasini",
+            "te": "సహోదరి సుహాసిని"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-twinkle-amjala",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Twinkle Amjala",
+            "te": "సహోదరి ట్వింకిల్ అంజాల"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Health & Deliverance",
+            "te": "ఆరోగ్యం & విమోచన"
+          }
+        },
+        {
+          "id": "sis-phebe-rani-2",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Phebe Rani",
+            "te": "సహోదరి ఫీబే రాణి"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Pray for her husband's Salvation",
+            "te": "ఆమె భర్త రక్షణ కోసం ప్రార్థించండి"
+          }
+        },
+        {
+          "id": "sis-lavena-maddela",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Lavena Maddela",
+            "te": "సహోదరి లవేనా మద్దెల"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "sis-veronica",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Veronica",
+            "te": "సహోదరి వెరోనికా"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          }
+        },
+        {
+          "id": "bro-raju-velugu-and-sis-sunitha-velugu",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Raju Velugu & Sis Sunitha Velugu",
+            "te": "సహోదరుడు రాజు వెలుగు & సహోదరి సునీత వెలుగు"
+          },
+          "label": {
+            "en": "Family",
+            "te": "కుటుంబం"
+          },
+          "detail": {
+            "en": "Salvation",
+            "te": "రక్షణ"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ministries",
+      "num": 2,
+      "title": {
+        "en": "Ministries, Sponsors & Volunteers",
+        "te": "పరిచర్యలు, స్పాన్సర్లు & స్వచ్ఛంద సేవకులు"
+      },
+      "theme": "s-cyan",
+      "glow": "#38d9e8",
+      "layout": "list",
+      "timer_seconds": 300,
+      "requests": [
+        {
+          "id": "sponsors-and-supporters-past-present-and",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "plain": true,
+          "text": {
+            "en": "Sponsors & Supporters, Past, Present & Future - God's Abundant Blessings",
+            "te": "గతంలో, ప్రస్తుతం & భవిష్యత్తులో స్పాన్సర్లు & మద్దతుదారులు - దేవుని సమృద్ధి ఆశీర్వాదాలు"
+          }
+        },
+        {
+          "id": "agim-agic-agiwm-ministry",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "plain": true,
+          "text": {
+            "en": "AGIM AGIC AGIWM Ministry",
+            "te": "AGIM AGIC AGIWM సేవ"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pastors",
+      "num": 4,
+      "title": {
+        "en": "Pray for AGIM Pastors, Families & Ministries",
+        "te": "AGIM పాస్టర్లు, కుటుంబాలు & పరిచర్యల కోసం ప్రార్థన"
+      },
+      "theme": "s-violet",
+      "glow": "#a78bfa",
+      "layout": "list",
+      "timer_seconds": 300,
+      "requests": [
+        {
+          "id": "agim-pastors",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM Pastors",
+            "te": "AGIM పాస్టర్లు"
+          },
+          "label": {
+            "en": "Family & Ministry",
+            "te": "కుటుంబం & పరిచర్య"
+          }
+        },
+        {
+          "id": "agim-admins",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM Admins",
+            "te": "AGIM అడ్మిన్లు"
+          }
+        },
+        {
+          "id": "agim-prayer-warriors",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM Prayer Warriors",
+            "te": "AGIM ప్రార్థన యోధులు"
+          }
+        },
+        {
+          "id": "agim-groups",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM Groups",
+            "te": "AGIM గ్రూపులు"
+          }
+        },
+        {
+          "id": "agim-media",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM Media",
+            "te": "AGIM మీడియా"
+          }
+        },
+        {
+          "id": "agim-on-social-platforms",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "AGIM on Social Platforms",
+            "te": "సోషల్ ప్లాట్‌ఫామ్‌లలో AGIM"
+          }
+        },
+        {
+          "id": "all-agim-programs",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "All AGIM Programs",
+            "te": "అన్ని AGIM కార్యక్రమాలు"
+          }
+        }
+      ]
+    },
+    {
+      "id": "additional",
+      "num": 7,
+      "title": {
+        "en": "Additional Prayer Requests",
+        "te": "అదనపు ప్రార్థన విజ్ఞాపనలు"
+      },
+      "theme": "s-amber",
+      "glow": "#fbbf24",
+      "layout": "list",
+      "timer_seconds": 300,
+      "add_panel": true,
+      "requests": [
+        {
+          "id": "madhavi",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Madhavi",
+            "te": "మధావి"
+          },
+          "label": {
+            "en": "Salvation",
+            "te": "రక్షణ"
+          }
+        },
+        {
+          "id": "elizabeth-sunitha",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Elizabeth Sunitha",
+            "te": "ఎలిజబెత్ సునిత"
+          },
+          "label": {
+            "en": "Health",
+            "te": "ఆరోగ్యం"
+          }
+        },
+        {
+          "id": "pray-for-brother-kishores-health-and",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "text": {
+            "en": "Pray for **Brother Kishore's** health and for the sale of his house.",
+            "te": "సహోదరుడు కిషోర్ గారి ఆరోగ్యం మరియు వారి ఇల్లు అమ్మబడుట కొరకు దయచేసి ప్రార్థించండి."
+          }
+        },
+        {
+          "id": "samuel-newton",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Samuel Newton",
+            "te": "శామ్యూల్ న్యూటన్"
+          },
+          "note": {
+            "en": "(Twinkle Amjala's elder brother)",
+            "te": "(ట్వింకిల్ అమ్జాల గారి అన్నయ్య)"
+          },
+          "items": [
+            {
+              "en": "Healing from diabetes-related complications.",
+              "te": "మధుమేహ సంబంధిత సమస్యల నుండి స్వస్థత."
+            },
+            {
+              "en": "Healing from infection in his right ankle and leg.",
+              "te": "కుడి చీలమండ మరియు కాలిలోని ఇన్ఫెక్షన్ నుండి స్వస్థత."
+            },
+            {
+              "en": "Complete recovery and strength.",
+              "te": "సంపూర్ణంగా కోలుకోవడం మరియు బలం."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "founders",
+      "num": 8,
+      "title": {
+        "en": "Pray for Founders & Family",
+        "te": "వ్యవస్థాపకులు & కుటుంబం కోసం ప్రార్థన"
+      },
+      "theme": "s-magenta",
+      "glow": "#e879f9",
+      "layout": "list",
+      "timer_seconds": 300,
+      "requests": [
+        {
+          "id": "pastor-hemanth-jerry-amara-and-pastor-elizabeth-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Pastor Hemanth Jerry Amara & Pastor Elizabeth Amara",
+            "te": "పాస్టర్ హేమంత్ జెర్రీ అమారా & పాస్టర్ ఎలిజబెత్ అమారా"
+          },
+          "detail": {
+            "en": "Founders AGIM/AGIC/AGIWM - Family, Ministry, Business, Establishments, Health",
+            "te": "వ్యవస్థాపకులు AGIM/AGIC/AGIWM - కుటుంబం, పరిచర్య, వ్యాపారం, ఆరోగ్యం"
+          }
+        },
+        {
+          "id": "olivia-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Olivia Amara",
+            "te": "ఒలివియా అమారా"
+          },
+          "detail": {
+            "en": "Education & Calling, Settlement",
+            "te": "చదువు & పిలుపు, స్థిరత"
+          }
+        },
+        {
+          "id": "tiara-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Tiara Amara",
+            "te": "టియారా అమారా"
+          },
+          "detail": {
+            "en": "Calling, Settlement",
+            "te": "పిలుపు, స్థిరత"
+          }
+        },
+        {
+          "id": "samuel-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Samuel Amara",
+            "te": "సముయేలు అమారా"
+          },
+          "detail": {
+            "en": "Education, Calling, Ministry",
+            "te": "చదువు, పిలుపు, పరిచర్య"
+          }
+        },
+        {
+          "id": "bro-jessy-amara-and-anitha-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Jessy Amara & Anitha Amara",
+            "te": "సహోదరుడు జెస్సీ అమారా & అనిత అమారా"
+          },
+          "detail": {
+            "en": "Kidney Disease, Elder Son's Wedding",
+            "te": "మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం"
+          }
+        },
+        {
+          "id": "joshua-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Joshua Amara",
+            "te": "జాషువా అమారా"
+          },
+          "detail": {
+            "en": "Wedding on the 15th",
+            "te": "15వ తేదీన వివాహం"
+          }
+        },
+        {
+          "id": "bro-abhishek-amara-and-sis-emilia",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Bro Abhishek Amara & Sis Emilia",
+            "te": "సహోదరుడు అభిషేక్ అమారా & సహోదరి ఎమిలియా"
+          }
+        },
+        {
+          "id": "sis-grace-amara",
+          "status": "active",
+          "visibility": "public",
+          "source": "manual",
+          "created_at": "2026-11-19T00:00:00.000Z",
+          "te_status": "human",
+          "name": {
+            "en": "Sis Grace Amara",
+            "te": "సహోదరి గ్రేస్ అమారా"
+          },
+          "detail": {
+            "en": "Health",
+            "te": "ఆరోగ్యం"
+          }
+        }
+      ]
+    }
+  ]
+}

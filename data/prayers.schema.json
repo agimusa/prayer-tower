@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prayer Tower prayers.json",
+  "description": "Generated from mcp/src/schema.ts (npm run schema). Do not edit by hand. Cross-field rules (exactly one of text/name, three-col requirements, unique ids/nums) are enforced by validateRoot().",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "num": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "title": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "te": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "en",
+              "te"
+            ],
+            "additionalProperties": false,
+            "description": "Bilingual text: English + Telugu"
+          },
+          "theme": {
+            "type": "string",
+            "enum": [
+              "s-emerald",
+              "s-blue",
+              "s-rose",
+              "s-cyan",
+              "s-violet",
+              "s-amber",
+              "s-magenta",
+              "s-indigo"
+            ]
+          },
+          "glow": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{3,8}$"
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "list",
+              "three-col"
+            ]
+          },
+          "timer_seconds": {
+            "default": 300,
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "columns": {
+            "type": "object",
+            "properties": {
+              "parents": {
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "te": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "en",
+                  "te"
+                ],
+                "additionalProperties": false,
+                "description": "Bilingual text: English + Telugu"
+              },
+              "children": {
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "te": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "en",
+                  "te"
+                ],
+                "additionalProperties": false,
+                "description": "Bilingual text: English + Telugu"
+              },
+              "prayer": {
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "te": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "en",
+                  "te"
+                ],
+                "additionalProperties": false,
+                "description": "Bilingual text: English + Telugu"
+              }
+            },
+            "required": [
+              "parents",
+              "children",
+              "prayer"
+            ],
+            "additionalProperties": false
+          },
+          "add_panel": {
+            "type": "boolean"
+          },
+          "requests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "answered",
+                    "archived"
+                  ]
+                },
+                "visibility": {
+                  "default": "public",
+                  "type": "string",
+                  "const": "public"
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "manual",
+                    "mcp",
+                    "site"
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+                },
+                "te_status": {
+                  "type": "string",
+                  "enum": [
+                    "human",
+                    "auto",
+                    "needs_review"
+                  ]
+                },
+                "plain": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "object",
+                  "properties": {
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "te": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "en",
+                    "te"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Bilingual text: English + Telugu"
+                },
+                "name": {
+                  "type": "object",
+                  "properties": {
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "te": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "en",
+                    "te"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Bilingual text: English + Telugu"
+                },
+                "note": {
+                  "type": "object",
+                  "properties": {
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "te": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "en",
+                    "te"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Bilingual text: English + Telugu"
+                },
+                "label": {
+                  "type": "object",
+                  "properties": {
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "te": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "en",
+                    "te"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Bilingual text: English + Telugu"
+                },
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "te": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "en",
+                    "te"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Bilingual text: English + Telugu"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "te": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "en",
+                      "te"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Bilingual text: English + Telugu"
+                  }
+                },
+                "children": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "te": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "en",
+                      "te"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Bilingual text: English + Telugu"
+                  }
+                },
+                "answer": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "te": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "te"
+                      ],
+                      "additionalProperties": false,
+                      "description": "Bilingual text: English + Telugu"
+                    },
+                    "answered_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "answered_at"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "status",
+                "visibility",
+                "source",
+                "created_at",
+                "te_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "num",
+          "title",
+          "theme",
+          "glow",
+          "layout",
+          "timer_seconds",
+          "requests"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "updated_at",
+    "slides"
+  ],
+  "additionalProperties": false
+}
