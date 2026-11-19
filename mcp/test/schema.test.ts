@@ -40,7 +40,7 @@ describe("data/prayers.json", () => {
     const data: Root = validateRoot(load());
     expect(data.version).toBe(1);
     expect(data.slides.map((s) => s.id)).toEqual(["children", "brothers", "sisters", "ministries", "pastors", "additional", "founders"]);
-    expect(data.slides.map((s) => s.requests.length)).toEqual([10, 5, 22, 2, 7, 4, 8]);
+    expect(data.slides.map((s) => s.requests.length)).toEqual([10, 5, 22, 2, 7, 4, 7]);
   });
 
   it("stores Telugu as literal characters, 2-space indent, trailing newline", () => {

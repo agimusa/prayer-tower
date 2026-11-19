@@ -289,14 +289,14 @@
           },
           "items": [
             {
-              "en": "God's guidance, protection and blessings upon her daughter.",
-              "te": "ఆమె కుమార్తెపై దేవుని మార్గదర్శకత్వం, రక్షణ మరియు ఆశీర్వాదాలు."
+              "en": "God's guidance, protection and blessings upon her daughters.",
+              "te": "ఆమె కుమార్తెలపై దేవుని మార్గదర్శకత్వం, రక్షణ మరియు ఆశీర్వాదాలు."
             }
           ],
           "children": [
             {
-              "en": "Elder daughter - Joy",
-              "te": "పెద్ద కుమార్తె - జాయ్"
+              "en": "Elder daughter and Joy",
+              "te": "పెద్ద కుమార్తె మరియు జాయ్"
             }
           ]
         },
@@ -1171,22 +1171,6 @@
           "detail": {
             "en": "Kidney Disease, Elder Son's Wedding",
             "te": "మూత్రపిండ వ్యాధి, పెద్ద కుమారుని వివాహం"
-          }
-        },
-        {
-          "id": "joshua-amara",
-          "status": "active",
-          "visibility": "public",
-          "source": "manual",
-          "created_at": "2026-11-19T00:00:00.000Z",
-          "te_status": "human",
-          "name": {
-            "en": "Joshua Amara",
-            "te": "జాషువా అమారా"
-          },
-          "detail": {
-            "en": "Wedding on the 15th",
-            "te": "15వ తేదీన వివాహం"
           }
         },
         {
