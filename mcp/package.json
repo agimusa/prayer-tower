@@ -10,24 +10,28 @@
   },
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "server.js"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=20 <25"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/bundle.mjs",
+    "bundle": "node scripts/bundle.mjs",
+    "package:hostinger": "node scripts/package-hostinger.mjs",
     "test": "vitest run",
     "schema": "tsx scripts/gen-schema.ts",
     "extract": "tsx scripts/extract.ts",
     "smoke": "tsx scripts/smoke.ts",
-    "start": "node dist/http.js",
+    "start": "node server.js",
     "start:stdio": "node dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
     "@octokit/rest": "^22.0.1",
     "cors": "^2.8.6",
+    "esbuild": "^0.28.2",
     "express": "^5.3.0",
     "express-rate-limit": "^8.7.5",
     "zod": "^4.6.7"

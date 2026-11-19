@@ -13,9 +13,16 @@ and publish them to GitHub, either as a pull request or straight to the live sit
 The server does **not** translate. The calling model supplies the Telugu and marks it `te_status: "auto"`.
 Use the `telugu_review` prompt later so a Telugu reader can confirm it, which upgrades it to `"human"`.
 
+## Hosted (claude.ai web & mobile)
+
+The same tools also run as a hosted server (`server.js` → `dist/http.bundle.mjs`, source `src/http.ts`):
+MCP over Streamable HTTP, with OAuth where each person signs in with GitHub and must be on an allow list.
+Add it in claude.ai as a custom connector at `https://<host>/mcp`. It then works in the browser and the Claude mobile app.
+**[HOSTING.md](HOSTING.md)** walks a non-developer through Hostinger setup: GitHub OAuth App, token, environment variables, connector, and troubleshooting.
+
 ## Setup
 
-Requires Node.js 20 or newer.
+Requires Node.js 20 to 24 (22 recommended; see `.nvmrc`).
 
 ```bash
 cd mcp
@@ -24,6 +31,15 @@ npm run build        # -> dist/index.js
 npm test             # offline unit + in-process MCP tests
 npm run smoke        # spawns dist/index.js over stdio against a temp copy of data/prayers.json
 ```
+
+| Script | What it does |
+|---|---|
+| `npm run build` | `tsc` → `dist/*.js` (stdio server `dist/index.js`, hosted `dist/http.js`), then `bundle` |
+| `npm run bundle` | esbuild → `dist/http.bundle.mjs`, the hosted server in one file. It needs only regular dependencies, and it is Hostinger's build command |
+| `npm run package:hostinger` | `bundle`, then writes `release/prayer-tower-mcp-hostinger.zip` (`package.json` + `server.js` + bundle, nothing to install) |
+| `npm start` | Hosted HTTP server (`node server.js`), configured by env vars. See HOSTING.md |
+| `npm run start:stdio` | stdio server (`node dist/index.js`) |
+| `npm test` / `npm run smoke` | Unit + in-process MCP + HTTP/OAuth tests / stdio smoke test |
 
 ## Modes
 
