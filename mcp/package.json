@@ -1,11 +1,12 @@
 {
   "name": "prayer-tower-mcp",
   "version": "0.1.0",
-  "description": "MCP server for managing Prayer Tower prayer requests (data/prayers.json)",
+  "description": "MCP server for managing Prayer Tower prayer requests (data/prayers.json): stdio and hosted HTTP (OAuth via GitHub)",
   "type": "module",
   "private": true,
   "bin": {
-    "prayer-tower-mcp": "dist/index.js"
+    "prayer-tower-mcp": "dist/index.js",
+    "prayer-tower-mcp-http": "dist/http.js"
   },
   "main": "dist/index.js",
   "files": [
@@ -20,14 +21,20 @@
     "schema": "tsx scripts/gen-schema.ts",
     "extract": "tsx scripts/extract.ts",
     "smoke": "tsx scripts/smoke.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/http.js",
+    "start:stdio": "node dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
     "@octokit/rest": "^22.0.1",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "@types/jsdom": "^30.0.0",
     "@types/node": "^24.19.2",
     "jsdom": "^31.0.1",

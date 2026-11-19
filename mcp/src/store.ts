@@ -7,7 +7,13 @@ import { validateRoot, type Root } from "./schema.js";
 import { applyOp, commitMessage, OpError, replay, validate, type Op } from "./ops.js";
 import { diffRoots, formatDiff, serialize, type RootDiff } from "./view.js";
 
-export type PublishOptions = { message?: string; direct?: boolean; confirm?: boolean };
+export type PublishOptions = {
+  message?: string;
+  direct?: boolean;
+  confirm?: boolean;
+  /** GitHub login of the signed-in user (hosted mode). Appended to the commit message trailer and the PR branch name. */
+  actor?: string;
+};
 
 export type PublishResult = {
   mode: "local" | "pr" | "direct";
@@ -99,7 +105,7 @@ export class LocalStore implements Store {
   async publish(opts: PublishOptions): Promise<PublishResult> {
     const cur = await this.read();
     const d = diffRoots(this.baseRoot, cur);
-    const msg = commitMessage(this.ops, opts.message);
+    const msg = commitMessage(this.ops, opts.message, opts.actor);
     const text = d.has_changes ? formatDiff(d) : "No changes since server start / last publish.";
     this.baseRoot = cur;
     this.ops = [];
@@ -170,9 +176,11 @@ export const isShaConflict = (e: unknown) => {
   return status === 409 || (status === 422 && /sha/i.test(msg));
 };
 
-export function branchName(d: Date): string {
+export function branchName(d: Date, actor?: string): string {
   const p = (n: number) => String(n).padStart(2, "0");
-  return `prayer-update-${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}-${p(d.getUTCHours())}${p(d.getUTCMinutes())}${p(d.getUTCSeconds())}`;
+  // Hosted mode: several users may publish in the same second, so suffix the login.
+  const who = actor ? "-" + actor.toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
+  return `prayer-update-${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}-${p(d.getUTCHours())}${p(d.getUTCMinutes())}${p(d.getUTCSeconds())}${who}`;
 }
 
 export class GitHubStore implements Store {
@@ -236,7 +244,7 @@ export class GitHubStore implements Store {
           "Show the user preview_changes, get their explicit OK, then call publish again with direct: true AND confirm: true. " +
           "Or call publish with direct: false to open a pull request instead.",
       );
-    const message = commitMessage(this.ops, opts.message);
+    const message = commitMessage(this.ops, opts.message, opts.actor);
     const title = message.split("\n")[0]!;
     const now = (this.o.now ?? (() => new Date()))();
 
@@ -266,7 +274,7 @@ export class GitHubStore implements Store {
         message: `Committed to ${this.o.repo}@${this.o.branch}. GitHub Pages usually updates the site within a minute or two.`,
       };
     } else {
-      const branch = branchName(now);
+      const branch = branchName(now, opts.actor);
       await this.o.client.createBranch(branch, prepared.latest.commit);
       await this.o.client.putFile({ path: this.o.file, branch, content: prepared.content, message, sha: prepared.latest.sha });
       const pr = await this.o.client.createPull({

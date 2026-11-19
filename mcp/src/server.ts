@@ -88,11 +88,33 @@ function content(r: PrayerRequest) {
   return { id, status, te_status, ...fields };
 }
 
-export type ServerOptions = { ctx?: OpContext; log?: (msg: string) => void };
+export type Exclusive = <T>(fn: () => Promise<T>) => Promise<T>;
+
+/** A mutex: runs async functions one at a time, in call order. */
+export function makeExclusive(): Exclusive {
+  let chain: Promise<unknown> = Promise.resolve();
+  return <T>(fn: () => Promise<T>): Promise<T> => {
+    const p = chain.then(fn, fn);
+    chain = p.catch(() => undefined);
+    return p;
+  };
+}
+
+export type ServerOptions = {
+  ctx?: OpContext;
+  log?: (msg: string) => void;
+  /** GitHub login of the signed-in user (hosted HTTP mode). Ends up in commit messages / PR bodies. */
+  actor?: string;
+  /** Hosted HTTP mode: drafts live in server memory and are lost on restart. */
+  hosted?: boolean;
+  /** Shared write lock. The HTTP server builds a fresh McpServer per request, so it passes one lock per store. */
+  exclusive?: Exclusive;
+};
 
 export function createServer(store: Store, opts: ServerOptions = {}): McpServer {
   const ctx = opts.ctx ?? {};
   const log = opts.log ?? ((m: string) => process.stderr.write(`[prayer-tower] ${m}\n`));
+  const who = opts.actor ? `Signed in as @${opts.actor}. ` : "";
   const server = new McpServer(
     { name: "prayer-tower", version: VERSION },
     {
@@ -100,17 +122,16 @@ export function createServer(store: Store, opts: ServerOptions = {}): McpServer 
         "Manages the AGIM Prayer Tower slideshow (bilingual English/Telugu prayer requests, data/prayers.json in agimusa/prayer-tower, served by GitHub Pages). " +
         "Workflow: search_requests first to avoid duplicates -> add_prayer_request / update_prayer_request (you supply the Telugu; te_status 'auto' for your translations) -> preview_changes -> show the user -> publish. " +
         "Default slide for new requests is 'additional'. " +
+        (opts.hosted
+          ? "Hosted server: unpublished changes are kept in server memory only and are lost if the server restarts, so publish promptly once the user approves. "
+          : "") +
+        who +
         store.describe(),
     },
   );
 
   // Serialise writes so concurrent tool calls cannot interleave read-modify-write.
-  let chain: Promise<unknown> = Promise.resolve();
-  const exclusive = <T>(fn: () => Promise<T>): Promise<T> => {
-    const p = chain.then(fn, fn);
-    chain = p.catch(() => undefined);
-    return p;
-  };
+  const exclusive = opts.exclusive ?? makeExclusive();
   const write = (build: (root: Root) => Op) =>
     exclusive(async () => {
       const op = build(await store.current());
@@ -425,7 +446,7 @@ export function createServer(store: Store, opts: ServerOptions = {}): McpServer 
       try {
         const d = await store.diff();
         const ops = store.pendingOps().map((o) => o.summary);
-        return text(`${store.describe()}\n\n${formatDiff(d)}${ops.length ? `\n\nPending operations:\n${ops.map((o) => `- ${o}`).join("\n")}` : ""}`);
+        return text(`${who}${store.describe()}\n\n${formatDiff(d)}${ops.length ? `\n\nPending operations:\n${ops.map((o) => `- ${o}`).join("\n")}` : ""}`);
       } catch (e) {
         return fail(e);
       }
@@ -439,7 +460,10 @@ export function createServer(store: Store, opts: ServerOptions = {}): McpServer 
       description:
         "Publish pending changes to GitHub (agimusa/prayer-tower). Default: opens a pull request (safe; site updates when it is merged) and returns its URL. " +
         "direct: true commits straight to main so the live site updates within minutes — this REQUIRES confirm: true, which you may only set after showing preview_changes to the user and getting their explicit OK. " +
-        "Latest changes made on the website are fetched and preserved. In local mode nothing is pushed: it reports the diff and tells the user to commit with git.",
+        "Latest changes made on the website are fetched and preserved. In local mode nothing is pushed: it reports the diff and tells the user to commit with git." +
+        (opts.hosted
+          ? " IMPORTANT (hosted server): unpublished changes live only in server memory and are lost if the server restarts or redeploys. Publish promptly after the user approves the preview; do not leave a draft pending."
+          : ""),
       inputSchema: {
         message: z.string().optional().describe("Commit/PR title; default is generated from the changes"),
         direct: z.boolean().optional().describe("Commit directly to the base branch (live immediately) instead of opening a PR"),
@@ -449,7 +473,7 @@ export function createServer(store: Store, opts: ServerOptions = {}): McpServer 
     },
     async (args) => {
       try {
-        const res = await exclusive(() => store.publish(args));
+        const res = await exclusive(() => store.publish(opts.actor ? { ...args, actor: opts.actor } : args));
         log(`publish: ${res.mode} ${res.published ? res.url ?? "" : "(not published)"}`);
         const lines = [res.message];
         if (res.url) lines.push(`URL: ${res.url}`);

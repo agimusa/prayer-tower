@@ -441,8 +441,8 @@ export function buildReorderRequests(root: Root, slideRef: string | number, orde
 // Commit messages
 // ---------------------------------------------------------------------------
 
-export function commitMessage(ops: Op[], custom?: string): string {
-  const trailer = "via prayer-tower MCP";
+export function commitMessage(ops: Op[], custom?: string, actor?: string): string {
+  const trailer = actor ? `via prayer-tower MCP by @${actor}` : "via prayer-tower MCP";
   const lines = ops.map((o) => `- ${o.summary}`);
   let title: string;
   if (custom && custom.trim()) title = custom.trim();
